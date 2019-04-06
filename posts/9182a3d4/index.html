@@ -132,16 +132,14 @@ body{ -webkit-animation: bugfix infinite 1s; }
       
       <div class="entry">
         
-          <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<h1 id="A-The-Doors"><a href="#A-The-Doors" class="headerlink" title="A.The Doors"></a>A.The Doors</h1><p>记录最后一个0和1的位置。</p>
+          <h1 id="A-The-Doors"><a href="#A-The-Doors" class="headerlink" title="A.The Doors"></a>A.The Doors</h1><p>记录最后一个0和1的位置。</p>
 <h1 id="B-Nirvana"><a href="#B-Nirvana" class="headerlink" title="B.Nirvana"></a>B.Nirvana</h1><p>对于每一位,答案有三种情况:</p>
 <p>1,取这位原本数字;</p>
 <p>2,取x-1,同时让后一位取9;</p>
 <p>3,让前面全取9;</p>
 <h1 id="C-Queen"><a href="#C-Queen" class="headerlink" title="C.Queen"></a>C.Queen</h1><p>一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，<br>然后排序。</p>
-<h1 id="D-The-Beatles"><a href="#D-The-Beatles" class="headerlink" title="D.The Beatles"></a>D.The Beatles</h1><p>显然\( L = c \times k + a - b \) 或 \( L = c \times k - a - b \)，对于每个L，$$ step =<br>lcm(n \times k,L) / L = n \times k / gcd(n \times k, L) $$ c从1取到n。</p>
+<h1 id="D-The-Beatles"><a href="#D-The-Beatles" class="headerlink" title="D.The Beatles"></a>D.The Beatles</h1><p>显然\( L = c \times k + a - b \) 或 \( L = c \times k - a - b \)，对于每个L，<script type="math/tex">step =
+lcm(n \times k,L) / L = n \times k / gcd(n \times k, L)</script> c从1取到n。</p>
 <h1 id="E-Lynyrd-Skynyrd"><a href="#E-Lynyrd-Skynyrd" class="headerlink" title="E.Lynyrd Skynyrd"></a>E.Lynyrd Skynyrd</h1><p>设begin_p[i]为以i结尾的环排列起点的最大位置，用倍增求begin_p[i],用前缀和优化就可<br>以解决。</p>
 <h1 id="F-U2"><a href="#F-U2" class="headerlink" title="F.U2"></a>F.U2</h1><p>对于每一个抛物线，满足\( x_i^2 + bx_i + c \geq y_i \)，即\( x_i*b + c \geq y_i<br>-x_i^2 \)，然后求个凸包，答案是交点个数。</p>
 
@@ -287,8 +285,23 @@ $('.scroll-top').bind('click', function(e) {
     e.preventDefault();
     $('body,html').animate({scrollTop:0},200);
 });
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
