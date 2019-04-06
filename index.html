@@ -137,12 +137,12 @@ body{ -webkit-animation: bugfix infinite 1s; }
             A.The Doors记录最后一个0和1的位置。
 B.Nirvana对于每一位,答案有三种情况:
 1,取这位原本数字;
-2,取$x - 1$,同时让后一位取$9$;
-3,让前面全取$9$;
+2,取x-1,同时让后一位取9;
+3,让前面全取9;
 C.Queen一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，然后排序。
-D.The Beatles$L = c  k + a - b$ 或 $L = c  k - a - b$，对于每个$L$，$$step = lcm(n  k,L) / L = n  k / gcd(n * k, L)$$， c从$1$取到$n$。
+D.The Beatles显然\( L = c \times k + a - b \) 或 \( L = c \times k - a - b \)，对于每个L，$$ step =lcm(n \times k,L) / L = n \times k / gcd(n \times k, L) $$ c从1取到n。
 E.Lynyrd Skynyrd设begin_p[i]为以i结尾的环排列起点的最大位置，用倍增求begin_p[i],用前缀和优化就可以解决。
-F.U2对于每一个抛物线，满足$x_i^2 + bx_i + c \geq y_i$，即$$x_i*b + c \geq y_i -x_i^2$$，然后求个凸包，答案是交点个数。
+F.U2对于每一个抛物线，满足\( x_i^2 + bx_i + c \geq y_i \)，即\( x_i*b + c \geq y_i-x_i^2 \)，然后求个凸包，答案是交点个数。
 
           
         
