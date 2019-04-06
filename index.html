@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 
-<html lang="en">
+    <html lang="zh-Hans">
   
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>cycleke</title>
   <meta name="author" content="cycleke">
@@ -19,7 +19,7 @@
   
 
   
-    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Language" content="zh-Hans">
   
 
   <link href="/img/favicon.png" rel="icon">
@@ -37,9 +37,11 @@ body{ -webkit-animation: bugfix infinite 1s; }
 @-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
 
   
-
+  <!-- Chinese readability improvements -->
+    article {font-weight: 400;letter-spacing: .01rem;}
+    article .entry{line-height:2;}
   
-    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+
   
 </style>
 
@@ -54,7 +56,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   ga('create', '', 'auto');
   ga('send', 'pageview');
  
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -65,7 +67,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 </html>
 
 <body>
-  <header id="header" class="inner"><div class="padding">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
 	<div class="alignleft logo">
 	  <h1><a href="/">cycleke</a></h1>
 	</div>
@@ -105,13 +107,13 @@ body{ -webkit-animation: bugfix infinite 1s; }
           <!-- <div class="icon"></div> -->
             
     
-      <h1 class="metro-title transition"><a href="/posts/4a17b156/">Hello World</a></h1>
+      <h1 class="metro-title transition"><a href="/posts/9182a3d4/">Codeforces Round #549 (Div. 2)</a></h1>
     
   
           <ul>
             <li>
               <span class="heading-span">Posted on: </span>
-              <time datetime="2019-04-06T02:52:55.926Z">2019-04-06</time>
+              <time datetime="2019-04-06T15:45:01.000Z">2019-04-06</time>
             </li>
             
               <li>
@@ -132,15 +134,15 @@ body{ -webkit-animation: bugfix infinite 1s; }
       <div class="entry">
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            A.The Doors记录最后一个0和1的位置。
+B.Nirvana对于每一位,答案有三种情况:
+1,取这位原本数字;
+2,取$x - 1$,同时让后一位取$9$;
+3,让前面全取$9$;
+C.Queen一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，然后排序。
+D.The Beatles$L = c  k + a - b$ 或 $L = c  k - a - b$，对于每个$L$，$$step = lcm(n  k,L) / L = n  k / gcd(n * k, L)$$， c从$1$取到$n$。
+E.Lynyrd Skynyrd设begin_p[i]为以i结尾的环排列起点的最大位置，用倍增求begin_p[i],用前缀和优化就可以解决。
+F.U2对于每一个抛物线，满足$x_i^2 + bx_i + c \geq y_i$，即$$x_i*b + c \geq y_i -x_i^2$$，然后求个凸包，答案是交点个数。
 
           
         
@@ -148,7 +150,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
       <footer>
         
           <div class="alignright">
-            <a href="/posts/4a17b156/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+            <a href="/posts/9182a3d4/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
           </div>
         
         <div class="clearfix"></div>
@@ -180,7 +182,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   <ul class="entry">
     
       <li>
-        <a href="/posts/4a17b156/">Hello World</a>
+        <a href="/posts/9182a3d4/">Codeforces Round #549 (Div. 2)</a>
       </li>
     
   </ul>
@@ -190,6 +192,13 @@ body{ -webkit-animation: bugfix infinite 1s; }
 	  
 	
 	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/codeforces/">codeforces<small>1</small></a>
+  
+</div>
+
 	
 </div></aside>
     <div class="clearfix"></div>
@@ -206,6 +215,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
 	<div class="alignright">
 		
 		
+			<a href="https://github.com/https://github.com/cycleke" target="_blank" title="cycleke Github"><i class="fa fa-github-square"></i></a>	
+		
 		
 		
 		
@@ -220,8 +231,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
   
 
 
-<link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" rel="stylesheet">
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+<link href="http://apps.bdimg.com/libs/fontawesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 
 
 
@@ -244,7 +255,7 @@ $('.scroll-top').bind('click', function(e) {
     e.preventDefault();
     $('body,html').animate({scrollTop:0},200);
 });
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </body>

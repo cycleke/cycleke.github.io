@@ -1,19 +1,25 @@
 <!DOCTYPE HTML>
 
-<html lang="en">
+    <html lang="zh-Hans">
   
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Hello World | cycleke</title>
+  <title>Codeforces Round #549 (Div. 2) | cycleke</title>
   <meta name="author" content="cycleke">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+  <meta name="description" content="A.The Doors记录最后一个0和1的位置。
+B.Nirvana对于每一位,答案有三种情况:
+1,取这位原本数字;
+2,取$x - 1$,同时让后一位取$9$;
+3,让前面全取$9$;
+C.Queen一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，然后排序。
+D">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello World">
+  <meta property="og:title" content="Codeforces Round #549 (Div. 2)">
   <meta property="og:site_name" content="cycleke">
 
   
@@ -21,7 +27,7 @@
   
 
   
-    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Language" content="zh-Hans">
   
 
   <link href="/img/favicon.png" rel="icon">
@@ -39,9 +45,11 @@ body{ -webkit-animation: bugfix infinite 1s; }
 @-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
 
   
-
+  <!-- Chinese readability improvements -->
+    article {font-weight: 400;letter-spacing: .01rem;}
+    article .entry{line-height:2;}
   
-    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+
   
 </style>
 
@@ -56,7 +64,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   ga('create', '', 'auto');
   ga('send', 'pageview');
  
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -67,7 +75,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 </html>
 
 <body>
-  <header id="header" class="inner"><div class="padding">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
 	<div class="alignleft logo">
 	  <h1><a href="/">cycleke</a></h1>
 	</div>
@@ -90,11 +98,11 @@ body{ -webkit-animation: bugfix infinite 1s; }
   	<div class="inner">
       <div class="padding">
     		
-          <h1>Hello World</h1>
+          <h1>Codeforces Round #549 (Div. 2)</h1>
           <ul>
             <li>
               <span class="heading-span">Posted on: </span>
-              <time datetime="2019-04-06T02:52:55.926Z">2019-04-06</time>
+              <time datetime="2019-04-06T15:45:01.000Z">2019-04-06</time>
             </li>
             
               <li>
@@ -124,15 +132,15 @@ body{ -webkit-animation: bugfix infinite 1s; }
       
       <div class="entry">
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <h1 id="A-The-Doors"><a href="#A-The-Doors" class="headerlink" title="A.The Doors"></a>A.The Doors</h1><p>记录最后一个0和1的位置。</p>
+<h1 id="B-Nirvana"><a href="#B-Nirvana" class="headerlink" title="B.Nirvana"></a>B.Nirvana</h1><p>对于每一位,答案有三种情况:</p>
+<p>1,取这位原本数字;</p>
+<p>2,取$x - 1$,同时让后一位取$9$;</p>
+<p>3,让前面全取$9$;</p>
+<h1 id="C-Queen"><a href="#C-Queen" class="headerlink" title="C.Queen"></a>C.Queen</h1><p>一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，<br>然后排序。</p>
+<h1 id="D-The-Beatles"><a href="#D-The-Beatles" class="headerlink" title="D.The Beatles"></a>D.The Beatles</h1><p>$L = c <em> k + a - b$ 或 $L = c </em> k - a - b$，对于每个$L$，$$step = lcm(n <em> k,<br>L) / L = n </em> k / gcd(n * k, L)$$， c从$1$取到$n$。</p>
+<h1 id="E-Lynyrd-Skynyrd"><a href="#E-Lynyrd-Skynyrd" class="headerlink" title="E.Lynyrd Skynyrd"></a>E.Lynyrd Skynyrd</h1><p>设begin_p[i]为以i结尾的环排列起点的最大位置，用倍增求begin_p[i],用前缀和优化就可<br>以解决。</p>
+<h1 id="F-U2"><a href="#F-U2" class="headerlink" title="F.U2"></a>F.U2</h1><p>对于每一个抛物线，满足$x_i^2 + bx_i + c \geq y_i$，即$$x_i*b + c \geq y_i -<br>x_i^2$$，然后求个凸包，答案是交点个数。</p>
 
         
       </div>
@@ -140,6 +148,11 @@ body{ -webkit-animation: bugfix infinite 1s; }
         
           
           
+  
+  <div class="tags">
+    <a href="/tags/codeforces/">codeforces</a>
+  </div>
+
           <div class="share">
   
 
@@ -198,7 +211,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   <ul class="entry">
     
       <li>
-        <a href="/posts/4a17b156/">Hello World</a>
+        <a href="/posts/9182a3d4/">Codeforces Round #549 (Div. 2)</a>
       </li>
     
   </ul>
@@ -208,6 +221,13 @@ body{ -webkit-animation: bugfix infinite 1s; }
 	  
 	
 	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/codeforces/">codeforces<small>1</small></a>
+  
+</div>
+
 	
 </div></aside>
     <div class="clearfix"></div>
@@ -224,6 +244,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
 	<div class="alignright">
 		
 		
+			<a href="https://github.com/https://github.com/cycleke" target="_blank" title="cycleke Github"><i class="fa fa-github-square"></i></a>	
+		
 		
 		
 		
@@ -238,8 +260,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
   
 
 
-<link href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" rel="stylesheet">
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+<link href="http://apps.bdimg.com/libs/fontawesome/4.1.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 
 
 
@@ -262,7 +284,7 @@ $('.scroll-top').bind('click', function(e) {
     e.preventDefault();
     $('body,html').animate({scrollTop:0},200);
 });
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </body>
