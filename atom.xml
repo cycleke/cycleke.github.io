@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cycleke.github.io/"/>
-  <updated>2019-04-07T01:21:42.705Z</updated>
+  <updated>2019-04-23T15:52:08.088Z</updated>
   <id>https://cycleke.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Codeforces Round #551 (Div. 2)</title>
+    <link href="https://cycleke.github.io/posts/43db3ce0/"/>
+    <id>https://cycleke.github.io/posts/43db3ce0/</id>
+    <published>2019-04-23T14:54:40.000Z</published>
+    <updated>2019-04-23T15:52:08.088Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="A-Serval-and-Bus"><a href="#A-Serval-and-Bus" class="headerlink" title="A. Serval and Bus"></a>A. Serval and Bus</h1><p>算出t之后每班车的最早时间，取最小值</p><h1 id="B-Serval-and-Toy-Bricks"><a href="#B-Serval-and-Toy-Bricks" class="headerlink" title="B. Serval and Toy Bricks"></a>B. Serval and Toy Bricks</h1><p>每个有方块的位置尽可能取高，即min(a[j], b[i])</p><h1 id="C-Serval-and-Parenthesis-Sequence"><a href="#C-Serval-and-Parenthesis-Sequence" class="headerlink" title="C. Serval and Parenthesis Sequence"></a>C. Serval and Parenthesis Sequence</h1><p>统计一下要放多少的(和),显然前面尽量放(是最优的，然后check判断</p><h1 id="D-Serval-and-Rooted-Tree"><a href="#D-Serval-and-Rooted-Tree" class="headerlink" title="D. Serval and Rooted Tree"></a>D. Serval and Rooted Tree</h1><p>考虑最下面两层，如果答案再这棵子树中，那么:</p><ul><li>如果是min操作，$ ans = k - leaves + 1 $</li><li>如果是max操作，$ ans = leaves = k - 1 + 1 $</li></ul><p>我们定义f[i]为i子树中的有效叶子，那么ans = k - f[1] + 1，且:</p><ul><li>如果是min操作，$ f[u] = sum(f[v]) $</li><li>如果是max操作，$ f[u] = min(f[v]) $</li></ul><h1 id="E-Serval-and-Snake"><a href="#E-Serval-and-Snake" class="headerlink" title="E. Serval and Snake"></a>E. Serval and Snake</h1><p>不难发现如果一个矩阵中有一端，那么交点为奇数， <del>然后乱搞就好了</del><br>枚举找到头和尾的行或者列，然后二分就好了。</p><p><del>然而可怜的cycleke常用二分方法超限了，不得不临时想(猜)其他方法</del></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;A-Serval-and-Bus&quot;&gt;&lt;a href=&quot;#A-Serval-and-Bus&quot; class=&quot;headerlink&quot; title=&quot;A. Serval and Bus&quot;&gt;&lt;/a&gt;A. Serval and Bus&lt;/h1&gt;&lt;p&gt;算出t之后每班车的最早时
+      
+    
+    </summary>
+    
+      <category term="训练" scheme="https://cycleke.github.io/categories/%E8%AE%AD%E7%BB%83/"/>
+    
+    
+      <category term="codeforces" scheme="https://cycleke.github.io/tags/codeforces/"/>
+    
+  </entry>
   
   <entry>
     <title>Codeforces Round #549 (Div. 2)</title>
