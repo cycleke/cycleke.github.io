@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cycleke.github.io/"/>
-  <updated>2019-04-23T15:52:08.088Z</updated>
+  <updated>2019-05-06T13:05:12.327Z</updated>
   <id>https://cycleke.github.io/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://cycleke.github.io/posts/43db3ce0/"/>
     <id>https://cycleke.github.io/posts/43db3ce0/</id>
     <published>2019-04-23T14:54:40.000Z</published>
-    <updated>2019-04-23T15:52:08.088Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="A-Serval-and-Bus"><a href="#A-Serval-and-Bus" class="headerlink" title="A. Serval and Bus"></a>A. Serval and Bus</h1><p>算出t之后每班车的最早时间，取最小值</p><h1 id="B-Serval-and-Toy-Bricks"><a href="#B-Serval-and-Toy-Bricks" class="headerlink" title="B. Serval and Toy Bricks"></a>B. Serval and Toy Bricks</h1><p>每个有方块的位置尽可能取高，即min(a[j], b[i])</p><h1 id="C-Serval-and-Parenthesis-Sequence"><a href="#C-Serval-and-Parenthesis-Sequence" class="headerlink" title="C. Serval and Parenthesis Sequence"></a>C. Serval and Parenthesis Sequence</h1><p>统计一下要放多少的(和),显然前面尽量放(是最优的，然后check判断</p><h1 id="D-Serval-and-Rooted-Tree"><a href="#D-Serval-and-Rooted-Tree" class="headerlink" title="D. Serval and Rooted Tree"></a>D. Serval and Rooted Tree</h1><p>考虑最下面两层，如果答案再这棵子树中，那么:</p><ul><li>如果是min操作，$ ans = k - leaves + 1 $</li><li>如果是max操作，$ ans = leaves = k - 1 + 1 $</li></ul><p>我们定义f[i]为i子树中的有效叶子，那么ans = k - f[1] + 1，且:</p><ul><li>如果是min操作，$ f[u] = sum(f[v]) $</li><li>如果是max操作，$ f[u] = min(f[v]) $</li></ul><h1 id="E-Serval-and-Snake"><a href="#E-Serval-and-Snake" class="headerlink" title="E. Serval and Snake"></a>E. Serval and Snake</h1><p>不难发现如果一个矩阵中有一端，那么交点为奇数， <del>然后乱搞就好了</del><br>枚举找到头和尾的行或者列，然后二分就好了。</p><p><del>然而可怜的cycleke常用二分方法超限了，不得不临时想(猜)其他方法</del></p>]]></content>
+    <updated>2019-05-06T13:05:12.327Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;A-Serval-and-Bus&quot;&gt;&lt;a href=&quot;#A-Serval-and-Bus&quot; class=&quot;headerlink&quot; title=&quot;A. Serval and Bus&quot;&gt;&lt;/a&gt;A. Serval and Bus&lt;/h1&gt;&lt;p&gt;算出t之后每班车的最早时
-      
+      &lt;h1 id=&quot;A-Serval-and-Bus&quot;&gt;&lt;a href=&quot;#A-Serval-and-Bus&quot; class=&quot;headerlink&quot; title=&quot;A. Serval and Bus&quot;&gt;&lt;/a&gt;A. Serval and Bus&lt;/h1&gt;&lt;p&gt;算出t之后每班车的最早时间，取最小值&lt;/p&gt;
+&lt;h1 id=&quot;B-Serval-and-Toy-Bricks&quot;&gt;&lt;a href=&quot;#B-Serval-and-Toy-Bricks&quot; class=&quot;headerlink&quot; title=&quot;B. Serval and Toy Bricks&quot;&gt;&lt;/a&gt;B. Serval and Toy Bricks&lt;/h1&gt;&lt;p&gt;每个有方块的位置尽可能取高，即min(a[j], b[i])&lt;/p&gt;
     
     </summary>
     
@@ -46,17 +42,12 @@
     <link href="https://cycleke.github.io/posts/9182a3d4/"/>
     <id>https://cycleke.github.io/posts/9182a3d4/</id>
     <published>2019-04-06T15:45:01.000Z</published>
-    <updated>2019-04-07T01:21:42.705Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="A-The-Doors"><a href="#A-The-Doors" class="headerlink" title="A.The Doors"></a>A.The Doors</h1><p>记录最后一个0和1的位置。</p><h1 id="B-Nirvana"><a href="#B-Nirvana" class="headerlink" title="B.Nirvana"></a>B.Nirvana</h1><p>对于每一位,答案有三种情况:</p><p>1,取这位原本数字;</p><p>2,取x-1,同时让后一位取9;</p><p>3,让前面全取9;</p><h1 id="C-Queen"><a href="#C-Queen" class="headerlink" title="C.Queen"></a>C.Queen</h1><p>一个点如果会被删，那么其他的点被删不会影响它最后被删的结果，判断一下那些点会被删，<br>然后排序。</p><h1 id="D-The-Beatles"><a href="#D-The-Beatles" class="headerlink" title="D.The Beatles"></a>D.The Beatles</h1><p>显然\( L = c \times k + a - b \) 或 \( L = c \times k - a - b \)，对于每个L，$$ step =<br>lcm(n \times k,L) / L = n \times k / gcd(n \times k, L) $$ c从1取到n。</p><h1 id="E-Lynyrd-Skynyrd"><a href="#E-Lynyrd-Skynyrd" class="headerlink" title="E.Lynyrd Skynyrd"></a>E.Lynyrd Skynyrd</h1><p>设begin_p[i]为以i结尾的环排列起点的最大位置，用倍增求begin_p[i],用前缀和优化就可<br>以解决。</p><h1 id="F-U2"><a href="#F-U2" class="headerlink" title="F.U2"></a>F.U2</h1><p>对于每一个抛物线，满足\( x_i^2 + bx_i + c \geq y_i \)，即\( x_i*b + c \geq y_i<br>-x_i^2 \)，然后求个凸包，答案是交点个数。</p>]]></content>
+    <updated>2019-05-06T13:04:54.856Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;A-The-Doors&quot;&gt;&lt;a href=&quot;#A-The-Doors&quot; class=&quot;headerlink&quot; title=&quot;A.The Doors&quot;&gt;&lt;/a&gt;A.The Doors&lt;/h1&gt;&lt;p&gt;记录最后一个0和1的位置。&lt;/p&gt;
-&lt;h1 id=&quot;B-Nirvan
-      
+      &lt;h1 id=&quot;A-The-Doors&quot;&gt;&lt;a href=&quot;#A-The-Doors&quot; class=&quot;headerlink&quot; title=&quot;A.The Doors&quot;&gt;&lt;/a&gt;A.The Doors&lt;/h1&gt;&lt;p&gt;记录最后一个0和1的位置。&lt;/p&gt;
+&lt;h1 id=&quot;B-Nirvana&quot;&gt;&lt;a href=&quot;#B-Nirvana&quot; class=&quot;headerlink&quot; title=&quot;B.Nirvana&quot;&gt;&lt;/a&gt;B.Nirvana&lt;/h1&gt;&lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;
     
     </summary>
     
