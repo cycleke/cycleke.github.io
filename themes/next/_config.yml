@@ -209,6 +209,7 @@ social:
   GitHub: https://github.com/cycleke || github
   E-Mail: mailto:cycleke@gmail.com || envelope
   知乎: https://www.zhihu.com/people/cycleke-10/
+  博客园: https://www.cnblogs.com/cycleke/
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -224,6 +225,7 @@ social_icons:
   GitHub: github
   E-Mail: mailbox
   知乎: zhihu
+  博客园: globe
   icons_only: false
   transition: false
 
