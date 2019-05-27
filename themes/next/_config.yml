@@ -264,8 +264,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available values: left | right (only for Pisces | Gemini).
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
@@ -682,12 +682,12 @@ gitment:
 # Gitalk
 # Demo: https://gitalk.github.io
 gitalk:
-  enable: false
-  github_id:  # Github repo owner
-  repo:  # Repository name to store issues
-  client_id:  # Github Application Client ID
-  client_secret:  # Github Application Client Secret
-  admin_user:  # GitHub repo owner and collaborators, only these guys can initialize github issues
+  enable: true
+  github_id: cycleke # Github repo owner
+  repo: cycleke.github.io # Repository name to store issues
+  client_id: 70545dd22772e245e7ac # Github Application Client ID
+  client_secret: 60585c2d7b807769685b063e3da8603a0416c2f0 # Github Application Client Secret
+  admin_user: cycleke # GitHub repo owner and collaborators, only these guys can initialize github issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value

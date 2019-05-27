@@ -6,6 +6,7 @@
     "version": "3.8.0"
   },
   "dependencies": {
+    "gitalk": "^1.5.0",
     "hexo": "^3.8.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-blog-encrypt": "^2.1.0",
