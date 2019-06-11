@@ -6,7 +6,8 @@
     "version": "3.8.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
+    "braces": "^3.0.2",
     "gitalk": "^1.5.0",
     "hexo": "^3.8.0",
     "hexo-abbrlink": "^2.0.5",
