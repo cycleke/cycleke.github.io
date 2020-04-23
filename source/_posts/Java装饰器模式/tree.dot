@@ -1,0 +1,17 @@
+digraph {
+  splines = ortho;
+  bgcolor = transparent;
+  node[shape = box, color = lightblue, fontcolor = lightblue];
+  edge[color = lightgreen];
+
+  { SuperClass; rank = min; }
+  { SubClassA; SubClassB; Decorator; rank = same; }
+  { DecoratorA; DecoratorB; rank = max; }
+
+  SubClassA -> SuperClass;
+  SubClassB -> SuperClass;
+  Decorator -> SuperClass;
+  DecoratorA -> Decorator;
+  DecoratorB -> Decorator;
+
+}
