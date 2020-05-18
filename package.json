@@ -22,16 +22,23 @@
     "hexo-generator-tag": "^1.0.0",
     "hexo-inject": "^1.0.0",
     "hexo-math": "^3.0.4",
+    "hexo-prism-plugin": "^2.3.0",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "hexo-wordcount": "^6.0.1",
     "leancloud-storage": "^4.5.3",
     "lodash": "^4.17.15",
     "lodash.merge": "^4.6.2",
     "node-sass": "^4.13.1",
     "react-flip-move": "^3.0.4",
     "valine": "^1.4.14"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
