@@ -175,7 +175,7 @@ public class App implements Runnable {
 > 3 9
 > 4 10
 
-## 锁
+## 锁和 synchronized
 
 原子变量其实虽然简单，但是如果我们要让更多的代码具有原子性，那么就不行了。
 所以我们需要使用其他的方法来实现，如使用一个`boolean`变量来强行让两次`++count`操作不会交替。
@@ -302,6 +302,8 @@ public class App implements Runnable {
 - 使用`synchronized(lockObject) { ... }`
 
 而且使用`synchronized`的时候，不必担心抛出异常。因为无论是否有异常，都会在`synchronized`结束处正确释放锁。
+
+### 同步方法
 
 对于一个类的方法，我们可以添加`synchronized`关键字使得整个方法是都加锁，而锁定的实例就是自身`this`。
 
