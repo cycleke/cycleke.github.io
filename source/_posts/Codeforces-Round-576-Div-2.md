@@ -1,25 +1,26 @@
 ---
-title: 'Codeforces Round #576 (Div. 2)'
+title: "Codeforces Round #576 (Div. 2)"
 tags:
   - codeforces
 categories:
   - 训练
 abbrlink: f96b9e58
 date: 2019-07-31 18:26:32
+mathjax: true
 ---
 
-| A    | B    | C      | D     | E    | F   |
-| :-:  | :-:  | :-:    | :-:   | :-:  | :-: |
-| 模拟 | 数学 | 双指针 | splay | 图论 | dp  |
-| 1000 | 1000 | 1700   | 1600  | 2200 | 2400 |
+|  A   |  B   |   C    |   D   |  E   |  F   |
+| :--: | :--: | :----: | :---: | :--: | :--: |
+| 模拟 | 数学 | 双指针 | splay | 图论 |  dp  |
+| 1000 | 1000 |  1700  | 1600  | 2200 | 2400 |
 
 <!--more-->
 
 # A. City Day
 
-因为x,y很小，直接模拟就行了。
+因为 x,y 很小，直接模拟就行了。
 
-```c++
+```cpp
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -61,12 +62,11 @@ int main() {
 }
 ```
 
-
 # B. Water Lily
 
 初中几何题。
 
-```c++
+```cpp
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -84,9 +84,9 @@ int main() {
 
 # C. MP3
 
-算出k值，之后算出区间不同值$\leq 2^k$的数字最多的区间,双指针维护。
+算出 k 值，之后算出区间不同值$\leq 2^k$的数字最多的区间,双指针维护。
 
-```c++
+```cpp
 const int MAXN = 4e5 + 3;
 
 map<int, int> cnt;
@@ -141,11 +141,11 @@ int main() {
 
 # D. Welfare State
 
-单点修改或者将所有小于x的值改为x。
+单点修改或者将所有小于 x 的值改为 x。
 
-可以用splay维护, 也可以用分块。
+可以用 splay 维护, 也可以用分块。
 
-```c++
+```cpp
 const int MAXN = 2e5 + 3;
 
 struct Node {
@@ -315,9 +315,9 @@ int main() {
 
 # E. Matching vs Independent Set
 
-因为一共有3n个点,只用找出n个点,所以一定有解。
+因为一共有 3n 个点,只用找出 n 个点,所以一定有解。
 
-```c++
+```cpp
 const int MAXN = 1e5 + 5;
 
 bool mark[MAXN * 3];
@@ -368,9 +368,9 @@ int main() {
 
 # F. Rectangle Painting 1
 
-简单dp，感觉比E还要简单一点。
+简单 dp，感觉比 E 还要简单一点。
 
-```c++
+```cpp
 
 const int MAXN = 51;
 char s[MAXN][MAXN];
@@ -379,22 +379,22 @@ int f[MAXN][MAXN][MAXN][MAXN];
 int dfs(int x1, int y1, int x2, int y2) {
   if (x1 == x2 && y1 == y2) {
     return s[x1][y1] == '#' ? 1 : 0;
-  
+
 }
   if (~f[x1][y1][x2][y2]) {
     return f[x1][y1][x2][y2];
-  
+
 }
   int &ret = f[x1][y1][x2][y2];
   ret = max(y2 - y1 + 1, x2 - x1 + 1);
 
   FOR(i, x1, x2) {
     ret = min(ret, dfs(x1, y1, i, y2) + dfs(i + 1, y1, x2, y2));
-  
+
 }
   FOR(i, y1, y2) {
     ret = min(ret, dfs(x1, y1, x2, i) + dfs(x1, i + 1, x2, y2));
-  
+
 }
 
   debug("%d %d %d %d ret=%d\n", x1, y1, x2, y2, ret);

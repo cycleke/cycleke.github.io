@@ -8,11 +8,11 @@ abbrlink: d33216c1
 date: 2019-09-18 11:37:34
 ---
 
-| A   | B        | C       | D       | E   | F           | G   | H   | I   | J        | K   | L       |
-| :-: | :-:      | :-:     | :-:     | :-: | :-:         | :-: | :-: | :-: | :-:      | :-: | :-:     |
-| 补  | sineMora | cycleke | cycleke | 补  | OwenCreeper | 补  | .   | .   | sineMora | x   | cycleke |
+|  A  |    B     |    C    |    D    |  E  |      F      |  G  |  H  |  I  |    J     |  K  |    L    |
+| :-: | :------: | :-----: | :-----: | :-: | :---------: | :-: | :-: | :-: | :------: | :-: | :-----: |
+| 补  | sineMora | cycleke | cycleke | 补  | OwenCreeper | 补  |  .  |  .  | sineMora |  x  | cycleke |
 
-这次网络赛中途出现了一些策略上的失误，中途全队都在查F代码，还在E上花了太长的时间，
+这次网络赛中途出现了一些策略上的失误，中途全队都在查 F 代码，还在 E 上花了太长的时间，
 没有及时弃掉。
 
 这里写一下我做（补）的题的简要题解。
@@ -23,10 +23,10 @@ date: 2019-09-18 11:37:34
 
 题意：给出一棵带边权树，每次修改一条边权或者询问距离一个点最远点的距离。
 
-通过bfs寻找树直径的算法可以知道，距离每个点最远的点一定是直径的一个端点，之后就是动态维护树的直径。
+通过 bfs 寻找树直径的算法可以知道，距离每个点最远的点一定是直径的一个端点，之后就是动态维护树的直径。
 可以参考[CEOI2019 / CodeForces 1192B. Dynamic Diameter](https://www.cnblogs.com/TinyWong/p/11260601.html)。
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -202,14 +202,14 @@ int main() {
 
 # C.Triple
 
-题意：给A，B，C三个数组，问有多少组$(i,j,k)$，满足$|A_i-B_j| \leq C_k$，
+题意：给 A，B，C 三个数组，问有多少组$(i,j,k)$，满足$|A_i-B_j| \leq C_k$，
 $|B_j-C_k| \leq A_i$，$|A_i-C_k| \leq B_j$。
 
 考虑到不满足的三元组，有$A_i+B_j < C_k$或$B_i+C_k < A_i$或$A_i+C_k < B_j$。
-这是一个经典的FFT题目。注意，由于至多有20组n超过1000，而最多有100组，所以
-可以在小数据跑暴力，大数据跑FFT，避免FFT大常数。
+这是一个经典的 FFT 题目。注意，由于至多有 20 组 n 超过 1000，而最多有 100 组，所以
+可以在小数据跑暴力，大数据跑 FFT，避免 FFT 大常数。
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -428,14 +428,14 @@ int main() {
 }
 ```
 
-#  D. Counting Sequences I
+# D. Counting Sequences I
 
 题意：问有多少个正整数序列满足$\sum a_i=\Pi a_i$。
 
-直接用dfs去求解,注意剪枝。先不考虑位置,先求N个数,然后利用N!/(k1!*k2!...)算序列个
+直接用 dfs 去求解,注意剪枝。先不考虑位置,先求 N 个数,然后利用 N!/(k1!\*k2!...)算序列个
 数，~~然后打表~~。
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -887,15 +887,14 @@ int main() {
 }
 ```
 
+# E. Counting Sequences II
 
-#  E. Counting Sequences II
-
-题意：问有多少个长度为n的序列,每个数的范围是1~m, 偶数在序列中出现次数必须是偶数。
+题意：问有多少个长度为 n 的序列,每个数的范围是 1~m, 偶数在序列中出现次数必须是偶数。
 
 通过生产函数推公式。
-~~可怜的cycleke打表推出了m在1到6的公式，然而没有发现规律。~~
+~~可怜的 cycleke 打表推出了 m 在 1 到 6 的公式，然而没有发现规律。~~
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -923,7 +922,7 @@ void solve() {
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  
+
   int o_o;
   for (cin >> o_o; o_o; --o_o) solve();
 
@@ -933,17 +932,17 @@ int main() {
 
 # F.Rhyme scheme
 
-**注意会Bell26会溢出long long，要使用__int128**
+**注意会 Bell26 会溢出 long long，要使用\_\_int128**
 
 # G. Substring
 
-题意:给了一个母串S, 每次循环给了一个模板串,问模板串在母
+题意:给了一个母串 S, 每次循环给了一个模板串,问模板串在母
 串中“匹配”了多少次?“匹配”的意思就是首字母和尾字母一样,
 中间字母顺序可以换。
 
-由于$\sum |M| \leq 1e5$，所以不同的长度不超过$\sqrt{1e5}$，对每个长度用hash就好了。
+由于$\sum |M| \leq 1e5$，所以不同的长度不超过$\sqrt{1e5}$，对每个长度用 hash 就好了。
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -1030,11 +1029,11 @@ int main() {
 
 # L.Digit sum
 
-题意：询问1~n在b进制下的数字和。
+题意：询问 1~n 在 b 进制下的数字和。
 
-签到题，经典的数位dp。
+签到题，经典的数位 dp。
 
-```c++
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 

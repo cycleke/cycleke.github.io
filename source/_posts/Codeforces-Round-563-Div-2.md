@@ -7,6 +7,7 @@ categories:
 type: categories
 abbrlink: decc8adc
 date: 2019-06-07 13:14:01
+mathjax: true
 ---
 
 |  A   |  B   |     C      |      D       |    E     |   F    |
@@ -20,7 +21,7 @@ date: 2019-06-07 13:14:01
 
 将数组排序，判断前半部分和后半部分的和是否相同。
 
-```c++
+```cpp
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -57,7 +58,7 @@ int main() {
 
 若数组有奇数有偶数，那么我们总可以通过交换将数组排序，判断一下奇偶就好了
 
-```c++
+```cpp
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -88,7 +89,7 @@ int main() {
 
 将每个质数的倍数赋予相同的值就好了
 
-```c++
+```cpp
 const int MAXN = 1e5 + 3;
 int a[MAXN];
 
@@ -120,7 +121,7 @@ int main() {
 
 将子串通过前缀和就可以变为两个数的异或值。现在的要求就是求一个集合，使得其中没有两个数的异或值为 x
 
-```c++
+```cpp
 const int MAXS = 1 << 18 | 1;
 
 bool mark[MAXS];
@@ -155,7 +156,7 @@ int main() {
 
 定义 dp[i][x][y]，表示到第 i 位，gcd 为$2^x \times 3^y$的方案数。
 
-```c++
+```cpp
 const int MAXN = 1e6 + 3;
 int dp[MAXN][21][2];
 
@@ -209,7 +210,7 @@ int main() {
 
 点分治，每次判断是在重心的上方还是下方。
 
-```c++
+```cpp
 const int MAXN = 2e5 + 3;
 
 int interact(char oper, int u) {

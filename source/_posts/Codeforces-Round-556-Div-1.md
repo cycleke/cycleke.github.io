@@ -7,6 +7,7 @@ categories:
 type: categories
 abbrlink: 8a2a745a
 date: 2019-05-09 23:43:07
+mathjax: true
 ---
 
 |     A      |  B   |   C    |

@@ -6,7 +6,7 @@ tags:
   - codeforces
 categories:
   - 训练
-type: "categories"
+mathjax: true
 ---
 
 # A.The Doors

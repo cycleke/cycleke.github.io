@@ -1,5 +1,5 @@
 ---
-title: 'Codeforces Round #574 (Div. 2)'
+title: "Codeforces Round #574 (Div. 2)"
 tags:
   - codeforces
 categories:
@@ -9,11 +9,10 @@ abbrlink: fd9e4e65
 date: 2019-07-30 09:16:48
 ---
 
-| A    | B    | C    | D          | E             |
-| :-:  | :-:  | :-:  | :-:        | :-:           |
-| 贪心 | 数学 | dp   | 计数，组合 | 单调队列，rmq |
-| 1100 | 1100 | 1400 | 1700       | 2100          |
-
+|  A   |  B   |  C   |     D      |       E       |
+| :--: | :--: | :--: | :--------: | :-----------: |
+| 贪心 | 数学 |  dp  | 计数，组合 | 单调队列，rmq |
+| 1100 | 1100 | 1400 |    1700    |     2100      |
 
 <!--more-->
 
@@ -21,7 +20,7 @@ date: 2019-07-30 09:16:48
 
 有两个就凑一对，之后落单的除二。
 
-```c++
+```cpp
 const int MAXN = 1e3 + 3;
 
 int cnt[MAXN];
@@ -57,7 +56,7 @@ int main() {
 
 解方程。
 
-```c++
+```cpp
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -75,9 +74,9 @@ int main() {
 
 # C. Basketball Exercise
 
-dp，记录当前列取1，2和不取的最优情况。
+dp，记录当前列取 1，2 和不取的最优情况。
 
-```c++
+```cpp
 const int MAXN = 1e5 + 3;
 
 int h[2][MAXN];
@@ -113,10 +112,9 @@ int main() {
 
 # D. Submarine in the Rybinsk Sea
 
-显然a和b对于答案的影响是相对独立的，只要记录每个长度的数的个数，之后分情况讨论。
+显然 a 和 b 对于答案的影响是相对独立的，只要记录每个长度的数的个数，之后分情况讨论。
 
-
-```c++
+```cpp
 const int MAXN = 1e5 + 3;
 const int MAXL = 11;
 
@@ -191,9 +189,9 @@ int main() {
 
 # E. OpenStreetMap
 
-枚举矩阵求最小值就好了，可以用rmq，也可以用单调队列。
+枚举矩阵求最小值就好了，可以用 rmq，也可以用单调队列。
 
-```c++
+```cpp
 const int MAXN = 3e3 + 3;
 
 int h[MAXN][MAXN], mi[MAXN][MAXN];
