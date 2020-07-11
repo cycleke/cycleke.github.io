@@ -2,7 +2,7 @@
 title: 面向对象编程的五个原则：SOLID
 abbrlink: 642cd45d
 date: 2020-04-25 14:31:58
-updated: 2020-04-25 14:31:58
+updated: 2020-07-11 12:12:12
 tags:
 	- 面向对象编程
 	- Java
@@ -108,7 +108,7 @@ class Circle extends Shape {
 
 ```java
 class GraphicEditor {
-	public void drawShape(
+	public void drawShape(Shape s) {
 		s.draw();
 	}
 }
@@ -165,7 +165,7 @@ class RobotWorker implements Worker {
 }
 ```
 
-由于机器人不能吃，所以上面的`Worker`是一个太「胖」的接口，所以要将`Worker`拆分。
+由于机器人不能吃，所以上面的`Worker`是一个太“胖”的接口，所以要将`Worker`拆分。
 
 ```java
 // good example
@@ -212,7 +212,7 @@ void Copy(OutputStream dev) {
 		if (dev == printer) {
 			writeToPrinter(c);
 		} else {
-			writeToPrinter(c);
+			writeToDisk(c);
 		}
 	}
 }
@@ -233,7 +233,7 @@ class Copy {
 		int c;
 		while ((c = r.read()) != EOF) {
 			w.write(c);
-		}
+	    }
 	}
 }
 ```

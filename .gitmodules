@@ -1,3 +1,6 @@
 [submodule "themes/even"]
 	path = themes/even
-	url = git@github.com:cycleke/hexo-theme-even.git
+  url = git@github.com:cycleke/hexo-theme-even.git
+[submodule "themes/matery"]
+  path = themes/matery
+  url = https://github.com/blinkfox/hexo-theme-matery.git
