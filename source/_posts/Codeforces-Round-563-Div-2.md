@@ -1,5 +1,5 @@
 ---
-title: "Codeforces Round #563 (Div. 2)"
+title: "Codeforces Round #563 Div. 2"
 tags:
   - codeforces
 categories:
@@ -151,8 +151,8 @@ int main() {
 
 # E. Ehab and the Expected GCD Problem
 
-不懂，官方题解说所有符合条件的序列的 gcd 为$2^x \times 3^y$，因为和相同时将数拆分为 2 和 3（最多 1 个 3）可
-以获得最多的因数。
+不懂，官方题解说所有符合条件的序列的$gcd$为$2^x \times 3^y$，
+因为和相同时将数拆分为 2 和 3（最多 1 个 3）可以获得最多的因数。
 
 定义 dp[i][x][y]，表示到第 i 位，gcd 为$2^x \times 3^y$的方案数。
 

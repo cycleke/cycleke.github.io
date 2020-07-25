@@ -126,6 +126,10 @@ sitemap:
 ## Docs: https:/encrypt:
 #    enable: true/hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repository: git@github.com:cycleke/cycleke.github.io.git
   branch: master
+- type: git
+  repository: git@gitee.com:cycleke/cycleke.github.io.git
+  branch: master
+

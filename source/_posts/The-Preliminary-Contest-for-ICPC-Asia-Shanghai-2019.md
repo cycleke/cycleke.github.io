@@ -6,11 +6,16 @@ tags:
 categories: 网络赛
 abbrlink: d33216c1
 date: 2019-09-18 11:37:34
+mathjax: true
 ---
 
-|  A  |    B     |    C    |    D    |  E  |      F      |  G  |  H  |  I  |    J     |  K  |    L    |
-| :-: | :------: | :-----: | :-----: | :-: | :---------: | :-: | :-: | :-: | :------: | :-: | :-----: |
-| 补  | sineMora | cycleke | cycleke | 补  | OwenCreeper | 补  |  .  |  .  | sineMora |  x  | cycleke |
+|  A  |    B     |    C    |    D    |  E  |      F      |  G  |  H  |
+| :-: | :------: | :-----: | :-----: | :-: | :---------: | :-: | :-: |
+| 补  | sineMora | cycleke | cycleke | 补  | OwenCreeper | 补  |  .  |
+
+|  I  |    J     |  K  |    L    |
+| :-: | :------: | :-: | :-----: |
+|  .  | sineMora |  x  | cycleke |
 
 这次网络赛中途出现了一些策略上的失误，中途全队都在查 F 代码，还在 E 上花了太长的时间，
 没有及时弃掉。
@@ -432,8 +437,7 @@ int main() {
 
 题意：问有多少个正整数序列满足$\sum a_i=\Pi a_i$。
 
-直接用 dfs 去求解,注意剪枝。先不考虑位置,先求 N 个数,然后利用 N!/(k1!\*k2!...)算序列个
-数，~~然后打表~~。
+直接用 dfs 去求解，注意剪枝。先不考虑位置，先求 N 个数，然后利用$N!/(k1!k2!\ldots)$算序列个数，~~然后打表~~。
 
 ```cpp
 #include <bits/stdc++.h>

@@ -1,5 +1,5 @@
 ---
-title: "Codeforces Round #578 (Div. 2)"
+title: "Codeforces Round #578 Div. 2"
 tags:
   - codeforces
 categories:
@@ -162,11 +162,11 @@ int main() {
 
 ## 题意
 
-给出 n _ n 的黑白方阵，你可以将一个 k _ k 的矩阵变白。问最多可以有多少行/列全白。
+给出$n \times n$的黑白方阵，你可以将一个$k \times k$的矩阵变白。问最多可以有多少行/列全白。
 
 ## 题解
 
-枚举 k \* k 的矩阵，其对应的答案为除开此矩阵的白行/列+矩阵有多少行(列)左右(上下)都是白色。
+枚举$k \times k$的矩阵，其对应的答案为除开此矩阵的白行/列+矩阵有多少行（列）左右（上下）都是白色。
 
 ```cpp
 

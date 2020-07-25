@@ -1,5 +1,5 @@
 ---
-title: "Codeforces Round #574 (Div. 2)"
+title: "Codeforces Round #574 Div. 2"
 tags:
   - codeforces
 categories:

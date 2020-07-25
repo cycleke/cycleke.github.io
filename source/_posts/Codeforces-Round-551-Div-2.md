@@ -1,5 +1,5 @@
 ---
-title: "Codeforces Round #551 (Div. 2)"
+title: "Codeforces Round #551 Div. 2"
 tags:
   - codeforces
 categories:
@@ -11,17 +11,17 @@ mathjax: true
 
 # A. Serval and Bus
 
-算出 t 之后每班车的最早时间，取最小值
+算出 $t$ 之后每班车的最早时间，取最小值
 
 # B. Serval and Toy Bricks
 
-每个有方块的位置尽可能取高，即 min(a[j], b[i])
+每个有方块的位置尽可能取高，即 $\min(a[j], b[i])$
 
 <!--more-->
 
 # C. Serval and Parenthesis Sequence
 
-统计一下要放多少的(和),显然前面尽量放(是最优的，然后 check 判断
+统计一下要放多少的$($和$)$,显然前面尽量放$($是最优的，然后 check 判断
 
 # D. Serval and Rooted Tree
 
@@ -40,4 +40,4 @@ mathjax: true
 不难发现如果一个矩阵中有一端，那么交点为奇数， ~~然后乱搞就好了~~
 枚举找到头和尾的行或者列，然后二分就好了。
 
-~~然而可怜的 cycleke 常用二分方法超限了，不得不临时想(猜)其他方法~~
+~~然而可怜的 cycleke 常用二分方法超限了，不得不临时想（猜）其他方法~~

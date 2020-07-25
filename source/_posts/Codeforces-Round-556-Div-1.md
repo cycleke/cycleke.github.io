@@ -1,5 +1,5 @@
 ---
-title: "Codeforces Round #556 (Div. 1)"
+title: "Codeforces Round #556 Div. 1"
 tags:
   - codeforces
 categories:
@@ -30,9 +30,9 @@ print(*a)
 
 # B. Three Religions
 
-定义$ dp[a][b][c] $为三个字符串匹配的长度分别为 a,b,c 时所需最小长度。
+定义$dp[a][b][c]$为三个字符串匹配的长度分别为 $a,b,c$ 时所需最小长度。
 预处理每个位置下一个字符的位置就可以$ O(1) $ 转移。
-每次添加字符会对另外两个字符串和新添加的那个字符的匹配产生影响，所以只用枚举 $ O(L^2) $个状态。
+每次添加字符会对另外两个字符串和新添加的那个字符的匹配产生影响，所以只用枚举 $O(L^2)$个状态。
 
 ```cpp
 const int MAXN = 1e5 + 3;
