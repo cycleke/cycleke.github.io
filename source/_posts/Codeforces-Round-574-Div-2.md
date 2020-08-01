@@ -2,8 +2,12 @@
 title: "Codeforces Round #574 Div. 2"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 贪心
+  - dp
+  - 组合
+  - 单调队列
+  - rmq
+categories: 训练
 type: categories
 abbrlink: fd9e4e65
 date: 2019-07-30 09:16:48

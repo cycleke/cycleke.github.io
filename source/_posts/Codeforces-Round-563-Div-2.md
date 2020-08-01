@@ -2,8 +2,13 @@
 title: "Codeforces Round #563 Div. 2"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 构造
+  - 贪心
+  - 异或
+  - 计数
+  - 点分治
+  - 交互题
+categories: 训练
 type: categories
 abbrlink: decc8adc
 date: 2019-06-07 13:14:01

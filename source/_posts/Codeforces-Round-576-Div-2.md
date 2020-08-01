@@ -2,8 +2,11 @@
 title: "Codeforces Round #576 Div. 2"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 双指针
+  - splay
+  - 乱搞题
+  - dp
+categories: 训练
 abbrlink: f96b9e58
 date: 2019-07-31 18:26:32
 mathjax: true

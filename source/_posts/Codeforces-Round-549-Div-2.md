@@ -4,8 +4,10 @@ abbrlink: 9182a3d4
 date: 2019-04-06 23:45:01
 tags:
   - codeforces
-categories:
-  - 训练
+  - dp
+  - 数论
+  - 凸包
+categories: 训练
 mathjax: true
 ---
 

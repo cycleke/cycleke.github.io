@@ -2,8 +2,12 @@
 title: "Codeforces Round #578 Div. 2"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 贪心
+  - 数学
+  - 前缀和
+  - kmp
+  - dfs
+categories: 训练
 abbrlink: e7a2aeeb
 date: 2019-08-12 09:50:51
 mathjax: true

@@ -2,8 +2,11 @@
 title: "Codeforces Round #556 Div. 1"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 构造
+  - 数论
+  - dp
+  - 线段树
+categories: 训练
 type: categories
 abbrlink: 8a2a745a
 date: 2019-05-09 23:43:07

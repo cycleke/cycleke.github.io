@@ -2,8 +2,11 @@
 title: "Codeforces Round #551 Div. 2"
 tags:
   - codeforces
-categories:
-  - 训练
+  - 贪心
+  - 乱搞
+  - 二分
+  - 交互题
+categories: 训练
 abbrlink: 43db3ce0
 date: 2019-04-23 22:54:40
 mathjax: true

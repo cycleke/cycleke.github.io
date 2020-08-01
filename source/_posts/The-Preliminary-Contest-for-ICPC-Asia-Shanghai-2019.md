@@ -3,6 +3,11 @@ title: The Preliminary Contest for ICPC Asia Shanghai 2019
 tags:
   - ICPC
   - 网络赛
+  - 树链剖分
+  - FFT
+  - 打表
+  - 哈希
+  - 数位 dp
 categories: 网络赛
 abbrlink: d33216c1
 date: 2019-09-18 11:37:34
