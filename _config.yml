@@ -43,7 +43,7 @@ highlight:
   enable: false
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: 2
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -130,6 +130,5 @@ deploy:
   repository: git@github.com:cycleke/cycleke.github.io.git
   branch: master
 - type: git
-  repository: git@gitee.com:cycleke/cycleke.github.io.git
+  repository: git@gitee.com:cycleke/cycleke.git
   branch: master
-
