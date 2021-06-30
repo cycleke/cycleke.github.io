@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>乱搞 on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/</link>
+    <description>Recent content in 乱搞 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Apr 2019 22:54:40 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codeforces Round #551 Div. 2</title>
+      <link>http://blog.cycleke.com/post/43db3ce0/</link>
+      <pubDate>Tue, 23 Apr 2019 22:54:40 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/43db3ce0/</guid>
+      <description>&lt;h1 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h1&gt;
+&lt;p&gt;算出 $t$ 之后每班车的最早时间，取最小值&lt;/p&gt;
+&lt;h1 id=&#34;b-serval-and-toy-bricks&#34;&gt;B. Serval and Toy Bricks&lt;/h1&gt;
+&lt;p&gt;每个有方块的位置尽可能取高，即 $\min(a[j], b[i])$&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

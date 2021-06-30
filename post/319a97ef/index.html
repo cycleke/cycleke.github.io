@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java代码覆盖率工具 - 路遥柯的小站</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cycleke" /><meta name="description" content="在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co" /><meta name="keywords" content="cycleke, 路遥柯" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.84.2 with theme even" />
+
+
+<link rel="canonical" href="http://blog.cycleke.com/post/319a97ef/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java代码覆盖率工具" />
+<meta property="og:description" content="在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.cycleke.com/post/319a97ef/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-03-27T15:55:02&#43;00:00" />
+<meta property="article:modified_time" content="2020-03-27T15:55:02&#43;00:00" />
+
+<meta itemprop="name" content="Java代码覆盖率工具">
+<meta itemprop="description" content="在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co"><meta itemprop="datePublished" content="2020-03-27T15:55:02&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-27T15:55:02&#43;00:00" />
+<meta itemprop="wordCount" content="1046">
+<meta itemprop="keywords" content="Java,Maven,JaCoCo,Eclipse,EclEmma," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java代码覆盖率工具"/>
+<meta name="twitter:description" content="在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">路遥柯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">路遥柯</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java代码覆盖率工具</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-27 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/"> 工具学习 </a>
+            </div>
+          <span class="more-meta"> 约 1046 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#各个工具特点">各个工具特点</a></li>
+    <li><a href="#eclipse-和-eclemma">Eclipse 和 EclEmma</a></li>
+    <li><a href="#在-maven-中使用-jacoco">在 Maven 中使用 JaCoCo</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-03-27T15:55:02" title="March 27, 2020">March 27, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <p>在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的
+选择。现在常用的代码覆盖率工具有 Emma，Cobertura，Jacoco 和 Clover(商用)。下面介绍在 Eclipse 和
+Maven 中的一些使用方法。</p>
+<!-- more -->
+<h1 id="各个工具特点">各个工具特点</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">工具</th>
+<th style="text-align:center">Jacoco</th>
+<th style="text-align:center">Emma</th>
+<th>Cobertura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">原理</td>
+<td style="text-align:center">使用 ASM 修改字节码</td>
+<td style="text-align:center">修改 jar 文件，class 文件字节码文件</td>
+<td>基于 jcoverage,基于 asm 框架对 class 文件插桩</td>
+</tr>
+<tr>
+<td style="text-align:center">覆盖粒度</td>
+<td style="text-align:center">行，类，方法，指令，分支</td>
+<td style="text-align:center">行，类，方法，基本块，指令，无分支覆盖</td>
+<td>项目，包，类，方法的语句覆盖/分支覆盖</td>
+</tr>
+<tr>
+<td style="text-align:center">插桩</td>
+<td style="text-align:center">on the fly、offline</td>
+<td style="text-align:center">on the fly、offline</td>
+<td>offline，把统计代码插入编译好的 class 文件中</td>
+</tr>
+<tr>
+<td style="text-align:center">生成结果</td>
+<td style="text-align:center">在 Tomcat 的 catalina.sh 配置 javaangent 参数，指出需要收集覆盖率的文件，shutdown 时才收集，只能使用 kill 命令关闭 Tomcat，不要使用 kill -9</td>
+<td style="text-align:center">html、xml、txt，二进制格式报表</td>
+<td>html，xml</td>
+</tr>
+<tr>
+<td style="text-align:center">缺点</td>
+<td style="text-align:center">需要源代码</td>
+<td style="text-align:center">1、需要 debug 版本，并打来 build.xml 中的 debug 编译项； 2、需要源代码，且必须与插桩的代码完全一致</td>
+<td>1、不能捕获测试用例中未考虑的异常； 2、关闭服务器才能输出覆盖率信息（已有修改源代码的解决方案，定时输出结果；输出结果之前设置了 hook，会与某些服务器的 hook 冲突，web 测试中需要将 cobertura.ser 文件来回 copy</td>
+</tr>
+<tr>
+<td style="text-align:center">性能</td>
+<td style="text-align:center">快</td>
+<td style="text-align:center">小巧</td>
+<td>插入的字节码信息更多</td>
+</tr>
+<tr>
+<td style="text-align:center">执行方式</td>
+<td style="text-align:center">maven，ant，命令行</td>
+<td style="text-align:center">命令行</td>
+<td>maven，ant</td>
+</tr>
+<tr>
+<td style="text-align:center">Jenkins 集成</td>
+<td style="text-align:center">生成 html 报告，直接与 hudson 集成，展示报告，无趋势图</td>
+<td style="text-align:center">无法与 hudson 集成</td>
+<td>有集成的插件，美观的报告，有趋势图</td>
+</tr>
+<tr>
+<td style="text-align:center">报告实时性</td>
+<td style="text-align:center">默认关闭，可以动态从 jvm dump 出数据</td>
+<td style="text-align:center">可以不关闭服务器</td>
+<td>默认是在关闭服务器时才写结果</td>
+</tr>
+<tr>
+<td style="text-align:center">维护状态</td>
+<td style="text-align:center">持续更新中</td>
+<td style="text-align:center">停止维护</td>
+<td>停止维护</td>
+</tr>
+</tbody>
+</table>
+<h1 id="eclipse-和-eclemma">Eclipse 和 EclEmma</h1>
+<p>在 Eclipse 中可以使用 EclEmma 插件来统计。EclEmma 是一个开源的软件测试工具，可以在编码过程中查
+看代码调用情况、也可以检测覆盖率。</p>
+<p>EclEmma 原本源于 EMMA 项目。自 2.0 起 EclEmma 开始基于 JaCoCo（其实现在 JaCoCo 的开发人员就
+是 EMMA 的开发人员）。</p>
+<p>可以在 Marketplace 中找到找到 EclEmma 并下载。
+<img src="/media/Java%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/img/Eclipse_Marketplace.png" alt="Eclipse Marketplace"></p>
+<p>使用 EclEmma 测试代码覆盖率。
+<img src="/media/Java%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/img/EclEmma.png" alt="EclEmma测试结果"></p>
+<blockquote>
+<p>其中不同的颜色有不同的意义：</p>
+<ul>
+<li>绿色表示代码被执行到</li>
+<li>黄色表示代码部分执行到</li>
+<li>红色表示代码没有被执行到</li>
+</ul>
+</blockquote>
+<h1 id="在-maven-中使用-jacoco">在 Maven 中使用 JaCoCo</h1>
+<p>在 Maven 中也可以使用 JaCoCo 来测试代码覆盖率。虽然在网上的资料很多，但是不知道为什么有些方法无法有效。下面的方法是我在自己的电脑上成功的方法。</p>
+<p>在 pom.xml 中添加如下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;project&gt;</span>
+  <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.8.5<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>prepare-agent<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>report<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;phase&gt;</span>test<span class="nt">&lt;/phase&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>report<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>之后可以在终端中输入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mvn clean <span class="nb">test</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以测试同时生成报告，在<code>target/site/jacoco/index.html</code>。</p>
+<h1 id="参考">参考</h1>
+<ol>
+<li><a href="https://www.jianshu.com/p/16a8ce689d60">Jacoco Code Coverage - 简书</a>.</li>
+<li><a href="https://www.eclemma.org/">EclEmma 官网</a>.</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cycleke</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-03-27
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/wechat.svg">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/alipay.svg">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">Java</a>
+          <a href="/tags/maven/">Maven</a>
+          <a href="/tags/jacoco/">JaCoCo</a>
+          <a href="/tags/eclipse/">Eclipse</a>
+          <a href="/tags/eclemma/">EclEmma</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/a4eef3d0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">YAML简介</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/b7210194/">
+            <span class="next-text nav-default">Maven 和 JUnit 初体验</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  <span id="/post/319a97ef/" class="leancloud_visitors" data-flag-title="Java代码覆盖率工具">
+		<span class="post-meta-item-text">文章阅读量 </span>
+		<span class="leancloud-visitors-count">0</span>
+		<p></p>
+	  </span>
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
+        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  true 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cycleke@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cycleke" class="iconfont icon-github" title="github"></a>
+  <a href="http://blog.cycleke.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>cycleke</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

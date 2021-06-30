@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络流 on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/</link>
+    <description>Recent content in 网络流 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 20 Nov 2020 13:59:02 +0800</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2019-2020 ICPC Asia Hong Kong Regional Contest</title>
+      <link>http://blog.cycleke.com/post/b08bcfc4/</link>
+      <pubDate>Fri, 20 Nov 2020 13:59:02 +0800</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/b08bcfc4/</guid>
+      <description>A B C D E F G H I J K x O Ø Ø x x O Ø O O Ø O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 官方题解 B. Binary Tree 给定一棵树，两个人轮流进行游戏</description>
+    </item>
+    
+    <item>
+      <title>2019 China Collegiate Programming Contest Qinhuangdao Onsite</title>
+      <link>http://blog.cycleke.com/post/dabbbe0b/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/dabbbe0b/</guid>
+      <description>A B C D E F G H I J K L O x x O Ø O x x O O O x O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Angle Beats 给定$n$个点$P_i$和$q$个</description>
+    </item>
+    
+  </channel>
+</rss>

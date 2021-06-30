@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FFT on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/fft/</link>
+    <description>Recent content in FFT on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 18 Sep 2019 11:37:34 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/fft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Preliminary Contest for ICPC Asia Shanghai 2019</title>
+      <link>http://blog.cycleke.com/post/d33216c1/</link>
+      <pubDate>Wed, 18 Sep 2019 11:37:34 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/d33216c1/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;A&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;B&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;C&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;D&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;E&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;F&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;G&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;H&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;sineMora&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;cycleke&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;cycleke&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;OwenCreeper&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;补&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;I&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;J&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;K&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;.&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;sineMora&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;x&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;cycleke&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;这次网络赛中途出现了一些策略上的失误，中途全队都在查 F 代码，还在 E 上花了太长的时间，
+没有及时弃掉。&lt;/p&gt;
+&lt;p&gt;这里写一下我做（补）的题的简要题解。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

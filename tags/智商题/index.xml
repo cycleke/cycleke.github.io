@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>智商题 on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/%E6%99%BA%E5%95%86%E9%A2%98/</link>
+    <description>Recent content in 智商题 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 23 Oct 2020 00:00:00 +0800</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/%E6%99%BA%E5%95%86%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2019 ICPC Asia Nanjing Regional</title>
+      <link>http://blog.cycleke.com/post/01ae1c45/</link>
+      <pubDate>Fri, 23 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/01ae1c45/</guid>
+      <description>A B C D E F G H I J K O Ø O x x O x x O Ø O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. A Hard Problem 选择较大的一半当作答案即可$⌈ \frac{n}{2} ⌉$</description>
+    </item>
+    
+  </channel>
+</rss>

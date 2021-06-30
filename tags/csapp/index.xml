@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSAPP on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/csapp/</link>
+    <description>Recent content in CSAPP on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 25 Dec 2019 22:52:30 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/csapp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CS:APP大作业</title>
+      <link>http://blog.cycleke.com/post/dce6fad6/</link>
+      <pubDate>Wed, 25 Dec 2019 22:52:30 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/dce6fad6/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;摘 要&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt; 预处理；编译；汇编； 链接；进程；内存管理；IO；&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>splay on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/splay/</link>
+    <description>Recent content in splay on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 31 Jul 2019 18:26:32 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/splay/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codeforces Round #576 Div. 2</title>
+      <link>http://blog.cycleke.com/post/f96b9e58/</link>
+      <pubDate>Wed, 31 Jul 2019 18:26:32 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/f96b9e58/</guid>
+      <description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;A&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;B&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;C&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;D&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;E&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;F&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;模拟&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;数学&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;双指针&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;splay&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;图论&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;dp&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1000&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1000&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1700&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1600&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2200&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2400&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

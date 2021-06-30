@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>凸包 on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/</link>
+    <description>Recent content in 凸包 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 06 Apr 2019 23:45:01 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Codeforces Round #549 Div. 2</title>
+      <link>http://blog.cycleke.com/post/9182a3d4/</link>
+      <pubDate>Sat, 06 Apr 2019 23:45:01 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/9182a3d4/</guid>
+      <description>&lt;h1 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h1&gt;
+&lt;p&gt;记录最后一个 0 和 1 的位置。&lt;/p&gt;
+&lt;h1 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h1&gt;
+&lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

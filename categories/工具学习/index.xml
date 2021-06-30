@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具学习 on 路遥柯的小站</title>
+    <link>http://blog.cycleke.com/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 工具学习 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 07 Apr 2020 15:47:12 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用SnakeYAML解析YAML</title>
+      <link>http://blog.cycleke.com/post/fd11bfea/</link>
+      <pubDate>Tue, 07 Apr 2020 15:47:12 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/fd11bfea/</guid>
+      <description>在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po</description>
+    </item>
+    
+    <item>
+      <title>YAML简介</title>
+      <link>http://blog.cycleke.com/post/a4eef3d0/</link>
+      <pubDate>Tue, 07 Apr 2020 14:25:14 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/a4eef3d0/</guid>
+      <description>最近写实验时需要描述初始界面，为了减少代码中硬编码的部分，所以打算使用配置文件来描述，同时方便拓展。 目前常用的配置文件格式有 JSON、XML</description>
+    </item>
+    
+    <item>
+      <title>Java代码覆盖率工具</title>
+      <link>http://blog.cycleke.com/post/319a97ef/</link>
+      <pubDate>Fri, 27 Mar 2020 15:55:02 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/319a97ef/</guid>
+      <description>在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co</description>
+    </item>
+    
+    <item>
+      <title>Maven 和 JUnit 初体验</title>
+      <link>http://blog.cycleke.com/post/b7210194/</link>
+      <pubDate>Tue, 03 Mar 2020 18:46:00 +0000</pubDate>
+      
+      <guid>http://blog.cycleke.com/post/b7210194/</guid>
+      <description>&lt;p&gt;最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
+喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;此时大喊 emacs 大法好！！！&lt;/del&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
