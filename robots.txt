@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://blog.cycleke.com/sitemap.xml
+Sitemap: https://blog.cycleke.com/sitemap.xml

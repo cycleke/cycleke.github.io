@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>YAML on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/tags/yaml/</link>
+    <link>https://blog.cycleke.com/tags/yaml/</link>
     <description>Recent content in YAML on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 07 Apr 2020 15:47:12 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Apr 2020 15:47:12 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用SnakeYAML解析YAML</title>
-      <link>http://blog.cycleke.com/post/fd11bfea/</link>
+      <link>https://blog.cycleke.com/post/fd11bfea/</link>
       <pubDate>Tue, 07 Apr 2020 15:47:12 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fd11bfea/</guid>
+      <guid>https://blog.cycleke.com/post/fd11bfea/</guid>
       <description>在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po</description>
     </item>
     
     <item>
       <title>YAML简介</title>
-      <link>http://blog.cycleke.com/post/a4eef3d0/</link>
+      <link>https://blog.cycleke.com/post/a4eef3d0/</link>
       <pubDate>Tue, 07 Apr 2020 14:25:14 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/a4eef3d0/</guid>
+      <guid>https://blog.cycleke.com/post/a4eef3d0/</guid>
       <description>最近写实验时需要描述初始界面，为了减少代码中硬编码的部分，所以打算使用配置文件来描述，同时方便拓展。 目前常用的配置文件格式有 JSON、XML</description>
     </item>
     

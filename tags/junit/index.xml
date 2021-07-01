@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JUnit on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/tags/junit/</link>
+    <link>https://blog.cycleke.com/tags/junit/</link>
     <description>Recent content in JUnit on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 03 Mar 2020 18:46:00 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/junit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Mar 2020 18:46:00 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/junit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Maven 和 JUnit 初体验</title>
-      <link>http://blog.cycleke.com/post/b7210194/</link>
+      <link>https://blog.cycleke.com/post/b7210194/</link>
       <pubDate>Tue, 03 Mar 2020 18:46:00 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b7210194/</guid>
+      <guid>https://blog.cycleke.com/post/b7210194/</guid>
       <description>&lt;p&gt;最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;此时大喊 emacs 大法好！！！&lt;/del&gt;&lt;/p&gt;</description>

@@ -2,81 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/tags/java/</link>
+    <link>https://blog.cycleke.com/tags/java/</link>
     <description>Recent content in Java on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0000</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java的函数式编程</title>
-      <link>http://blog.cycleke.com/post/80f8936f/</link>
+      <link>https://blog.cycleke.com/post/80f8936f/</link>
       <pubDate>Fri, 05 Jun 2020 00:09:37 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/80f8936f/</guid>
+      <guid>https://blog.cycleke.com/post/80f8936f/</guid>
       <description>&lt;p&gt;最近写软件构造的实验代码时经常使用到一些函数式编程的特性，所以打算写一篇博客用来给自己当做笔记。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Java并发的一些简单理解</title>
-      <link>http://blog.cycleke.com/post/b7940b4d/</link>
+      <link>https://blog.cycleke.com/post/b7940b4d/</link>
       <pubDate>Mon, 25 May 2020 00:16:42 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b7940b4d/</guid>
+      <guid>https://blog.cycleke.com/post/b7940b4d/</guid>
       <description>简介 并发是一种程序计算的形式，它可以使多个任务看起来像是同时在运行。 并发的应用很多，如网站同时应对多个请求、 GUI 的前端用户操作和后台的计算同步</description>
     </item>
     
     <item>
       <title>Java异常类</title>
-      <link>http://blog.cycleke.com/post/fe568e9/</link>
+      <link>https://blog.cycleke.com/post/fe568e9/</link>
       <pubDate>Mon, 18 May 2020 00:40:30 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fe568e9/</guid>
+      <guid>https://blog.cycleke.com/post/fe568e9/</guid>
       <description>&lt;p&gt;在程序的运行过程中，各种错误是不可避免的，比如想要读入一个文件，但是文件不存在。&lt;/p&gt;
 &lt;p&gt;我们可以通过返回特殊值来表示错误（常见于一些较底层的语言如 C），但是它存在一定的局限性，如特殊值的数目有限、有时无法有效区分特殊值和错误&amp;hellip;&amp;hellip;当一个函数返回的就是&lt;code&gt;boolean&lt;/code&gt;类型时，那么就难以规定特殊值；一个函数返回一个&lt;code&gt;Object&lt;/code&gt;类型，那么当返回值为&lt;code&gt;null&lt;/code&gt;时到底是发生了错误还是值就是&lt;code&gt;null&lt;/code&gt;就难以区分。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>面向对象编程的五个原则：SOLID</title>
-      <link>http://blog.cycleke.com/post/642cd45d/</link>
+      <link>https://blog.cycleke.com/post/642cd45d/</link>
       <pubDate>Sat, 25 Apr 2020 14:31:58 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/642cd45d/</guid>
+      <guid>https://blog.cycleke.com/post/642cd45d/</guid>
       <description>&lt;p&gt;在程序设计领域， SOLID 是由罗伯特·C·马丁在 21 世纪早期引入的记忆术首字母缩略字，指代了面向对象编程和面向对象设计的五个基本原则。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Java装饰器模式</title>
-      <link>http://blog.cycleke.com/post/fa2f150e/</link>
+      <link>https://blog.cycleke.com/post/fa2f150e/</link>
       <pubDate>Thu, 23 Apr 2020 21:40:17 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fa2f150e/</guid>
+      <guid>https://blog.cycleke.com/post/fa2f150e/</guid>
       <description>&lt;p&gt;装饰器模式（Decorator Pattern）是一种结构型模式，允许向一个现有的对象添加新的功能，同时又不改变其结构。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用SnakeYAML解析YAML</title>
-      <link>http://blog.cycleke.com/post/fd11bfea/</link>
+      <link>https://blog.cycleke.com/post/fd11bfea/</link>
       <pubDate>Tue, 07 Apr 2020 15:47:12 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fd11bfea/</guid>
+      <guid>https://blog.cycleke.com/post/fd11bfea/</guid>
       <description>在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po</description>
     </item>
     
     <item>
       <title>Java代码覆盖率工具</title>
-      <link>http://blog.cycleke.com/post/319a97ef/</link>
+      <link>https://blog.cycleke.com/post/319a97ef/</link>
       <pubDate>Fri, 27 Mar 2020 15:55:02 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/319a97ef/</guid>
+      <guid>https://blog.cycleke.com/post/319a97ef/</guid>
       <description>在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co</description>
     </item>
     
     <item>
       <title>Maven 和 JUnit 初体验</title>
-      <link>http://blog.cycleke.com/post/b7210194/</link>
+      <link>https://blog.cycleke.com/post/b7210194/</link>
       <pubDate>Tue, 03 Mar 2020 18:46:00 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b7210194/</guid>
+      <guid>https://blog.cycleke.com/post/b7210194/</guid>
       <description>&lt;p&gt;最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;此时大喊 emacs 大法好！！！&lt;/del&gt;&lt;/p&gt;</description>

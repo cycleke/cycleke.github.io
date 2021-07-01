@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>比赛总结 on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/</link>
+    <link>https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/</link>
     <description>Recent content in 比赛总结 on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 27 Sep 2020 22:44:13 +0800</lastBuildDate><atom:link href="http://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Sep 2020 22:44:13 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>省赛出题反思</title>
-      <link>http://blog.cycleke.com/post/a9c8d0d8/</link>
+      <link>https://blog.cycleke.com/post/a9c8d0d8/</link>
       <pubDate>Sun, 27 Sep 2020 22:44:13 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/a9c8d0d8/</guid>
+      <guid>https://blog.cycleke.com/post/a9c8d0d8/</guid>
       <description>在经历了省赛出题的糟糕体验以及赛中出锅后，我打算写一下自己在整个出题过程中的一些错误以及一个出题流程（面向 ddl 出题），避免自己以后在出现锅。 不</description>
     </item>
     
     <item>
       <title>2019黑龙江省赛总结</title>
-      <link>http://blog.cycleke.com/post/c03ec87f/</link>
+      <link>https://blog.cycleke.com/post/c03ec87f/</link>
       <pubDate>Sun, 12 May 2019 23:22:37 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/c03ec87f/</guid>
+      <guid>https://blog.cycleke.com/post/c03ec87f/</guid>
       <description>&lt;p&gt;这次比赛是自己第一次正式参加 ACM 赛制的比赛，虽然最后混了个金，但是感觉比赛过程的问题还是比较大。&lt;/p&gt;</description>
     </item>
     

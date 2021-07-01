@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lazy tag on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/tags/lazy-tag/</link>
+    <link>https://blog.cycleke.com/tags/lazy-tag/</link>
     <description>Recent content in lazy tag on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 01 Dec 2020 20:07:54 +0800</lastBuildDate><atom:link href="http://blog.cycleke.com/tags/lazy-tag/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 20:07:54 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/lazy-tag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2019-2020 ICPC Northwestern European Regional Programming Contest (NWERC 2019)</title>
-      <link>http://blog.cycleke.com/post/e73492e8/</link>
+      <link>https://blog.cycleke.com/post/e73492e8/</link>
       <pubDate>Tue, 01 Dec 2020 20:07:54 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/e73492e8/</guid>
+      <guid>https://blog.cycleke.com/post/e73492e8/</guid>
       <description>A B C D E F G H I J K +9 +2 +1 02:03 03:00 01:06 00:20 00:52 02:59 00:12 A. Average Rank 给定 \(n\) 名选手和 \(w\) 周的时间内一些得分（每次加一分），询问每名选手的平均排名。 考虑每一个分数，其</description>
     </item>
     

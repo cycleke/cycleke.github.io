@@ -2,171 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 路遥柯的小站</title>
-    <link>http://blog.cycleke.com/post/</link>
+    <link>https://blog.cycleke.com/post/</link>
     <description>Recent content in Posts on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 08 Feb 2021 19:58:38 +0800</lastBuildDate><atom:link href="http://blog.cycleke.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Feb 2021 19:58:38 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Codeforces Round #700 (Div. 1)</title>
-      <link>http://blog.cycleke.com/post/544ffca2/</link>
+      <link>https://blog.cycleke.com/post/544ffca2/</link>
       <pubDate>Mon, 08 Feb 2021 19:58:38 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/544ffca2/</guid>
+      <guid>https://blog.cycleke.com/post/544ffca2/</guid>
       <description>A. Searching Local Minimum 交互题，查找数组的一个波谷，要求查询次数在 100 次内，数组长度为 \(10^5\)。 经典二分查找即可。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
     </item>
     
     <item>
       <title>2019 China Collegiate Programming Contest Final (CCPC-Final 2019)</title>
-      <link>http://blog.cycleke.com/post/fad7e9f7/</link>
+      <link>https://blog.cycleke.com/post/fad7e9f7/</link>
       <pubDate>Thu, 17 Dec 2020 00:19:57 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fad7e9f7/</guid>
+      <guid>https://blog.cycleke.com/post/fad7e9f7/</guid>
       <description>A B C D E F G H I J K L +1 +1 + +3 +1 + + 00:50 03:29 02:55 01:01 00:24 A. Kick Start 签到题，C++ 的字符串太难了吧。。。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</description>
     </item>
     
     <item>
       <title>2019-2020 ICPC Northwestern European Regional Programming Contest (NWERC 2019)</title>
-      <link>http://blog.cycleke.com/post/e73492e8/</link>
+      <link>https://blog.cycleke.com/post/e73492e8/</link>
       <pubDate>Tue, 01 Dec 2020 20:07:54 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/e73492e8/</guid>
+      <guid>https://blog.cycleke.com/post/e73492e8/</guid>
       <description>A B C D E F G H I J K +9 +2 +1 02:03 03:00 01:06 00:20 00:52 02:59 00:12 A. Average Rank 给定 \(n\) 名选手和 \(w\) 周的时间内一些得分（每次加一分），询问每名选手的平均排名。 考虑每一个分数，其</description>
     </item>
     
     <item>
       <title>2019-2020 ICPC Asia Hong Kong Regional Contest</title>
-      <link>http://blog.cycleke.com/post/b08bcfc4/</link>
+      <link>https://blog.cycleke.com/post/b08bcfc4/</link>
       <pubDate>Fri, 20 Nov 2020 13:59:02 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b08bcfc4/</guid>
+      <guid>https://blog.cycleke.com/post/b08bcfc4/</guid>
       <description>A B C D E F G H I J K x O Ø Ø x x O Ø O O Ø O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 官方题解 B. Binary Tree 给定一棵树，两个人轮流进行游戏</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia-East Continent Final</title>
-      <link>http://blog.cycleke.com/post/b09c5ba3/</link>
+      <link>https://blog.cycleke.com/post/b09c5ba3/</link>
       <pubDate>Mon, 02 Nov 2020 00:00:00 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b09c5ba3/</guid>
+      <guid>https://blog.cycleke.com/post/b09c5ba3/</guid>
       <description>A B C D E F G H I J K L M O x O x O x Ø O x x x x O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. City 全程队友做的，说是签到。 1 2 3 4</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia Nanjing Regional</title>
-      <link>http://blog.cycleke.com/post/01ae1c45/</link>
+      <link>https://blog.cycleke.com/post/01ae1c45/</link>
       <pubDate>Fri, 23 Oct 2020 00:00:00 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/01ae1c45/</guid>
+      <guid>https://blog.cycleke.com/post/01ae1c45/</guid>
       <description>A B C D E F G H I J K O Ø O x x O x x O Ø O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. A Hard Problem 选择较大的一半当作答案即可$⌈ \frac{n}{2} ⌉$</description>
     </item>
     
     <item>
       <title>2019 China Collegiate Programming Contest Qinhuangdao Onsite</title>
-      <link>http://blog.cycleke.com/post/dabbbe0b/</link>
+      <link>https://blog.cycleke.com/post/dabbbe0b/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/dabbbe0b/</guid>
+      <guid>https://blog.cycleke.com/post/dabbbe0b/</guid>
       <description>A B C D E F G H I J K L O x x O Ø O x x O O O x O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Angle Beats 给定$n$个点$P_i$和$q$个</description>
     </item>
     
     <item>
       <title>省赛出题反思</title>
-      <link>http://blog.cycleke.com/post/a9c8d0d8/</link>
+      <link>https://blog.cycleke.com/post/a9c8d0d8/</link>
       <pubDate>Sun, 27 Sep 2020 22:44:13 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/a9c8d0d8/</guid>
+      <guid>https://blog.cycleke.com/post/a9c8d0d8/</guid>
       <description>在经历了省赛出题的糟糕体验以及赛中出锅后，我打算写一下自己在整个出题过程中的一些错误以及一个出题流程（面向 ddl 出题），避免自己以后在出现锅。 不</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia Xuzhou Regional</title>
-      <link>http://blog.cycleke.com/post/d98f8cf4/</link>
+      <link>https://blog.cycleke.com/post/d98f8cf4/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0800</pubDate>
       
-      <guid>http://blog.cycleke.com/post/d98f8cf4/</guid>
+      <guid>https://blog.cycleke.com/post/d98f8cf4/</guid>
       <description>A B C D E F G H I J K M O x O x O O x Ø x Ø x O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Cat 询问$[L, R]$的最大子区间，满足</description>
     </item>
     
     <item>
       <title>Java的函数式编程</title>
-      <link>http://blog.cycleke.com/post/80f8936f/</link>
+      <link>https://blog.cycleke.com/post/80f8936f/</link>
       <pubDate>Fri, 05 Jun 2020 00:09:37 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/80f8936f/</guid>
+      <guid>https://blog.cycleke.com/post/80f8936f/</guid>
       <description>&lt;p&gt;最近写软件构造的实验代码时经常使用到一些函数式编程的特性，所以打算写一篇博客用来给自己当做笔记。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Java并发的一些简单理解</title>
-      <link>http://blog.cycleke.com/post/b7940b4d/</link>
+      <link>https://blog.cycleke.com/post/b7940b4d/</link>
       <pubDate>Mon, 25 May 2020 00:16:42 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b7940b4d/</guid>
+      <guid>https://blog.cycleke.com/post/b7940b4d/</guid>
       <description>简介 并发是一种程序计算的形式，它可以使多个任务看起来像是同时在运行。 并发的应用很多，如网站同时应对多个请求、 GUI 的前端用户操作和后台的计算同步</description>
     </item>
     
     <item>
       <title>Java异常类</title>
-      <link>http://blog.cycleke.com/post/fe568e9/</link>
+      <link>https://blog.cycleke.com/post/fe568e9/</link>
       <pubDate>Mon, 18 May 2020 00:40:30 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fe568e9/</guid>
+      <guid>https://blog.cycleke.com/post/fe568e9/</guid>
       <description>&lt;p&gt;在程序的运行过程中，各种错误是不可避免的，比如想要读入一个文件，但是文件不存在。&lt;/p&gt;
 &lt;p&gt;我们可以通过返回特殊值来表示错误（常见于一些较底层的语言如 C），但是它存在一定的局限性，如特殊值的数目有限、有时无法有效区分特殊值和错误&amp;hellip;&amp;hellip;当一个函数返回的就是&lt;code&gt;boolean&lt;/code&gt;类型时，那么就难以规定特殊值；一个函数返回一个&lt;code&gt;Object&lt;/code&gt;类型，那么当返回值为&lt;code&gt;null&lt;/code&gt;时到底是发生了错误还是值就是&lt;code&gt;null&lt;/code&gt;就难以区分。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>面向对象编程的五个原则：SOLID</title>
-      <link>http://blog.cycleke.com/post/642cd45d/</link>
+      <link>https://blog.cycleke.com/post/642cd45d/</link>
       <pubDate>Sat, 25 Apr 2020 14:31:58 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/642cd45d/</guid>
+      <guid>https://blog.cycleke.com/post/642cd45d/</guid>
       <description>&lt;p&gt;在程序设计领域， SOLID 是由罗伯特·C·马丁在 21 世纪早期引入的记忆术首字母缩略字，指代了面向对象编程和面向对象设计的五个基本原则。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Java装饰器模式</title>
-      <link>http://blog.cycleke.com/post/fa2f150e/</link>
+      <link>https://blog.cycleke.com/post/fa2f150e/</link>
       <pubDate>Thu, 23 Apr 2020 21:40:17 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fa2f150e/</guid>
+      <guid>https://blog.cycleke.com/post/fa2f150e/</guid>
       <description>&lt;p&gt;装饰器模式（Decorator Pattern）是一种结构型模式，允许向一个现有的对象添加新的功能，同时又不改变其结构。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用SnakeYAML解析YAML</title>
-      <link>http://blog.cycleke.com/post/fd11bfea/</link>
+      <link>https://blog.cycleke.com/post/fd11bfea/</link>
       <pubDate>Tue, 07 Apr 2020 15:47:12 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fd11bfea/</guid>
+      <guid>https://blog.cycleke.com/post/fd11bfea/</guid>
       <description>在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po</description>
     </item>
     
     <item>
       <title>YAML简介</title>
-      <link>http://blog.cycleke.com/post/a4eef3d0/</link>
+      <link>https://blog.cycleke.com/post/a4eef3d0/</link>
       <pubDate>Tue, 07 Apr 2020 14:25:14 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/a4eef3d0/</guid>
+      <guid>https://blog.cycleke.com/post/a4eef3d0/</guid>
       <description>最近写实验时需要描述初始界面，为了减少代码中硬编码的部分，所以打算使用配置文件来描述，同时方便拓展。 目前常用的配置文件格式有 JSON、XML</description>
     </item>
     
     <item>
       <title>Java代码覆盖率工具</title>
-      <link>http://blog.cycleke.com/post/319a97ef/</link>
+      <link>https://blog.cycleke.com/post/319a97ef/</link>
       <pubDate>Fri, 27 Mar 2020 15:55:02 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/319a97ef/</guid>
+      <guid>https://blog.cycleke.com/post/319a97ef/</guid>
       <description>在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co</description>
     </item>
     
     <item>
       <title>Maven 和 JUnit 初体验</title>
-      <link>http://blog.cycleke.com/post/b7210194/</link>
+      <link>https://blog.cycleke.com/post/b7210194/</link>
       <pubDate>Tue, 03 Mar 2020 18:46:00 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/b7210194/</guid>
+      <guid>https://blog.cycleke.com/post/b7210194/</guid>
       <description>&lt;p&gt;最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;此时大喊 emacs 大法好！！！&lt;/del&gt;&lt;/p&gt;</description>
@@ -174,10 +174,10 @@
     
     <item>
       <title>CS:APP大作业</title>
-      <link>http://blog.cycleke.com/post/dce6fad6/</link>
+      <link>https://blog.cycleke.com/post/dce6fad6/</link>
       <pubDate>Wed, 25 Dec 2019 22:52:30 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/dce6fad6/</guid>
+      <guid>https://blog.cycleke.com/post/dce6fad6/</guid>
       <description>&lt;p&gt;&lt;strong&gt;摘 要&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;关键词：&lt;/strong&gt; 预处理；编译；汇编； 链接；进程；内存管理；IO；&lt;/p&gt;</description>
@@ -185,10 +185,10 @@
     
     <item>
       <title>The Preliminary Contest for ICPC Asia Shanghai 2019</title>
-      <link>http://blog.cycleke.com/post/d33216c1/</link>
+      <link>https://blog.cycleke.com/post/d33216c1/</link>
       <pubDate>Wed, 18 Sep 2019 11:37:34 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/d33216c1/</guid>
+      <guid>https://blog.cycleke.com/post/d33216c1/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -240,20 +240,20 @@
     
     <item>
       <title>2016 ICPC 沈阳</title>
-      <link>http://blog.cycleke.com/post/d291d4d5/</link>
+      <link>https://blog.cycleke.com/post/d291d4d5/</link>
       <pubDate>Sun, 15 Sep 2019 18:49:41 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/d291d4d5/</guid>
+      <guid>https://blog.cycleke.com/post/d291d4d5/</guid>
       <description>&lt;h1 id=&#34;athickest-burger&#34;&gt;A.Thickest Burger&lt;/h1&gt;
 &lt;p&gt;签到题，输出$max(a+2b,2a+b)$。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Codeforces Round #578 Div. 2</title>
-      <link>http://blog.cycleke.com/post/e7a2aeeb/</link>
+      <link>https://blog.cycleke.com/post/e7a2aeeb/</link>
       <pubDate>Mon, 12 Aug 2019 09:50:51 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/e7a2aeeb/</guid>
+      <guid>https://blog.cycleke.com/post/e7a2aeeb/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -288,10 +288,10 @@
     
     <item>
       <title>Codeforces Round #576 Div. 2</title>
-      <link>http://blog.cycleke.com/post/f96b9e58/</link>
+      <link>https://blog.cycleke.com/post/f96b9e58/</link>
       <pubDate>Wed, 31 Jul 2019 18:26:32 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/f96b9e58/</guid>
+      <guid>https://blog.cycleke.com/post/f96b9e58/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -326,10 +326,10 @@
     
     <item>
       <title>Codeforces Round #574 Div. 2</title>
-      <link>http://blog.cycleke.com/post/fd9e4e65/</link>
+      <link>https://blog.cycleke.com/post/fd9e4e65/</link>
       <pubDate>Tue, 30 Jul 2019 09:16:48 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/fd9e4e65/</guid>
+      <guid>https://blog.cycleke.com/post/fd9e4e65/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -361,10 +361,10 @@
     
     <item>
       <title>Codeforces Round #563 Div. 2</title>
-      <link>http://blog.cycleke.com/post/decc8adc/</link>
+      <link>https://blog.cycleke.com/post/decc8adc/</link>
       <pubDate>Fri, 07 Jun 2019 13:14:01 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/decc8adc/</guid>
+      <guid>https://blog.cycleke.com/post/decc8adc/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -399,19 +399,19 @@
     
     <item>
       <title>2019黑龙江省赛总结</title>
-      <link>http://blog.cycleke.com/post/c03ec87f/</link>
+      <link>https://blog.cycleke.com/post/c03ec87f/</link>
       <pubDate>Sun, 12 May 2019 23:22:37 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/c03ec87f/</guid>
+      <guid>https://blog.cycleke.com/post/c03ec87f/</guid>
       <description>&lt;p&gt;这次比赛是自己第一次正式参加 ACM 赛制的比赛，虽然最后混了个金，但是感觉比赛过程的问题还是比较大。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Codeforces Round #556 Div. 1</title>
-      <link>http://blog.cycleke.com/post/8a2a745a/</link>
+      <link>https://blog.cycleke.com/post/8a2a745a/</link>
       <pubDate>Thu, 09 May 2019 23:43:07 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/8a2a745a/</guid>
+      <guid>https://blog.cycleke.com/post/8a2a745a/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -437,10 +437,10 @@
     
     <item>
       <title>Codeforces Round #551 Div. 2</title>
-      <link>http://blog.cycleke.com/post/43db3ce0/</link>
+      <link>https://blog.cycleke.com/post/43db3ce0/</link>
       <pubDate>Tue, 23 Apr 2019 22:54:40 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/43db3ce0/</guid>
+      <guid>https://blog.cycleke.com/post/43db3ce0/</guid>
       <description>&lt;h1 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h1&gt;
 &lt;p&gt;算出 $t$ 之后每班车的最早时间，取最小值&lt;/p&gt;
 &lt;h1 id=&#34;b-serval-and-toy-bricks&#34;&gt;B. Serval and Toy Bricks&lt;/h1&gt;
@@ -449,10 +449,10 @@
     
     <item>
       <title>Codeforces Round #549 Div. 2</title>
-      <link>http://blog.cycleke.com/post/9182a3d4/</link>
+      <link>https://blog.cycleke.com/post/9182a3d4/</link>
       <pubDate>Sat, 06 Apr 2019 23:45:01 +0000</pubDate>
       
-      <guid>http://blog.cycleke.com/post/9182a3d4/</guid>
+      <guid>https://blog.cycleke.com/post/9182a3d4/</guid>
       <description>&lt;h1 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h1&gt;
 &lt;p&gt;记录最后一个 0 和 1 的位置。&lt;/p&gt;
 &lt;h1 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h1&gt;
