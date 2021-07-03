@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.cycleke.com/post/544ffca2/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-02-08T19:58:38&#43;08:00" />
-<meta property="article:modified_time" content="2021-02-10T12:49:59&#43;08:00" />
+<meta property="article:modified_time" content="2021-07-03T15:31:04&#43;08:00" />
 
 <meta itemprop="name" content="Codeforces Round #700 (Div. 1)">
 <meta itemprop="description" content="A. Searching Local Minimum 交互题，查找数组的一个波谷，要求查询次数在 100 次内，数组长度为 \(10^5\)。 经典二分查找即可。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"><meta itemprop="datePublished" content="2021-02-08T19:58:38&#43;08:00" />
-<meta itemprop="dateModified" content="2021-02-10T12:49:59&#43;08:00" />
-<meta itemprop="wordCount" content="1173">
+<meta itemprop="dateModified" content="2021-07-03T15:31:04&#43;08:00" />
+<meta itemprop="wordCount" content="1172">
 <meta itemprop="keywords" content="Codeforces,二分,贪心,dp,构造," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Codeforces Round #700 (Div. 1)"/>
 <meta name="twitter:description" content="A. Searching Local Minimum 交互题，查找数组的一个波谷，要求查询次数在 100 次内，数组长度为 \(10^5\)。 经典二分查找即可。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18"/>
@@ -132,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/%E8%AE%AD%E7%BB%83/"> 训练 </a>
             </div>
-          <span class="more-meta"> 约 1173 字 </span>
+          <span class="more-meta"> 约 1172 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -155,11 +155,6 @@
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2021-02-10T12:49:59" title="February 10, 2021">February 10, 2021</span>，文中内容可能已过时，请谨慎使用。</p>
-    </div>
-  </div>
     <div class="post-content">
       <h2 id="a-dot-searching-local-minimum">A. Searching Local Minimum</h2>
 <p>交互题，查找数组的一个波谷，要求查询次数在 100 次内，数组长度为 \(10^5\)。</p>
@@ -240,7 +235,7 @@
 </div>
 </div><h2 id="b1-dot-painting-the-array-i">B1. Painting the Array I</h2>
 <p>给定一个数组 \(a\)，要求将其划分为两个子序列 \(a^{(0)}, a^{(1)}\)，使得 \(seg(a^{(0)}) + seg(a^{(1)})\) 最大，其中 \(seg(a) = \sum [a_{i} \neq a_{i + 1}]\)。</p>
-<p>做法很多，学弟用的 DP，<a href="https://codeforces.com/blog/entry/87598">题解</a>给了一个形式化的证明。我的做法是首先将若干重复的串合并为两个，之后考虑什么情况下必定会出现 \(a^{(x)}_i = a^{(x))}_{i + 1}\)。对于两个成对出现的 $a_i = a<sub>i + 1</sub>, a<sub>j</sub> = a<sub>j + 1</sub>, i &lt; j$：若 \(a_{i} \neq a_{j}\)，那么就可以直接将两个均分给两个子序列；若 \(a_{i} = a_{j}\)，那么我们就需要两个数字将两个对隔开，这就需要至少两个连续的数字来隔开，且均不为 \(a_{i}\)。</p>
+<p>做法很多，学弟用的 DP，<a href="https://codeforces.com/blog/entry/87598">题解</a>给了一个形式化的证明。我的做法是首先将若干重复的串合并为两个，之后考虑什么情况下必定会出现 \(a^{(x)}_i = a^{(x)}_{i + 1}\)。对于两个成对出现的 \(a_i = a_{i + 1}, a_{j} = a_{j + 1}, i &lt; j\) ：若 \(a_{i} \neq a_{j}\)，那么就可以直接将两个均分给两个子序列；若 \(a_{i} = a_{j}\)，那么我们就需要两个数字将两个对隔开，这就需要至少两个连续的数字来隔开，且均不为 \(a_{i}\)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -502,7 +497,7 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2021-02-10
+        2021-07-03
         
     </span>
   </p>
