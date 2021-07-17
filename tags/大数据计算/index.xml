@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大数据计算 on 路遥柯的小站</title>
+    <link>https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/</link>
+    <description>Recent content in 大数据计算 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 02 Jan 2021 21:29:35 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>哈工大 2020 年大数据计算基础练习题</title>
+      <link>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</link>
+      <pubDate>Sat, 02 Jan 2021 21:29:35 +0800</pubDate>
+      
+      <guid>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</guid>
+      <description>&lt;p&gt;自己写的哈工大 2020 年大数据计算基础复习时的练习题。
+&lt;del&gt;答案保证一定有问题。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.cycleke.com/media/hit-2020-bigdata-practice/2020%E5%B9%B4%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0%E9%A2%98.pdf&#34;&gt;题目链接&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
