@@ -8,51 +8,51 @@
     <language>zh-cn</language>
     <lastBuildDate>Mon, 08 Feb 2021 19:58:38 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E4%BA%8C%E5%88%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Codeforces Round #700 (Div. 1)</title>
-      <link>https://blog.cycleke.com/post/544ffca2/</link>
+      <title>Codeforces Round #700 Div. 1</title>
+      <link>https://blog.cycleke.com/2021/02/codeforces-round-700-div-1/</link>
       <pubDate>Mon, 08 Feb 2021 19:58:38 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/544ffca2/</guid>
+      <guid>https://blog.cycleke.com/2021/02/codeforces-round-700-div-1/</guid>
       <description>A. Searching Local Minimum 交互题，查找数组的一个波谷，要求查询次数在 100 次内，数组长度为 \(10^5\)。 经典二分查找即可。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</description>
     </item>
     
     <item>
       <title>2019-2020 ICPC Northwestern European Regional Programming Contest (NWERC 2019)</title>
-      <link>https://blog.cycleke.com/post/e73492e8/</link>
+      <link>https://blog.cycleke.com/2020/12/2019-icpc-nwerc/</link>
       <pubDate>Tue, 01 Dec 2020 20:07:54 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/e73492e8/</guid>
+      <guid>https://blog.cycleke.com/2020/12/2019-icpc-nwerc/</guid>
       <description>A B C D E F G H I J K +9 +2 +1 02:03 03:00 01:06 00:20 00:52 02:59 00:12 A. Average Rank 给定 \(n\) 名选手和 \(w\) 周的时间内一些得分（每次加一分），询问每名选手的平均排名。 考虑每一个分数，其</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia Nanjing Regional</title>
-      <link>https://blog.cycleke.com/post/01ae1c45/</link>
+      <link>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</link>
       <pubDate>Fri, 23 Oct 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/01ae1c45/</guid>
+      <guid>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</guid>
       <description>A B C D E F G H I J K O Ø O x x O x x O Ø O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. A Hard Problem 选择较大的一半当作答案即可$⌈ \frac{n}{2} ⌉$</description>
     </item>
     
     <item>
-      <title>2016 ICPC 沈阳</title>
-      <link>https://blog.cycleke.com/post/d291d4d5/</link>
-      <pubDate>Sun, 15 Sep 2019 18:49:41 +0000</pubDate>
+      <title>The 2016 ACM-ICPC Asia Shenyang Regional Contest</title>
+      <link>https://blog.cycleke.com/2019/09/2016-icpc-shenyang/</link>
+      <pubDate>Sun, 15 Sep 2019 18:49:41 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/d291d4d5/</guid>
-      <description>&lt;h1 id=&#34;athickest-burger&#34;&gt;A.Thickest Burger&lt;/h1&gt;
+      <guid>https://blog.cycleke.com/2019/09/2016-icpc-shenyang/</guid>
+      <description>&lt;h2 id=&#34;athickest-burger&#34;&gt;A.Thickest Burger&lt;/h2&gt;
 &lt;p&gt;签到题，输出$max(a+2b,2a+b)$。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Codeforces Round #551 Div. 2</title>
-      <link>https://blog.cycleke.com/post/43db3ce0/</link>
-      <pubDate>Tue, 23 Apr 2019 22:54:40 +0000</pubDate>
+      <link>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</link>
+      <pubDate>Tue, 23 Apr 2019 22:54:40 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/43db3ce0/</guid>
-      <description>&lt;h1 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h1&gt;
+      <guid>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</guid>
+      <description>&lt;h2 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h2&gt;
 &lt;p&gt;算出 $t$ 之后每班车的最早时间，取最小值&lt;/p&gt;
-&lt;h1 id=&#34;b-serval-and-toy-bricks&#34;&gt;B. Serval and Toy Bricks&lt;/h1&gt;
+&lt;h2 id=&#34;b-serval-and-toy-bricks&#34;&gt;B. Serval and Toy Bricks&lt;/h2&gt;
 &lt;p&gt;每个有方块的位置尽可能取高，即 $\min(a[j], b[i])$&lt;/p&gt;</description>
     </item>
     

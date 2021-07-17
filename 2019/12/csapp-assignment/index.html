@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CS:APP 大作业 - 路遥柯的小站</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cycleke" /><meta name="description" content="摘 要
+本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
+关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；
+" /><meta name="keywords" content="cycleke, 路遥柯" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.85.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.cycleke.com/2019/12/csapp-assignment/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="CS:APP 大作业" />
+<meta property="og:description" content="摘 要
+本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
+关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.cycleke.com/2019/12/csapp-assignment/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-12-15T20:52:30+08:00" />
+<meta property="article:modified_time" content="2019-12-15T20:52:30+08:00" />
+
+<meta itemprop="name" content="CS:APP 大作业">
+<meta itemprop="description" content="摘 要
+本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
+关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；"><meta itemprop="datePublished" content="2019-12-15T20:52:30+08:00" />
+<meta itemprop="dateModified" content="2019-12-15T20:52:30+08:00" />
+<meta itemprop="wordCount" content="15453">
+<meta itemprop="keywords" content="CSAPP," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CS:APP 大作业"/>
+<meta name="twitter:description" content="摘 要
+本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
+关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">路遥柯</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">路遥柯</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CS:APP 大作业</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-15 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"> 课程学习 </a>
+            </div>
+          <span class="more-meta"> 约 15453 字 </span>
+          <span class="more-meta"> 预计阅读 31 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第-1-章-概述">第 1 章 概述</a>
+          <ul>
+            <li><a href="#11-hello-简介">1.1 Hello 简介</a></li>
+            <li><a href="#12-环境与工具">1.2 环境与工具</a></li>
+            <li><a href="#13-中间结果">1.3 中间结果</a></li>
+            <li><a href="#14-本章小结">1.4 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-2-章-预处理">第 2 章 预处理</a>
+          <ul>
+            <li><a href="#21-预处理的概念与作用">2.1 预处理的概念与作用</a></li>
+            <li><a href="#22-在-ubuntu-下预处理的命令">2.2 在 Ubuntu 下预处理的命令</a></li>
+            <li><a href="#23-hello-的预处理结果解析">2.3 Hello 的预处理结果解析</a></li>
+            <li><a href="#24-本章小结">2.4 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-3-章-编译">第 3 章 编译</a>
+          <ul>
+            <li><a href="#31-编译的概念与作用">3.1 编译的概念与作用</a></li>
+            <li><a href="#32-在-ubuntu-下编译的命令">3.2 在 Ubuntu 下编译的命令</a></li>
+            <li><a href="#33-hello-的编译结果解析">3.3 Hello 的编译结果解析</a></li>
+            <li><a href="#34-本章小结">3.4 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-4-章-汇编">第 4 章 汇编</a>
+          <ul>
+            <li><a href="#41-汇编的概念与作用">4.1 汇编的概念与作用</a></li>
+            <li><a href="#42-在-ubuntu-下汇编的命令">4.2 在 Ubuntu 下汇编的命令</a></li>
+            <li><a href="#43-可重定位目标-elf-格式">4.3 可重定位目标 elf 格式</a></li>
+            <li><a href="#44-helloo-的结果解析">4.4 Hello.o 的结果解析</a></li>
+            <li><a href="#45-本章小结">4.5 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-5-章-链接">第 5 章 链接</a>
+          <ul>
+            <li><a href="#51-链接的概念与作用">5.1 链接的概念与作用</a></li>
+            <li><a href="#52-在-ubuntu-下链接的命令">5.2 在 Ubuntu 下链接的命令</a></li>
+            <li><a href="#53-可执行目标文件-hello-的格式">5.3 可执行目标文件 hello 的格式</a></li>
+            <li><a href="#54-hello-的虚拟地址空间">5.4 hello 的虚拟地址空间</a></li>
+            <li><a href="#55-链接的重定位过程分析">5.5 链接的重定位过程分析</a></li>
+            <li><a href="#56-hello-的执行流程">5.6 hello 的执行流程</a></li>
+            <li><a href="#57-hello-的动态链接分析">5.7 Hello 的动态链接分析</a></li>
+            <li><a href="#58-本章小结">5.8 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-6-章-hello-进程管理">第 6 章 hello 进程管理</a>
+          <ul>
+            <li><a href="#61-进程的概念与作用">6.1 进程的概念与作用</a></li>
+            <li><a href="#62-简述壳-shell-bash-的作用与处理流程">6.2 简述壳 Shell-bash 的作用与处理流程</a></li>
+            <li><a href="#63-hello-的-fork-进程创建过程">6.3 Hello 的 fork 进程创建过程</a></li>
+            <li><a href="#64-hello-的-execve-过程">6.4 Hello 的 execve 过程</a></li>
+            <li><a href="#65-hello-的进程执行">6.5 Hello 的进程执行</a></li>
+            <li><a href="#66-hello-的异常与信号处理">6.6 hello 的异常与信号处理</a></li>
+            <li><a href="#67-本章小结">6.7 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-7-章-hello-的存储管理">第 7 章 hello 的存储管理</a>
+          <ul>
+            <li><a href="#71-hello-的存储器地址空间">7.1 hello 的存储器地址空间</a></li>
+            <li><a href="#72-intel-逻辑地址到线性地址的变换-段式管理">7.2 Intel 逻辑地址到线性地址的变换-段式管理</a></li>
+            <li><a href="#73-hello-的线性地址到物理地址的变换-页式管理">7.3 Hello 的线性地址到物理地址的变换-页式管理</a></li>
+            <li><a href="#74-tlb-与四级页表支持下的-va-到-pa-的变换">7.4 TLB 与四级页表支持下的 VA 到 PA 的变换</a></li>
+            <li><a href="#75-三级-cache-支持下的物理内存访问">7.5 三级 Cache 支持下的物理内存访问</a></li>
+            <li><a href="#76-hello-进程-fork-时的内存映射">7.6 hello 进程 fork 时的内存映射</a></li>
+            <li><a href="#77-hello-进程-execve-时的内存映射">7.7 hello 进程 execve 时的内存映射</a></li>
+            <li><a href="#78-缺页故障与缺页中断处理">7.8 缺页故障与缺页中断处理</a></li>
+            <li><a href="#79-动态存储分配管理">7.9 动态存储分配管理</a></li>
+            <li><a href="#710-本章小结">7.10 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#第-8-章-hello-的-io-管理">第 8 章 hello 的 IO 管理</a>
+          <ul>
+            <li><a href="#81-linux-的-io-设备管理方法">8.1 Linux 的 IO 设备管理方法</a></li>
+            <li><a href="#82-简述-unix-io-接口及其函数">8.2 简述 Unix IO 接口及其函数</a></li>
+            <li><a href="#83-printf-的实现分析">8.3 printf 的实现分析</a></li>
+            <li><a href="#84-getchar-的实现分析">8.4 getchar 的实现分析</a></li>
+            <li><a href="#85-本章小结">8.5 本章小结</a></li>
+          </ul>
+        </li>
+        <li><a href="#结论">结论</a></li>
+        <li><a href="#附件">附件</a></li>
+        <li><a href="#参考文献">参考文献</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-15T20:52:30" title="December 15, 2019">December 15, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+    <div class="post-content">
+      <p><strong>摘 要</strong></p>
+<p>本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。</p>
+<p><strong>关键词：</strong> 预处理；编译；汇编； 链接；进程；内存管理；IO；</p>
+<h2 id="第-1-章-概述">第 1 章 概述</h2>
+<h3 id="11-hello-简介">1.1 Hello 简介</h3>
+<p>P2P：GCC 编译器驱动程序读取源代码文件 hello.c，并且把它翻译成一个可执行文件 hello。这个翻译过程可以划分为四个阶段：</p>
+<p>预处理阶段：预处理器（cpp）根据以字符#开头的命令，修改原始的 C 程序，将#include 命令包含的头文件/源代码读取并把它直接插入程序文本中。结果就得到了另一个 C 程序 hello.i；</p>
+<p>编译阶段：编译器（ccl）将文本文件 hello.i 翻译成文本文件 hello.s，它包含一个汇编语言程序；</p>
+<p>汇编阶段：接下来，汇编器（as）将 hello.s 翻译成机器语言指令，把这些指令打包成一种叫做可重定位目标程序的格式，并将结果保存在目标文件 hello.o 中。它是一个二进制文件；</p>
+<p>链接阶段：最后，链接器（ld）将程序与函数库中需要使用的二进制文件进行链接，形成可执行目标程序二进制文件。</p>
+<p>之后执行该文件会将该文件加载在内存中，由系统执行。操作系统会使用 fork 函数形成一个子进程，分配相应的内存资源，使用 execve 函数加载进程（Process），完成 P2P（From Program to Process）过程。</p>
+<p>O2O：hello 运行时系统会为其分配对应的虚拟内存空间。Hello 读取数据时通过层层存储结构，下一级作为上一级的缓存，使数据可以到达 CPU 进行处理。系统会删除当前虚拟地址的用户部分已存在的数据结构，为 hello 创建新的区域结构。程序运行完成后系统会回收 hello 进程并且删除内存中对应的数据，完成 O2O（From Zero-0 to Zero-0）过程。</p>
+<h3 id="12-环境与工具">1.2 环境与工具</h3>
+<h4 id="121-硬件环境">1.2.1 硬件环境</h4>
+<p>小米笔记本电脑 Pro 15.6&quot;</p>
+<p>CPU: Intel(R)_Core(TM)_i5-8250U_CPU_@_1.60GHz</p>
+<p>内存(RAM): 8GB</p>
+<p>硬盘: SAMSUNG_MZVLW256</p>
+<h4 id="122-软件环境">1.2.2 软件环境</h4>
+<p>Microsoft Windows 10 家庭中文版 10.0.17763 64 位</p>
+<p>Ubuntu 18.04 LTS 64 位</p>
+<p>Oracle VM VirtualBox 6.0.12 r133076 (Qt5.6.2)</p>
+<h4 id="123-开发工具">1.2.3 开发工具</h4>
+<p>gcc (GCC) 9.2.0</p>
+<p>GNU Make 4.2.1</p>
+<p>GNU Emacs 26.3</p>
+<h3 id="13-中间结果">1.3 中间结果</h3>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hello.c</td>
+<td>源代码</td>
+</tr>
+<tr>
+<td>hello.i</td>
+<td>hello.c 预处理生成的文本文件</td>
+</tr>
+<tr>
+<td>hello.s</td>
+<td>hello.i 编译后得到的汇编语言文本文件</td>
+</tr>
+<tr>
+<td>hello.o</td>
+<td>hello.s 汇编后得到的可重定位目标文件</td>
+</tr>
+<tr>
+<td>hello</td>
+<td>hello.o 链接后得到的汇编语言文本文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-本章小结">1.4 本章小结</h3>
+<p>本章简述了 hello 的 P2P，O2O 过程，介绍了编写本文时的工作环境。</p>
+<h2 id="第-2-章-预处理">第 2 章 预处理</h2>
+<h3 id="21-预处理的概念与作用">2.1 预处理的概念与作用</h3>
+<p>概念：编译预处理器（cpp）根据以字符#开头命令，修改原始 c 程序。比如 hello.c 中第六行，#include&lt;stdio.h&gt;命令告诉预处理器读取系统头文件 stdio.h 的内容，并直接插入程序文本，就得到了另一个 C 程序，以.i 为文件扩展名。</p>
+<p>作用：用于在编译器处理程序之前预扫描源代码，完成头文件的包含, 宏扩展, 条件编译, 行控制（line control）等操作，便于编译器进行翻译。</p>
+<h3 id="22-在-ubuntu-下预处理的命令">2.2 在 Ubuntu 下预处理的命令</h3>
+<p>Ubuntu 下可以使用 gcc 指令预处理，也可以直接使用 cpp 指令预处理。</p>
+<p><img src="/media/csapp-assignment/img/image2.jpeg" alt="2.2"></p>
+<h3 id="23-hello-的预处理结果解析">2.3 Hello 的预处理结果解析</h3>
+<p><img src="/media/csapp-assignment/img/image3.jpeg" alt="2.3_1">
+<img src="/media/csapp-assignment/img/image4.jpeg" alt="2.3_2"></p>
+<p>经过预处理后的 hello.i 变为 3035 行，远大于 hello.c 的 23 行。原本的#include 全部消失，变为 stdio.h 等头文件的代码。同时 hello.c 中对于代码翻译无意义的注释也消失。但是我们原本写的主要代码基本没变。</p>
+<h3 id="24-本章小结">2.4 本章小结</h3>
+<p>本章主要介绍了预处理的概念以及作用，并通过 hello.c 以及预处理后 hello.i 的文件对比，对 hello 预处理结果进行解析，深入的了解了预处理过程的相关知识点，为接下来的处理步骤做准备。</p>
+<h2 id="第-3-章-编译">第 3 章 编译</h2>
+<h3 id="31-编译的概念与作用">3.1 编译的概念与作用</h3>
+<p>概念：编译器会将某种编程语言写成的源代码转换成另一种编程语言,如 ccl 将预处理后的.i 文本文件翻译为.s 文本文件。.s 文本文件包含一个汇编语言程序。</p>
+<p>作用：编译程序把一个源程序翻译成目标程序的工作过程分为五个阶段：词法分析；语法分析；语义检查和中间代码生成；代码优化；目标代码生成。</p>
+<p>编译器会检查代码是否有一些简单的语法错误，还会对代码进行优化，以生成较短的目标代码，充分利用计算机中的寄存器，减少目标代码访问存储单元的次数，充分利用计算机指令系统的特点，以提高目标代码的质量。</p>
+<h3 id="32-在-ubuntu-下编译的命令">3.2 在 Ubuntu 下编译的命令</h3>
+<p>Ubuntu 下可以使用 gcc 编译</p>
+<p><img src="/media/csapp-assignment/img/image5.jpeg" alt="3.2"></p>
+<h3 id="33-hello-的编译结果解析">3.3 Hello 的编译结果解析</h3>
+<h4 id="331-数据">3.3.1. 数据</h4>
+<p>hello.c 中有用到的 C 数据类型有：整型，字符串和数组。</p>
+<h5 id="3311-整型">3.3.1.1 整型</h5>
+<ol>
+<li>临时变量 i：编译器将局部变量存储在栈上，在 hello.s 中，我们可以发现 i 通过-4(%rbp)访问。</li>
+</ol>
+<p><img src="/media/csapp-assignment/img/image6.jpeg" alt="3.3_1"></p>
+<ol start="2">
+<li>传入参数 argc：作为第一个参数传入，存储在栈上，在 hello.s 中，我们可以通过-20(%rbp)访问。</li>
+</ol>
+<p><img src="/media/csapp-assignment/img/image7.jpeg" alt="3.3_2"></p>
+<ol start="3">
+<li>立即数：其他整形数据的出现都是以立即数的形式出现的，直接硬编码在汇编代码中。</li>
+</ol>
+<h5 id="3312-字符串">3.3.1.2 字符串</h5>
+<p>hello.c 中包含两个字符串，出现在 printf 中，即：</p>
+<ol>
+<li>
+<p>printf(&quot;用法: Hello 学号 姓名 秒数！\n&quot;);</p>
+</li>
+<li>
+<p>printf(&quot;Hello %s %s\n&quot;, argv[1], argv[2]);</p>
+</li>
+</ol>
+<p>字符串都声明在.section 与.rodata 中，在 hello.s 中以如下形式出现：</p>
+<p><img src="/media/csapp-assignment/img/image8.jpeg" alt="3.3_3"></p>
+<p>其中汉字以 UTF8 编码存储，一个汉字在 utf-8 编码中占三个字节，一个\xxx 代表一个字节。</p>
+<h5 id="3313-数组">3.3.1.3 数组</h5>
+<p>传入参数 argv：作为第二个参数传入，是一个字符串数组，存储在栈上，在 hello.s 中，我们可以通过-32(%rbp)访问。</p>
+<p><img src="/media/csapp-assignment/img/image9.jpeg" alt="3.3_4"></p>
+<h4 id="332-赋值">3.3.2 赋值</h4>
+<p>Line 17: i = 0，通过 mov 指令实现，将一个立即数传入一个内存地址。</p>
+<p><img src="/media/csapp-assignment/img/image6.jpeg" alt="3.3_1"></p>
+<h4 id="333-算术操作">3.3.3 算术操作</h4>
+<p>Line 17: i++，加法通过 add 指令实现，add a b 实现 b = b + a，所以 hello.s 中对应的代码如下：</p>
+<p><img src="/media/csapp-assignment/img/image10.jpeg" alt="3.3_5"></p>
+<h4 id="334-关系操作">3.3.4 关系操作</h4>
+<p>hello.c 中有用到的关系操作有：&quot;!=&ldquo;和&rdquo;&lt;&quot;。</p>
+<ol>
+<li>&ldquo;!=&ldquo;运算 比较通过 cmp 来实现，指令根据两个操作数之间的差值来设置条件码。如果两个操作数相等，则标记条件码 ZF=1，表示两个数是相等的。如果第一个操作数比第二个小，则设置条件码 SF=1,表示比较结果为负数，计算机会根据这些条件码来决定跳转。所以&rdquo;!=&ldquo;通过如下代码实现：</li>
+</ol>
+<p><img src="/media/csapp-assignment/img/image11.jpeg" alt="3.3_6"></p>
+<ol start="2">
+<li>&ldquo;&lt;&ldquo;运算 类比与&rdquo;!=&ldquo;实现：</li>
+</ol>
+<p><img src="/media/csapp-assignment/img/image12.jpeg" alt="3.3_7"></p>
+<h4 id="335-数组操作">3.3.5 数组操作</h4>
+<p>hello.c 中只对 argv 数组进行访问，通过()间接寻址，每次通过对%rax 获得 argv+x 的值，然后通过(%rax)访问 argv[x]。</p>
+<p><img src="/media/csapp-assignment/img/image13.jpeg" alt="3.3_8"></p>
+<h4 id="336-控制转移">3.3.6 控制转移</h4>
+<p>hello.c 中涉及 if 和 for 的控制转移。</p>
+<ol>
+<li>Line 13: if (argc != 4)</li>
+</ol>
+<p>通过 cmpl $4, -20(%rbp)进行判断，然后 je 跳转。</p>
+<p><img src="/media/csapp-assignment/img/image14.jpeg" alt="3.3_9"></p>
+<ol start="2">
+<li>Line 17: for(i = 0; i &lt; 8; i++)</li>
+</ol>
+<p>循环首先通过 movl $0, -4(%rbp)初始化，通过 cmpl $7, -4(%rbp)进行判断，利用 addl $1, -4(%rbp)迭代。</p>
+<p><img src="/media/csapp-assignment/img/image15.jpeg" alt="3.3_10"></p>
+<h4 id="337-函数操作">3.3.7 函数操作</h4>
+<p>hello.c 中涉及函数 main，printf，exit，sleep，atoi 和 getchar。</p>
+<ol>
+<li>main 函数</li>
+</ol>
+<p>main 是整个程序的入口，系统传入参数 argc，argv，通过寄存器%rdi（%edi）和%rsi 传入，在开始时将这两个参数圧入栈中便于使用寄存器，由系统调用。</p>
+<p><img src="/media/csapp-assignment/img/image16.jpeg" alt="3.3_11"></p>
+<p>最后 main 函数返回值为 0，通过%rax（%eax）。</p>
+<p><img src="/media/csapp-assignment/img/image17.jpeg" alt="3.3_14"></p>
+<ol start="2">
+<li>prinft 函数</li>
+</ol>
+<p>调用第一个 prinft 函数时：</p>
+<p><img src="/media/csapp-assignment/img/image18.jpeg" alt="3.3_12"></p>
+<p>其对应的汇编代码如下：</p>
+<p><img src="/media/csapp-assignment/img/image19.jpeg" alt="3.3_13"></p>
+<p>其中$.LC0 就是字符串&quot;用法: Hello 学号 姓名 秒数！&quot;对应的地址，由于原字符串以'\n'结束，且 printf 没有其他参数用于格式化，所以编译器优化为 puts 函数。</p>
+<p>观察第二个 printf 函数（第一个在分析 main 时有过简单分析），它传入的参数有三个字符串，其中第一个是一个常字符串，后两个从 argv 数组中读取。</p>
+<p><img src="/media/csapp-assignment/img/image20.jpeg" alt="3.3_15"></p>
+<p>由于 argv 已经被圧入栈了，所以要通过-32(%rbp)+bias 来访问。然后我们就可以将参数放入%rdi（%edi）、%rsi 和%rdx 三个寄存器中。</p>
+<p><img src="/media/csapp-assignment/img/image21.jpeg" alt="3.3_16"></p>
+<p>这两个函数均通过 call 指令调用，被调用后会在屏幕输出两个字符串，它们的会返回打印的字符总个数，但是我们并未使用。</p>
+<ol start="3">
+<li>exit 函数</li>
+</ol>
+<p>exit 的作用是直接结束程序，传入的参数就是整个程序的返回值，同样通过%edi 传入。</p>
+<p><img src="/media/csapp-assignment/img/image22.jpeg" alt="3.3_17"></p>
+<p><img src="/media/csapp-assignment/img/image23.jpeg" alt="3.3_18"></p>
+<p>exit 无返回值，直接退出了程序。</p>
+<ol start="4">
+<li>sleep 函数</li>
+</ol>
+<p>sleep 传入的参数是 atoi 的返回值，通过%edi 传入。</p>
+<p><img src="/media/csapp-assignment/img/image24.jpeg" alt="3.3_19"></p>
+<p><img src="/media/csapp-assignment/img/image25.jpeg" alt="3.3_20"></p>
+<p>sleep 会返回还有多少秒未 sleep（如被信号打断，没有则返回 0），但是我们没有使用。</p>
+<ol start="5">
+<li>atoi 函数</li>
+</ol>
+<p>atoi 传入的参数是一个字符串 argv[3]，通过%rdi 传入。</p>
+<p><img src="/media/csapp-assignment/img/image24.jpeg" alt="3.3_19"></p>
+<p><img src="/media/csapp-assignment/img/image26.jpeg" alt="3.3_21"></p>
+<p>atoi 的返回值为 argv[3]对应的数字，保存在寄存器%eax 中。</p>
+<ol start="6">
+<li>getchar 函数</li>
+</ol>
+<p>getchar 不需要参数，直接调用，会返回输入的字符，保存在寄存器%eax 中。。</p>
+<p><img src="/media/csapp-assignment/img/image27.jpeg" alt="3.3_22"></p>
+<p><img src="/media/csapp-assignment/img/image28.jpeg" alt="3.3_23"></p>
+<h3 id="34-本章小结">3.4 本章小结</h3>
+<p>本章介绍了编译器的概念和作用，ccl 将 hello.i 转换为 hello.s，得到一个汇编语言程序，通过分析 C 语言的各个数据类型以及各类操作对应的汇编代码，进而进行汇编阶段。</p>
+<h2 id="第-4-章-汇编">第 4 章 汇编</h2>
+<h3 id="41-汇编的概念与作用">4.1 汇编的概念与作用</h3>
+<p>概念：将汇编程序.s 文件转化为二进制机器码文件.o 的过程叫做汇编，它把汇编指令打包成一种叫做可重定位目标程序的格式。</p>
+<p>作用：通过这个过程，我们可以将汇编代码转化为机器可以理解的机器码。</p>
+<h3 id="42-在-ubuntu-下汇编的命令">4.2 在 Ubuntu 下汇编的命令</h3>
+<p>在 Ubuntu 下我们可以通过 as 汇编，也可以通过 gcc 进行。</p>
+<p><img src="/media/csapp-assignment/img/image29.jpeg" alt="4.2"></p>
+<h3 id="43-可重定位目标-elf-格式">4.3 可重定位目标 elf 格式</h3>
+<p><img src="/media/csapp-assignment/img/image30.jpeg" alt="4.3_6"></p>
+<p>通过 readelf 读取 hello.o：</p>
+<p><img src="/media/csapp-assignment/img/image31.jpeg" alt="4.3_1"></p>
+<h4 id="431-elf-头">4.3.1 ELF 头</h4>
+<p>ELF 头以一个 16 字节的序列开始，这个序列描述了生成该文件的系统的节的大小和字节顺序。ELF 头剩下的部分包含帮助链接器.语法分析和解释目标文件的信息。其中包括 ELF 头的大小、目标文件的类型、机器类型、节头部表的文件偏移、以及节头部表的大小和数目。</p>
+<p><img src="/media/csapp-assignment/img/image32.jpeg" alt="4.3_2"></p>
+<p>当我们从汇编代码变为了机器代码，程序就真正变成了计算机可以理解的程序，我们也知道了我们的程序真正在计算机中是以什么存储的。机器代码与汇编代码会根据 cpu 的指令集，产生一个对应，我们也能通过 objdump 这样的反汇编工具查看机器码对应的汇编码，不过这里对代码已经与我们.s 里的汇编代码有了些不同，已经在汇编过程中我们的代码变成了 ELF 格式，代码被放在代码段，全局变量放在.data 段，通过重定位条目得到每个符号不同偏移量，去不同的段找到我们想要的信息。</p>
+<h4 id="432-节头部表">4.3.2 节头部表</h4>
+<p>节头部表，用于描述目标文件的节，包含了文件中出现的各个节的语义，包括节的类型、位置和大小等信息。</p>
+<p><img src="/media/csapp-assignment/img/image33.jpeg" alt="4.3_3"></p>
+<h4 id="433-重定位节">4.3.3 重定位节</h4>
+<p>.rela.text：一个.text 节中位置的列表，包含.text 节中需要进行重定位的信息，当链接器把这个目标文件和其他文件组合时，需要修改这些位置。如下图就存储了两个字符串和 puts、exit 等需要重定位的常量\函数以及对应的偏移量。</p>
+<p><img src="/media/csapp-assignment/img/image34.jpeg" alt="4.3_4"></p>
+<p>.rela.eh_frame：这个 section 同.rel.text 一样属于重定位信息的 section，只不过它包含的是 eh_frame 的重定位信息，保存了一些调试信息。</p>
+<p><img src="/media/csapp-assignment/img/image35.jpeg" alt="4.3_5"></p>
+<h3 id="44-helloo-的结果解析">4.4 Hello.o 的结果解析</h3>
+<p>使用 objdump 反汇编的结果如下：</p>
+<p><img src="/media/csapp-assignment/img/image36.jpeg" alt="4.4_1"></p>
+<p>与第 3 章的 hello.s 进行对照我们会发现：</p>
+<ol>
+<li>伪指令消失</li>
+</ol>
+<p>原本 hello.s 中的许多以'.'开始的伪指令，如下图所示，都消失了。</p>
+<p><img src="/media/csapp-assignment/img/image16.jpeg" alt="3.3_11"></p>
+<ol start="2">
+<li>条件分支变化</li>
+</ol>
+<p>在 hello.s 中的段名称（如.L1、.L2）全部消失，取而代之的则是确定的相对偏移地址。如原本 hello.s 中的.L3 变为 7c&lt;main+0x7c&gt;。</p>
+<p><img src="/media/csapp-assignment/img/image37.jpeg" alt="4.4_2">
+<img src="/media/csapp-assignment/img/image38.jpeg" alt="4.4_3"></p>
+<ol start="3">
+<li>函数调用变化</li>
+</ol>
+<p>在 hello.s 中，我们调用 puts 等来自静态库或者其他的文件，需要进行链接才能调用的函数时，直接 call+函数名，但是在反汇编的代码中我们发现对应的机器码是 e8 00 00 00 00（即 call 0），反汇编的汇编指令是 call+相对地址，后面添加注释便于重定位。</p>
+<p><img src="/media/csapp-assignment/img/image39.jpeg" alt="4.4_4">
+<img src="/media/csapp-assignment/img/image40.jpeg" alt="4.4_5"></p>
+<ol start="4">
+<li>数据访问变化</li>
+</ol>
+<p>在 hello.s 中，我们访问字符串常量是通过一些助记符访问的。而在反汇编的代码中是通过 0x0(%rip)访问，同样有注释，便于重定位。</p>
+<p><img src="/media/csapp-assignment/img/image41.jpeg" alt="4.4_6"></p>
+<p><img src="/media/csapp-assignment/img/image42.jpeg" alt="4.4_7"></p>
+<h3 id="45-本章小结">4.5 本章小结</h3>
+<p>本章介绍了汇编。汇编器（as）将汇编代码 hello.s 转化为可重定位目标文件 hello.o，得到一个可以用于链接的二进制文件。通过 readelf 我们可以查看 hello.o 的 elf 信息和重定位信息。通过对比 hello.o 的反汇编和第 3 章的 hello.s，对汇编过程有更深的理解。</p>
+<h2 id="第-5-章-链接">第 5 章 链接</h2>
+<h3 id="51-链接的概念与作用">5.1 链接的概念与作用</h3>
+<p>概念：链接是一个或多个由编译器或汇编器生成的目标文件外加库链接为一个可执行文件的过程。</p>
+<p>作用：链接器可以解析未定义的符号引用，将目标文件中的占位符替换为符号的地址。链接器还要完成程序中各目标文件的地址空间的组织，这可能涉及重定位工作。通过增量链接还可以使大型项目编译时分离编译，修改单个文件只用编译那个文件后链接，而不用重新编译整个项目，节省编译时间。</p>
+<h3 id="52-在-ubuntu-下链接的命令">5.2 在 Ubuntu 下链接的命令</h3>
+<p>使用 ld 的链接命令：</p>
+<p><img src="/media/csapp-assignment/img/image43.jpeg" alt="5.2"></p>
+<h3 id="53-可执行目标文件-hello-的格式">5.3 可执行目标文件 hello 的格式</h3>
+<p><img src="/media/csapp-assignment/img/image44.jpeg" alt="5.3_2"></p>
+<p>通过 readelf 可以查看 hello 的 ELF 格式。</p>
+<h4 id="531-elf-头">5.3.1 ELF 头</h4>
+<p>ELF 头以一个 16 字节的序列开始，这个序列描述了生成该文件的系统的节的大小和字节顺序。ELF 头剩下的部分还包括 ELF 头的大小、目标文件的类型、机器类型、节头部表的文件偏移、以及节头部表的大小和数目。</p>
+<p><img src="/media/csapp-assignment/img/image45.jpeg" alt="5.3_1"></p>
+<h4 id="532-节头部表">5.3.2 节头部表</h4>
+<p><img src="/media/csapp-assignment/img/image46.jpeg" alt="5.3_3"></p>
+<p>我们会发现相比与 hello.o，hello 的节头部表有 25 项，比 hello.o 多了 12 项。节头部表对 hello 中所有的节信息进行了声明，包括大小 size 以及在程序中的偏移量 offset，大小、全体大小、旗标、链接、信息、对齐等信息，并可以根据此定位各个节所占的区间。</p>
+<p>注意：</p>
+<p>(1) 由于链接时使用的是动态链接，所以 hello 可执行文件仍然具有.rela.*的重定位节，便于使用动态链接共享库。</p>
+<p>(2) .init 节定义了一个小函数_init，程序的初始化代码会调用它。</p>
+<h4 id="533-程序头部表">5.3.3 程序头部表</h4>
+<p><img src="/media/csapp-assignment/img/image47.jpeg" alt="5.3_4"></p>
+<p>程序头部表描述了可执行文件的连续的片和连续的内存段的映射关系。</p>
+<h3 id="54-hello-的虚拟地址空间">5.4 hello 的虚拟地址空间</h3>
+<p>使用 edb 加载 hello，查看本进程的虚拟地址空间各段信息，hello 的虚拟地址从 0x0000000000400000。</p>
+<p><img src="/media/csapp-assignment/img/image48.jpeg" alt="5.4_1"></p>
+<p>(1) PHDR：起始位置为 0x400040，大小为 0x230。</p>
+<p><img src="/media/csapp-assignment/img/image49.jpeg" alt="5.4_2"></p>
+<p>(2) INTERP：起始位置为 0x400270，大小为 0x1c。</p>
+<p><img src="/media/csapp-assignment/img/image50.jpeg" alt="5.4_3"></p>
+<p>(3) LOAD：起始位置为 0x400000，大小为 0x530。</p>
+<p><img src="/media/csapp-assignment/img/image51.jpeg" alt="5.4_4"></p>
+<p>其他段同理可以查找到对应的内存区间。</p>
+<h3 id="55-链接的重定位过程分析">5.5 链接的重定位过程分析</h3>
+<p>使用 objdump -d -r hello &gt; hello.d 得到 hello 的反汇编的代码。</p>
+<p><img src="/media/csapp-assignment/img/image52.jpeg" alt="5.5_1"></p>
+<p>对比与反汇编 hello.o 得到的代码可以发现：</p>
+<p>(1) hello 的反汇编代码含有更多的函数。hello.o 的反汇编代码中只有一个函数 main，而在 hello 的反汇编代码中还出现了_init，.plt，puts@plt 等函数。很多外部的被 hello.c 调用的函数以及一些初始函数（如_init）都被链接到 hello 中。</p>
+<p><img src="/media/csapp-assignment/img/image53.jpeg" alt="5.5_2"></p>
+<p>(2) 函数调用变化。在 hello.o 中函数的地址是不确定的，但是在 hello 中外部函数调用的地址确定，不再是 0。如 puts 的地址就明确为 0x401030。</p>
+<p><img src="/media/csapp-assignment/img/image54.jpeg" alt="5.5_3"></p>
+<p>(3) 数据引用变化。和函数类似，hello.o 中一些数据的地址是不确定的，但是在 hello 中它们的地址确定了。如.rodata+0x22 的地址就明确为 0x40202e。</p>
+<p><img src="/media/csapp-assignment/img/image55.jpeg" alt="5.5_4"></p>
+<p>通过上面的分析可以得出在重定位过程中，链接器在完成符号解析以后，就把代码中的每个符号引用和正好一个符号定义（即它的一个输入目标模块中的一个符号表条目）关联起来。此时，链接器就知道它的输入目标模块中的代码节和数据节的确切大小。然后就可以开始重定位步骤了，在这个步骤中，将合并输入模块，并为每个符号分配运行时的地址。重定位由两步组成：</p>
+<p>(1) 首先是重定位节和符号定义，链接器将所有输入到相同类型的节合并为同一类型的新的聚合节。例如，来自所有的输入模块的.data 节被全部合并成一个节，这个节成为 hello 的.data 节。然后，链接器将运行时内存地址赋给新的聚合节，赋给输入模块定义的每个节，以及赋给输入模块定义的每一个符号。当这一步完成时，程序中的每条指令和全局变量都有唯一的运行时内存地址了。</p>
+<p>(2) 然后是重定位节中的符号引用，链接器会修改代码节和数据节中对每一个符号的引用，使得他们指向正确的运行地址。</p>
+<h3 id="56-hello-的执行流程">5.6 hello 的执行流程</h3>
+<table>
+<thead>
+<tr>
+<th>程序名</th>
+<th>程序地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加载 hello</td>
+<td></td>
+</tr>
+<tr>
+<td>ld-linux-x86-64.so!_dl_start</td>
+<td>0x00007ffff7fd4d30</td>
+</tr>
+<tr>
+<td>ld-linux-x86-64.so!_dl_init</td>
+<td>0x00007ffff7fe27b0</td>
+</tr>
+<tr>
+<td>hello!_start</td>
+<td>0x0000000000401090</td>
+</tr>
+<tr>
+<td>hello!__libc_csu_init</td>
+<td>0x00000000004010d0</td>
+</tr>
+<tr>
+<td>hello!_init</td>
+<td>0x0000000000401000</td>
+</tr>
+<tr>
+<td>libc.so!_setjmp</td>
+<td>0x00007ffff7e08b10</td>
+</tr>
+<tr>
+<td>程序运行</td>
+<td></td>
+</tr>
+<tr>
+<td>hello!main</td>
+<td>0x0000000000401149</td>
+</tr>
+<tr>
+<td>hello!puts@plt</td>
+<td>0x0000000000401030</td>
+</tr>
+<tr>
+<td>ld-linux-x86-64.so!_dl_runtime_resolve_xsave</td>
+<td>0x00007ffff7fe87a0</td>
+</tr>
+<tr>
+<td>ld-linux-x86-64.so!_dl_fixup</td>
+<td>0x00007ffff7fe1de0</td>
+</tr>
+<tr>
+<td>ld-linux-x86-64.so!_dl_lookup_symbol_x</td>
+<td>0x00007ffff7fdd610</td>
+</tr>
+<tr>
+<td>退出程序</td>
+<td></td>
+</tr>
+<tr>
+<td>hello!exit@plt</td>
+<td>0x0000000000401070</td>
+</tr>
+<tr>
+<td>libc.so!exit</td>
+<td>0x00007ffff7e0b840</td>
+</tr>
+<tr>
+<td>hello!_fini</td>
+<td>0x00000000004011d4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="57-hello-的动态链接分析">5.7 Hello 的动态链接分析</h3>
+<p>函数调用一个由共享库定义的函数时，编译器无法预先判断出函数的地址，因为定义它的共享模块在运行时可以加载到任意位置。GNU 编译系统使用延迟绑定的方式解决该问题，在运行时动态载入。</p>
+<p>延迟绑定通过两个数据结构之间简洁但又有些复杂的交互来实现，即过程链接表（PLT）和全局偏移量表（GOT）。</p>
+<p>过程链接表（PLT）：PLT 是一个数组，其中每个条目是 16 字节代码。PLT [0]是一个特殊条目，它跳转到动态链接器中。每个被可执行程序调用的库函数都有它自己的 PLT 条目。每个条目都负责调用一个具体的函数。每个条目都负责调用一个具体的函数。</p>
+<p>全局偏移量表（GOT）：GOT 是一个数组，其中每个条目是 8 字节地址。和 PLT 联合使用时，GOT [0]和 GOT [1]包含动态链接器在解析函数地址时会使用的信息。GOT [2]是动态链接器在 1d-linux.so 模块中的入口点。其余的每个条目对应于一个被调用的函数，其地址需要在运行时被解析。每个条目都有一个相匹配的 PLT 条目。</p>
+<p>通过 readelf 获得的节头部表可以知道.got.plt 的起始位置为 0x0000000000404000。在调用_dl_start 之前对应的内存为：</p>
+<p><img src="/media/csapp-assignment/img/image56.jpeg" alt="5.7_1"></p>
+<p>对应的内存全为 0，而_dl_start 之后：</p>
+<p><img src="/media/csapp-assignment/img/image57.jpeg" alt="5.7_2"></p>
+<p><img src="/media/csapp-assignment/img/image58.jpeg" alt="5.7_3"></p>
+<p>对应的内存有了动态链接器在解析函数地址时会使用的信息。</p>
+<h3 id="58-本章小结">5.8 本章小结</h3>
+<p>本章介绍了链接的概念及作用，分析了 hello 的 ELF 格式，深入学习了 hello.o 可重定位文件到 hello 可执行文件的流程，和链接的各个过程介绍了链接器如何将 hello.o 可重定向文件与动态库函数链接起来，。</p>
+<h2 id="第-6-章-hello-进程管理">第 6 章 hello 进程管理</h2>
+<h3 id="61-进程的概念与作用">6.1 进程的概念与作用</h3>
+<p>概念：进程的经典定义就是一个执行中程序的实例。在面向进程设计的系统中，进程使程序的基本运行实体；在面向线程的系统中，进程不是基本执行单位，而是线程的容器。</p>
+<p>作用：每次用户通过 shell 输入一个可执行目标文件的名字，运行程序时，shell 就会创建一个新的进程，应用程序也可以创建新进程，并且在这个新进程的上下文中运行它们自己的代码或者其他应用程序。这使得我们可以同时运行多个程序。</p>
+<h3 id="62-简述壳-shell-bash-的作用与处理流程">6.2 简述壳 Shell-bash 的作用与处理流程</h3>
+<p>作用：Shell 是一种壳层与命令行界面，是操作系统下传统的用户和计算机的交互界面，使可以通过这个界面访问内核提供的服务。</p>
+<p>处理流程：Shell 首先将输入的指令解析出运行的指令及其参数，然后判断其是否属于内置函数。如果是，则调用相应的函数；如果不是，则会创立一个子进程并在子进程中使用 execve 运行该程序。如果用户要求在后台运行该程序，那么这个程序会在后台运行。</p>
+<h3 id="63-hello-的-fork-进程创建过程">6.3 Hello 的 fork 进程创建过程</h3>
+<p>在 shell 输入./hello 后 shell 会判断出这不是一个内置函数，所以会通过调用 fork 函数创建一个新的子进程，之后运行 hello。hello 进程得到与 shell 用户级虚拟地址空间相同的（但是独立的）一份副本，包括代码和数据段、堆、共享库以及用户栈。hello 进程还获得与 shell 任何打开文件描述符相同的副本，这就意味着当 Shell 调用 fork 时，hello 可以读写 shell 中打开的任何文件。shell 和 hello 进程之间最大的区别在于它们有不同的 PID。</p>
+<h3 id="64-hello-的-execve-过程">6.4 Hello 的 execve 过程</h3>
+<p>shell 会通过 execve 调用 hello。execve 函数加载并运行可执行目标文件 hello，且带参数列表 argv 和环境变量列表 envp。只有当出现错误时，例如找不到 hello，execve 才会返回到调用函数。所以与 fork 调用一次返回两次不一样，execve 调用一次并且从不返回。</p>
+<p>execve 函数在当前进程的上下文中加载并运行一个新的函数。它会覆盖当前进程的地址空间，但并没有创建一个新进程。新的函数仍然有相同的 PID，并且继承了调用 execve 函数时已打开的所有文件描述符。</p>
+<p>载入并执行 hello 需要以下几个步骤：</p>
+<p>(1) 删除已存在的使用者区域。删除当前程序虚拟地址的使用者部分中已存在的区域结构。</p>
+<p>(2) 对映私有区域。为新程序的代码、数据、.bss 和栈区域建立新的区域结构。所有这些新的区域都是私有的、写时复制的。代码和数据被对映为 hello 档案中的.text 和.data 区。.bss 区域是请求二进位制零的，对映到初值为 0 的匿名文件，其大小包含在 hello 中。栈和堆区域也是请求二进制零的，初始长度为零。</p>
+<p>(3) 对映共享区域。如果 hello 程式与共享物件连结，那么这些物件都是动态连结到这个程式的，然后再对映到使用者虚拟地址空间中的共享区域内。</p>
+<p>(4) 设定程式计数器。设定当前程序上下文中的程序计数器，使之指向代码区域的入口点。下一次运行这个程序时，它将从这个入口点开始执行。</p>
+<h3 id="65-hello-的进程执行">6.5 Hello 的进程执行</h3>
+<p>系统中每个程序都运行在某个进程的上下文中。上下文是由程序正确运行所需的状态组成的。这个状态包括存放在内存中的程序的代码和数据，它的栈、通用目的的寄存器的内容、程序计数器、环境变量以及打开文件描述符的集合。</p>
+<p>内核为每个进程维护了一个上下文。当内核选择的一个新的进程运行时，我们说内核调度了这个进程。所以当内核调度了 hello 这个新的进程运行后，它就抢占当前进程，并使用一种称为上下文切换的机制来将控制转移到新的进程，上下文切换会首先保存当前进程的上下文，然后恢复新恢复进程被保存的上下文，最后控制传递给这个新恢复的进程 ，来完成上下文切换。</p>
+<p><img src="/media/csapp-assignment/img/image59.png" alt="IMG_256"></p>
+<p>上图是对于上下文切换的剖析的一个实例。hello 调用 sleep 和 getchar 函数时 都会有类似的上下文切换。</p>
+<h3 id="66-hello-的异常与信号处理">6.6 hello 的异常与信号处理</h3>
+<p>hello 执行过程中出现的可能的异常种类会有四种：</p>
+<p>(1) 中断 中断是异步发生的，是来自处理器外部的 I/O 设备的信号的结果。硬件中断的异常处理程序被称为中断处理程序。</p>
+<p>(2) 陷阱 陷阱是有意的异常，是执行一条指令的结果。就像中断处理程序一样，陷阱处理程序将控制返回到下一条指令。陷阱最重要的用途是在用户程序和内核之间提供一个像过程一样的接口，叫做系统调用。</p>
+<p>(3) 故障 故障由错误情况引起，它可能能够被故障处理程序修正。当故障发生时，处理器将控制转移给故障处理程序。如果处理程序能够修正这个错误情况，它就将控制返回到引起故障的指令，从而重新执行它。否则处理程序返回到内核中的 abort 例程，abort 例程会终止引起故障的应用程序。</p>
+<p>(4) 终止 终止是不可恢复的致命错误造成的结果，通常是一些硬件错误，比如 DRAM 或者 SRAM 位被损坏时发生的奇偶错误。终止处理程序从不将控制返回给应用程序。处理程序将控制返回给一个 abort 例程，该例程会终止这个应用程序。</p>
+<h4 id="661-正常运行">6.6.1 正常运行</h4>
+<h4 id="662-不停乱按">6.6.2 不停乱按</h4>
+<p>如果乱按过程中没有回车，这个时候只是把输入屏幕的字符串缓存起来，如果输入了回车，getchar 读入缓存，并把回车后的字符串当作 shell 输入的命令。</p>
+<h4 id="663-ctrl-z">6.6.3 Ctrl-Z</h4>
+<p>Ctrl-Z 操作向进程发送了一个 SIGTSTP 信号，让进程暂时挂起，输入 jobs、ps 指令可以发现 hello 进程在后台挂起，通过 fg 指令可以恢复运行。</p>
+<h4 id="664-ctrl-c">6.6.4 Ctrl-C</h4>
+<p>Ctrl-Z 操作向进程发送了一个 SIGINT 信号，让进程终止，输入 jobs、ps 指令可以发现 hello 进程已经被回收。</p>
+<h3 id="67-本章小结">6.7 本章小结</h3>
+<p>本章描述了 hello 进程管理，介绍了进程的概念和作用，以及 shell 如何运行 hello 程序。同时了解了 hello 执行过程中可能引发的异常和信号处理。</p>
+<h2 id="第-7-章-hello-的存储管理">第 7 章 hello 的存储管理</h2>
+<h3 id="71-hello-的存储器地址空间">7.1 hello 的存储器地址空间</h3>
+<p>结合 hello 说明逻辑地址、线性地址、虚拟地址、物理地址的概念。</p>
+<p>逻辑地址：在计算机体系结构中逻辑地址是指应用程序角度看到的内存单元、存储单元、网络主机的地址，即 hello.o 里面的相对偏移地址。逻辑地址往往不同于物理地址，通过地址翻译器或映射函数可以把逻辑地址转化为物理地址。</p>
+<p>线性地址：线性地址是逻辑地址到物理地址变换之间的中间层，即 hello 中的虚拟地址，等于逻辑地址加上基地址。逻辑地址可转化为线性地址，其地址空间是一个非负整数地址的有序集合，如果地址空间中的整数是连续的，那么我们说它是一个线性地址空间。</p>
+<p>虚拟地址：虚拟地址是程序用于访问物理内存的逻辑地址，即线性地址，在 hello 中为虚拟地址。</p>
+<p>物理地址：计算机的主存被组织成一个由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址。</p>
+<h3 id="72-intel-逻辑地址到线性地址的变换-段式管理">7.2 Intel 逻辑地址到线性地址的变换-段式管理</h3>
+<h4 id="721-基本原理">7.2.1 基本原理</h4>
+<p>在段式存储管理中，将程序的地址空间分为若干段，这样每个程序都有一个二维的地址空间。在段式存储管理系统的，为每个段分配一个连续的分割槽，而程序中的各个段可以分配在内存的不同区域。程序载入时，操作系统为所有段分配所需的内存，这些段不需要连续。这些内存通过动态分割槽的管理方法。</p>
+<p>总的来说，段式储存管理的优点是：没有内部碎片，外部碎片可以通过内存压缩来消除；便于实现内存共享。缺点与页式储存管理的缺点相同，程序必须全部装入内存。</p>
+<h4 id="722-段式管理的数据结构">7.2.2 段式管理的数据结构</h4>
+<p>为了实现段式管理，需要如下的数据结构来实现程序的地址空间到物理内存空间的对映，并跟踪物理内存的使用情况，以便在装入新的段的时候，合理地分配内存空间。为了完成上述的功能，&mdash;个段式系统中，一般要采用如下的数据结构：</p>
+<p>(1) 程序段表：描述组成程序地址空间的各段，可以是指向系统段表中表项的索引。每段有段基址，即段内地址。</p>
+<p>(2) 系统段表：系统所有占用段（已经分配的段）。</p>
+<p>(3) 空闲段表：记忆体中所有空闲段，可以结合到系统段表中。</p>
+<h4 id="723-段式管理的地址变化">7.2.3 段式管理的地址变化</h4>
+<p>在段式管理系统中，整个程序的地址空间是二维的，即其逻辑地址由段号和段内地址两部分组成。为了完成程序逻辑地址到实体地址的对映，处理器会查询内存中的段表，由段号得到段的首地址，加上段内地址，得到实际的实体地址。这个过程也是由处理器的硬件直接完成的，系统只需在程序切换时，将程序段表的首地址装入处理器的特定寄存器（即段寄存器）当中。</p>
+<h3 id="73-hello-的线性地址到物理地址的变换-页式管理">7.3 Hello 的线性地址到物理地址的变换-页式管理</h3>
+<h4 id="731-基本原理">7.3.1 基本原理</h4>
+<p>将程式的逻辑地址空间划分为定大小的页（page），而物理内存小的页帧（page frame）。程式载入时，可将任意一页放入内存中任意一个页帧，这些页帧不必连续，从而实现了离散分配。该方法需要 CPU 的硬件支持，来实现逻辑地址和实体地址之间的对映。在页式储存管理方式中地址结构由两部构成，前一部分是虚拟页号（VPN），后一部分为虚拟页偏移量（VPO）：</p>
+<p>页式管理方式的优点是：没有外部碎片；一个程序不必连续存放；便于改变程序占用空间的大小（主要指随着程序执行，动态生成的数据增多，所要求的地址空间相应增长）。其缺点是：要求程序全部装入内存，没有足够的内存，程序就不能执行。</p>
+<h4 id="732-页式管理的数据结构">7.3.2 页式管理的数据结构</h4>
+<p>在页式系统中程序建立时，系统为程序中所有的页分配页帧。当程序撤销时收回所有分配给它的页帧。在程序的执行期间，如果允许程序动态地申请空间，系统还要为程序申请的空间分配物理页帧。系统为了完成这些功能，必须记录系统内存中实际的页帧使用情况。系统还要在程序切换时，需要正确地切换两个不同的程序地址空间到物理内存空间的对映。这就要求系统要记录每个程序页表的相关信息。为了完成上述的功能，&mdash;个页式系统中，一般要采用如下的数据结构：</p>
+<p>页表：页表将虚拟内存对映到物理页。每次内存管理单元将一个虚拟地址转换为物理地址时，都会读取页表。页表是一个页表条目（PTE）的数组。虚拟地址空间的每个页在页表中一个固定偏移量处都有一个 PTE。假设每个 PTE 是由一个有效位和一个 n 位地址栏位组成的。有效位表明了该虚拟页当前是否被缓存在 DRAM 中。如果设定了有效位，那么地址字段就表示 DRAM 中相应的物理页的起始位置，这个物理页中缓存了该虚拟页。如果没有设定有效位，那么一个空地址表示这个虚拟页还未被分配。否则，这个地址就指向该虚拟页在磁盘上的起始位置。</p>
+<h4 id="733-页式管理的地址变化">7.3.3 页式管理的地址变化</h4>
+<p>MMU 利用 VPN 来选择适当的 PTE，将列表条目中 PPN 和虚拟地址中的 VPO 串联起来，就得到相应的物理地址。</p>
+<h3 id="74-tlb-与四级页表支持下的-va-到-pa-的变换">7.4 TLB 与四级页表支持下的 VA 到 PA 的变换</h3>
+<p>36 位 VPN 被划分成四个 9 位的片，每个片被用作到一个页表的偏移量。CR3 寄存器包含 Ll 页表的物理地址。VPN 1 提供到一个 Ll PET 的偏移量，这个 PTE 包含 L2 页表的基地址。VPN 2 提供到一个 L2 PTE 的偏移量，以此类推。</p>
+<p><img src="/media/csapp-assignment/img/image64.png" alt=""></p>
+<h3 id="75-三级-cache-支持下的物理内存访问">7.5 三级 Cache 支持下的物理内存访问</h3>
+<p>我们通过 MMU 获得对应的物理内存地址后，就需要在物理内存中得到对应的数据。此时我们会通过高速缓存来加速数据读取。首先 L1 高速缓存会通过地址解析出缓存的索引和偏移，对缓存进行访问，匹配标记查找是否含有相关的字，如果命中，则将数据发送给 CPU，如果没有命中，则访问 L2 缓存，依次类推，直到主存，然后取出这个字，存入高一级缓存，最后返回数据给 CPU。</p>
+<p><img src="/media/csapp-assignment/img/image65.png" alt=""></p>
+<h3 id="76-hello-进程-fork-时的内存映射">7.6 hello 进程 fork 时的内存映射</h3>
+<p>当 fork 函数被 shell 调用时，内核为 hello 创建各种数据结构，并分配一个唯一的 PID。为了给 hello 创建虚拟内存，它创建了当前进程的 mm_struct、区域结构和页表的原样副本。它将两个进程中的每个页面都标记为只读，并将两个进程中的每个区域结构都标记为私有的写时复制。</p>
+<p>当 fork 在 hello 进程中返回时，hello 现在的虚拟内存刚好和调用 fork 时存在的虚拟内存相同。当这两个进程中的任一个后来进行写操作时，写时复制机制就会创建新的页面，因此，也就为每个进程保持了私有地址空间的抽象概念。</p>
+<p><img src="/media/csapp-assignment/img/image66.png" alt=""></p>
+<h3 id="77-hello-进程-execve-时的内存映射">7.7 hello 进程 execve 时的内存映射</h3>
+<p>execve 函数在 shell 中加载并运行包含在可执行目标文件 hello 中的程序，用 hello 程序有效地替代了当前程序。加载并运行 hello 内存会有如下便变化：</p>
+<p>(1) 删除已存在的用户区域。删除 shell 虚拟地址的用户部分中的已存在的区域结构。</p>
+<p>(2) 映射私有区域。为 hello 的代码、数据、bss 和栈区域创建新的区域结构。所有这些新的区域都是私有的、写时复制的。代码和数据区域被映射为 hello 文件中的.text 和.data 区。bss 区域是请求二进制零的，映射到匿名文件，其大小包含在 hello 中。栈和堆区域也是请求二进制零的，初始长度为零。下图概括了私有区域的不同映射。</p>
+<p><img src="/media/csapp-assignment/img/image67.png" alt=""></p>
+<p>(3) 映射共享区域。如果 hello 程序与共享对象（或目标）链接，比如标准 C 库 libc. so, 那么这些对象都是动态链接到这个程序的，然后再映射到用户虚拟地址空间中的共享区域内。</p>
+<h3 id="78-缺页故障与缺页中断处理">7.8 缺页故障与缺页中断处理</h3>
+<p>在虚拟内存的习惯说法中，DRAM 缓存不命中称为缺页。例如：CPU 引用了 VP3 中的一个字，VP3 并未缓存在 DRAM 中。地址翻译硬件从内存中读取 PTE3，从有效位推断出 VP3 未被缓存，并且触发一个缺页异常。缺页异常调用内核中的缺页异常处理程序，该程序会选择一个牺牲页，在此例中就是存放在 PP3 中的 VP4。如果 VP4 已经被修改了，那么内核就会将它复制回磁盘。无论哪种情况，内核都会修改 VP4 的页表条目，反映出 VP4 不再缓存在主存中这一事实。缺页之前：</p>
+<p><img src="/media/csapp-assignment/img/image68.png" alt=""></p>
+<p>接下来，内核从磁盘复制 VP3 到内存中的 PP3，更新 PTE3，随后返回。当异常处理程序返回时，它会重新启动导致缺页的指令，该指令会把导致缺页的虚拟地址重发送到地址翻译硬体。但是现在，VP3 已经缓存在主存中了，那么页命中也能由地址翻译硬件正常处理了。缺页之后：</p>
+<p><img src="/media/csapp-assignment/img/image69.png" alt=""></p>
+<h3 id="79-动态存储分配管理">7.9 动态存储分配管理</h3>
+<p>printf 函数会调用 malloc，下面简述动态内存管理的基本方法与策略：</p>
+<p>动态内存分配器维护着一个进程的虚拟内存区域，称为堆。分配器将堆视为一组不同大小的块的集合来维护。每个块就是一个连续的虚拟内存片，要么是已分配的，要么是空闲的。已分配的块显式地保留为供应用程序使用。空闲块可用来分配。空闲块保持空闲，直到它显式地被应用所分配。一个已分配的块保持已分配状态，直到它被释放，这种释放要么是应用程序显式执行的，要么是内存分配器自身隐式执行的。</p>
+<p>分配器分为两种基本风格：</p>
+<p>(1) 显式分配器，要求应用显式地释放任何已分配的块。</p>
+<p>(2) 隐式分配器，要求分配器检测一个已分配块何时不再被程序所使用，那么就释放这个块。隐式分配器也叫做垃圾回收器，而自动释放未使用的已经分配的块的过程叫做垃圾收集。</p>
+<p>对于 C 程序，使用的是显式分配器，能够显式地释放任何已分配的块。C 标准库通过 malloc 程序包的显示分配器。</p>
+<p><img src="/media/csapp-assignment/img/image70.png" alt=""></p>
+<p>malloc 函数返回一个指针，指向大小至少为 size 字节的内存块，这个块可能包含在这个快内的任何数据对象类型做对齐。</p>
+<p>程序是通过 free 函数来释放已分配的堆块。</p>
+<p><img src="/media/csapp-assignment/img/image71.png" alt=""></p>
+<h4 id="791-隐式空闲链表">7.9.1 隐式空闲链表</h4>
+<p>我们可以将堆组织为一个连续的已分配块和空闲块的序列，空闲块是通过头部中的大小字段隐含地连接着的，这种结构为隐式空闲表。分配器可以通过遍历堆中所有的块，从而间接地遍历整个空闲块地集合。</p>
+<p>一个块是由一个字的头部、有效载荷、可能的填充和一个字的脚部，其中脚部就是头部的一个副本。头部编码了这个块的大小以及这个块是已分配还是空闲的。分配器就可以通过检查它的头部和脚部，判断前后块的起始位置和状态。</p>
+<p><img src="/media/csapp-assignment/img/image72.png" alt=""></p>
+<h4 id="792-显式空闲链表">7.9.2 显式空闲链表</h4>
+<p>将堆组成一个双向空闲链表，在每个空闲块中，都包含一个 pred 和 succ 指针。</p>
+<p>一种方法是用后进先出（LIFO）的顺序来维护链表，将新释放的块放置在链表的开始处。使用 LIFO 的顺序和首次适配的放置策略，分配器会最先检查最近使用过的块。在这种情况下，释放一个块可以在常数时间内完成。如果使用了边界标记，那么合并也可以在常数时间内完成。</p>
+<p>另一种方法是按照地址顺序来维护链表，其中链表中每个块的地址都小于它后继的地址，在这种情况下，释放一个块需要线性时间的搜索来定位合适的前驱。平衡点在于，按照地址地址排序的首次适配比 LIFO 排序的首次适配有更高的内存利用率，接近最佳适配的利用。</p>
+<p>一般而言，显式链表的缺点是空闲块必须足够大，以包含所有需要的指针，以及头部和可能的脚部。这就导致了更大的最小快大小，也潜在的提高了内部碎片的程度。</p>
+<p><img src="/media/csapp-assignment/img/image73.png" alt=""></p>
+<h3 id="710-本章小结">7.10 本章小结</h3>
+<p>在这一章中，主要介绍了程序的存储结构，介绍了段式管理和页式管理两种从虚拟地址到物理地址的管理方式。程序访问过程中的 cache 结构和页表结构，进程如何加载自己的虚拟内存空间，内存映射和动态内存分配。</p>
+<p>虚拟内存可以为每个进程分配一个独立的虚拟内存空间而不不会受到其他进程影响，多级缓存可以提高数据访问的速度，动态内存分配器则可以提高内存的利用率和效率。</p>
+<h2 id="第-8-章-hello-的-io-管理">第 8 章 hello 的 IO 管理</h2>
+<h3 id="81-linux-的-io-设备管理方法">8.1 Linux 的 IO 设备管理方法</h3>
+<p>所有的 I/O 装置（例如网络、磁盘和终端）都被模型化为文件，而所有的输入和输出都被当做对相应档案的读和写来执行。这种将装置优雅地映射为文件的方式，允许 Linux 核心引出一个简单、低阶的应用接口，称为 Unix I/O，这使得所有的输入和输出都能以一种统一且一致的方式来执行。</p>
+<h3 id="82-简述-unix-io-接口及其函数">8.2 简述 Unix IO 接口及其函数</h3>
+<p>所有的输入和输出都能以一种统一且一致的方式来执行：</p>
+<p>(1) 打开文件。一个应用程序要求通过内核打开相应的文件，来宣告它想要访问一个 I/O 设备。内核返回一个小的非负整数，叫做描述符，它在后续对此文件的所有操作中标识这个文件。内核记录有关这个打开文件的所有信息。应用程序只需记住这个标识符。</p>
+<p>(2) Linux shell 创建的每个进程开始时都有三个打开的文件：标准输入、标准输出和标准错误。</p>
+<p>(3) 改变当前的文件位置。对于每个打开的文件，内核保持着一个文件位置 k，初始为 0。这个文件位置是从文件开始的字节偏移量。应用程序能够通过执行 seek 操作，现显式地设置文件的位置为 k。</p>
+<p>(4) 读写文件。一个读操作就是从文件复制 n 个字节到内存，从当前文件位置 k 开始，然后将 k 增加到 k+n。给定一个大小为 m 字节的文件，当 k≥m 时执行读操作会触发一个称为 end-of-file 的条件，应用程序能够检测到这个条件。在文件结尾处并没有明确的&quot;EOF 符号&rdquo;。</p>
+<p>(5) 关闭文件。当应用程序完成了对文件的访问后，它就通知内核关闭这个文件。作为响应，内核释放文件打开时创建的数据结构，并将这个描述符恢复到可用的描述符池中。</p>
+<p>对应的函数有：</p>
+<p>(1) open：进程是通过调用 open 函数来打开一个已存在的文件或者创建一个新文件的。</p>
+<p><img src="/media/csapp-assignment/img/image74.png" alt=""></p>
+<p>open 将 filename 转换为一个文件描述符，并且放回描述符数字。</p>
+<p>(2) close：进程通过调用 close 函数关闭一个打开的文件。</p>
+<p><img src="/media/csapp-assignment/img/image75.png" alt=""></p>
+<p>关闭一个已关闭的描述符会出错。</p>
+<p>(3) read：应用程序通过 read 函数来执行输入。</p>
+<p><img src="/media/csapp-assignment/img/image76.png" alt=""></p>
+<p>read 函数从描述符为 fd 的当前文件位置复制最多 n 个字节到内存位置 buf。返回值-1 表示一个错误；返回值 0 表示 EOF；否则，返回值表示的是实际传扫的字节数量。</p>
+<p>(4) write：应用程序通过 write 函数来执行输出。</p>
+<p><img src="/media/csapp-assignment/img/image77.png" alt=""></p>
+<p>write 函数从内存位置 buf 复制至多 n 个字节到描述符 fd 的当前文件位置。</p>
+<h3 id="83-printf-的实现分析">8.3 printf 的实现分析</h3>
+<p><a href="https://www.cnblogs.com/pianist/p/3315801.html">[https://www.cnblogs.com/pianist/p/3315801.html]</a></p>
+<p>printf 的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+
+  <span class="n">va_list</span> <span class="n">arg</span> <span class="o">=</span> <span class="p">(</span><span class="n">va_list</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">fmt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">vsprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
+  <span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中，va_list 是 C 语言中解决变参问题的一组宏，本质是一个字节指针。(char*)(&amp;fmt) + 4) 表示的是...中的第一个参数的地址。所以 arg 表示函数的第二个参数。</p>
+<p>vsprintf 的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">vsprintf</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="n">va_list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+  <span class="n">va_list</span> <span class="n">p_next_arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span> <span class="n">fmt</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span> <span class="o">!=</span> <span class="sc">&#39;%&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span>
+      <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fmt</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="sc">&#39;x&#39;</span><span class="o">:</span>
+      <span class="n">itoa</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">p_next_arg</span><span class="p">));</span>
+      <span class="n">strcpy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
+      <span class="n">p_next_arg</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
+      <span class="n">p</span> <span class="o">+=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="sc">&#39;s&#39;</span><span class="o">:</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">buf</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>vsprintf 的作用就是格式化。它接受确定输出格式的格式字符串 fmt。用格式字符串对个数变化的参数进行格式化，产生格式化输出。这里的代码中的 vsprintf 只实现了对 16 进制的格式化。</p>
+<p>write 的汇编代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mov eax, _NR_write
+     mov ebx, [esp + 4]
+     mov ecx, [esp + 8]
+     int INT_VECTOR_SYS_CALL
+</code></pre></td></tr></table>
+</div>
+</div><p>一个 int INT_VECTOR_SYS_CALL 表示要通过系统来调用 sys_call 这个函数。所以它其实是先将参数传入寄存器中，之后调用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sys_call：
+call save
+
+     push dword [p_proc_ready]
+
+     sti
+
+     push ecx
+     push ebx
+     call [sys_call_table + eax * 4]
+     add esp, 4 * 3
+
+     mov [esi + EAXREG - P_STACKBASE], eax
+
+     cli
+
+     ret
+</code></pre></td></tr></table>
+</div>
+</div><p>syscall 将字符串中的字节从寄存器中通过总线复制到显卡的显存中，显存中储存的是字节的 ASCII 码。</p>
+<p>字符显示驱动子程序：从 ASCII 到字模库到显示 vram（存储每一个点的 RGB 颜色信息）。</p>
+<p>显示芯片按照刷新频率逐行读取 vram，并通过信号线向液晶显示器传输每一个点（RGB 分量）。</p>
+<h3 id="84-getchar-的实现分析">8.4 getchar 的实现分析</h3>
+<p>getchar 的代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">getchar</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">EOF</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>异步异常-键盘中断的处理：键盘中断处理子程序。接受按键扫描码转成 ascii 码，保存到系统的键盘缓冲区。</p>
+<p>键盘中断的处理过程：</p>
+<p>当用户按键时，键盘接口会得到一个代表该按键的键盘扫描码，同时产生一个中断请求。键盘中断服务程序先从键盘接口取得按键的扫描码，然后根据其扫描码判断用户所按的键并作相应的处理，最后通知中断控制器本次中断结束并实现中断返回；</p>
+<p>若用户按下双态键(如：Caps Lock、Num Lock 和 Scroll Lock 等)，则在键盘上相应 LED 指示灯的状态将发生改变；</p>
+<p>若用户按下控制键(如：Ctrl、Alt 和 Shift 等)，则在键盘标志字中设置其标志位；</p>
+<p>若用户按下功能键(如：F1、F2、&hellip;等)，再根据当前是否又按下控制键来确定其系统扫描码，并把其系统扫描码和一个值为 0 的字节存入键盘缓冲区；</p>
+<p>若用户按下字符键(如：A、1、+、&hellip;等)，此时，再根据当前是否又按下控制键来确定其系统扫描码，并得到该按键所对应的 ASCII 码，然后把其系统扫描码和 ASCII 码一起存入键盘缓冲区。</p>
+<p>getchar 等调用 read 系统函数，通过系统调用读取按键 ascii 码，直到接受到回车键才返回。</p>
+<h3 id="85-本章小结">8.5 本章小结</h3>
+<p>本章主要介绍了 Linux 的 IO 设备管理方法、Unix IO 接口及其函数，分析了 printf 函数和 getchar 函数。</p>
+<h2 id="结论">结论</h2>
+<p>hello 的一生包含如下阶段：</p>
+<p>(1) 预处理：将 hello.c 根据以字符#开头命令，修改原始 c 程序，得到 hello.i。</p>
+<p>(2) 编译：将 hello.i 翻译为 hello.s 的汇编程序，中间对代码进行语法检查和优化。</p>
+<p>(3) 汇编：将 hello.s 翻译为二进制机器码，得到可重定位目标文件 hello.o。</p>
+<p>(4) 链接：将 hello.o 同等动态库等连接，生成可执行目标文件 hello。</p>
+<p>(5) 创建进程：通过 shell 运行 hello 程序。shell 通过 fork 创建子进程，通过 execve 运行 hello。</p>
+<p>(6) 访问内存：通过 MMU 将 hello 中的虚拟地址转换为实际的物理地址，再通过多级缓存读取数据。</p>
+<p>(7) 异常：程序执行过程中，如果从键盘输入 Ctrl-C 等命令，会给进程发送一个异常信号，然后通过信号处理函数对信号进行处理。</p>
+<p>(8) 结束：hello 运行完后会由父进程（shell 进程）回收，内核会删除对应的数据结构。</p>
+<p>至此，我们对于 hello 的分析已经完成。</p>
+<p>通过大作业，我对于这学期所学习的知识有了较系统的回顾。在此次大作业的过程中，我对于一个程序从编译到执行的全过程有了一个粗糙的认识，让我明白了一些计算机系统的底层是如何实现的以及各个系统之间如何协同。当然，我仍然有许多不懂的地方，这需要我今后的学习中继续努力。</p>
+<h2 id="附件">附件</h2>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hello.c</td>
+<td>源代码</td>
+</tr>
+<tr>
+<td>hello.i</td>
+<td>hello.c 预处理生成的文本文件</td>
+</tr>
+<tr>
+<td>hello.s</td>
+<td>hello.i 编译后得到的汇编语言文本文件</td>
+</tr>
+<tr>
+<td>hello.o</td>
+<td>hello.s 汇编后得到的可重定位目标文件</td>
+</tr>
+<tr>
+<td>hello</td>
+<td>hello.o 链接后得到的汇编语言文本文件</td>
+</tr>
+<tr>
+<td>hello_o.d</td>
+<td>hello.o 的反汇编结果</td>
+</tr>
+<tr>
+<td>hello_o.elf</td>
+<td>hello.o 的 ELF 结构</td>
+</tr>
+<tr>
+<td>hello.d</td>
+<td>hello 的反汇编结果</td>
+</tr>
+<tr>
+<td>hello.elf</td>
+<td>hello 的 ELF 结构</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考文献">参考文献</h2>
+<ol>
+<li>兰德尔·E·布莱恩特等著；深入理解计算机系统[M]. 北京：机械工业出版社，2016.7.</li>
+<li>Aho A V. 编译原理[M]. 北京：机械工业出版社, 2009.</li>
+<li>C library - C++ Reference <a href="http://www.cplusplus.com/reference/clibrary/">[http://www.cplusplus.com/reference/clibrary/]</a>.</li>
+<li>ArchWiki <a href="https://wiki.archlinux.org/">[https://wiki.archlinux.org/]</a>.</li>
+<li>Linux man pages <a href="https://linux.die.net/man/">[https://linux.die.net/man/]</a>.</li>
+<li>jaywcjlove/linux-command: Linux 命令大全搜索工具 ... &ndash; GitHub <a href="https://github.com/jaywcjlove/linux-command">[https://github.com/jaywcjlove/linux-command]</a>.</li>
+<li>Wikipedia <a href="https://www.wikipedia.org/">[https://www.wikipedia.org/]</a>.</li>
+<li>[转]printf 函数实现的深入剖析 <a href="https://www.cnblogs.com/pianist/p/3315801.html">[https://www.cnblogs.com/pianist/p/3315801.html]</a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cycleke</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-15
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/wechat.svg">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/alipay.svg">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/csapp/">CSAPP</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/03/maven-and-junit-initial-attempts/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Maven 和 JUnit 初步尝试</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2019/09/the-preliminary-contest-for-icpc-asia-shanghai-2019/">
+            <span class="next-text nav-default">The Preliminary Contest for ICPC Asia Shanghai 2019</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  <span id="/2019/12/csapp-assignment/" class="leancloud_visitors" data-flag-title="CS:APP 大作业">
+		<span class="post-meta-item-text">文章阅读量 </span>
+		<span class="leancloud-visitors-count">0</span>
+		<p></p>
+	  </span>
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
+        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  true 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cycleke@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cycleke" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.cycleke.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>cycleke</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

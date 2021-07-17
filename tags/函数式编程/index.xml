@@ -6,13 +6,13 @@
     <description>Recent content in 函数式编程 on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java的函数式编程</title>
-      <link>https://blog.cycleke.com/post/80f8936f/</link>
-      <pubDate>Fri, 05 Jun 2020 00:09:37 +0000</pubDate>
+      <title>Java 的函数式编程</title>
+      <link>https://blog.cycleke.com/2020/06/functional-programming-in-java/</link>
+      <pubDate>Fri, 05 Jun 2020 00:09:37 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/80f8936f/</guid>
+      <guid>https://blog.cycleke.com/2020/06/functional-programming-in-java/</guid>
       <description>&lt;p&gt;最近写软件构造的实验代码时经常使用到一些函数式编程的特性，所以打算写一篇博客用来给自己当做笔记。&lt;/p&gt;</description>
     </item>
     

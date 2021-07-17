@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ICPC on 路遥柯的小站</title>
+    <title>icpc on 路遥柯的小站</title>
     <link>https://blog.cycleke.com/tags/icpc/</link>
-    <description>Recent content in ICPC on 路遥柯的小站</description>
+    <description>Recent content in icpc on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 01 Dec 2020 20:07:54 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/icpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2019-2020 ICPC Northwestern European Regional Programming Contest (NWERC 2019)</title>
-      <link>https://blog.cycleke.com/post/e73492e8/</link>
+      <link>https://blog.cycleke.com/2020/12/2019-icpc-nwerc/</link>
       <pubDate>Tue, 01 Dec 2020 20:07:54 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/e73492e8/</guid>
+      <guid>https://blog.cycleke.com/2020/12/2019-icpc-nwerc/</guid>
       <description>A B C D E F G H I J K +9 +2 +1 02:03 03:00 01:06 00:20 00:52 02:59 00:12 A. Average Rank 给定 \(n\) 名选手和 \(w\) 周的时间内一些得分（每次加一分），询问每名选手的平均排名。 考虑每一个分数，其</description>
     </item>
     
     <item>
       <title>2019-2020 ICPC Asia Hong Kong Regional Contest</title>
-      <link>https://blog.cycleke.com/post/b08bcfc4/</link>
+      <link>https://blog.cycleke.com/2020/11/2019-icpc-hongkong/</link>
       <pubDate>Fri, 20 Nov 2020 13:59:02 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/b08bcfc4/</guid>
+      <guid>https://blog.cycleke.com/2020/11/2019-icpc-hongkong/</guid>
       <description>A B C D E F G H I J K x O Ø Ø x x O Ø O O Ø O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 官方题解 B. Binary Tree 给定一棵树，两个人轮流进行游戏</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia Nanjing Regional</title>
-      <link>https://blog.cycleke.com/post/01ae1c45/</link>
+      <link>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</link>
       <pubDate>Fri, 23 Oct 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/01ae1c45/</guid>
+      <guid>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</guid>
       <description>A B C D E F G H I J K O Ø O x x O x x O Ø O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. A Hard Problem 选择较大的一半当作答案即可$⌈ \frac{n}{2} ⌉$</description>
     </item>
     
     <item>
       <title>2019 China Collegiate Programming Contest Qinhuangdao Onsite</title>
-      <link>https://blog.cycleke.com/post/dabbbe0b/</link>
-      <pubDate>Thu, 01 Oct 2020 00:00:00 +0800</pubDate>
+      <link>https://blog.cycleke.com/2020/10/2019-ccpc-qinhuangdao/</link>
+      <pubDate>Thu, 01 Oct 2020 16:19:15 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/dabbbe0b/</guid>
+      <guid>https://blog.cycleke.com/2020/10/2019-ccpc-qinhuangdao/</guid>
       <description>A B C D E F G H I J K L O x x O Ø O x x O O O x O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Angle Beats 给定$n$个点$P_i$和$q$个</description>
     </item>
     
     <item>
       <title>2019 ICPC Asia Xuzhou Regional</title>
-      <link>https://blog.cycleke.com/post/d98f8cf4/</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0800</pubDate>
+      <link>https://blog.cycleke.com/2020/09/2019-icpc-xuzhou/</link>
+      <pubDate>Tue, 22 Sep 2020 16:17:02 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/d98f8cf4/</guid>
+      <guid>https://blog.cycleke.com/2020/09/2019-icpc-xuzhou/</guid>
       <description>A B C D E F G H I J K M O x O x O O x Ø x Ø x O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Cat 询问$[L, R]$的最大子区间，满足</description>
     </item>
     
     <item>
       <title>The Preliminary Contest for ICPC Asia Shanghai 2019</title>
-      <link>https://blog.cycleke.com/post/d33216c1/</link>
-      <pubDate>Wed, 18 Sep 2019 11:37:34 +0000</pubDate>
+      <link>https://blog.cycleke.com/2019/09/the-preliminary-contest-for-icpc-asia-shanghai-2019/</link>
+      <pubDate>Wed, 18 Sep 2019 11:37:34 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/d33216c1/</guid>
+      <guid>https://blog.cycleke.com/2019/09/the-preliminary-contest-for-icpc-asia-shanghai-2019/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -69,6 +69,10 @@
 &lt;th style=&#34;text-align:center&#34;&gt;F&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;G&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;H&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;I&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;J&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;K&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;L&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -81,20 +85,6 @@
 &lt;td style=&#34;text-align:center&#34;&gt;OwenCreeper&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;补&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;I&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;J&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;K&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;L&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;.&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;sineMora&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;x&lt;/td&gt;
@@ -108,12 +98,12 @@
     </item>
     
     <item>
-      <title>2016 ICPC 沈阳</title>
-      <link>https://blog.cycleke.com/post/d291d4d5/</link>
-      <pubDate>Sun, 15 Sep 2019 18:49:41 +0000</pubDate>
+      <title>The 2016 ACM-ICPC Asia Shenyang Regional Contest</title>
+      <link>https://blog.cycleke.com/2019/09/2016-icpc-shenyang/</link>
+      <pubDate>Sun, 15 Sep 2019 18:49:41 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/d291d4d5/</guid>
-      <description>&lt;h1 id=&#34;athickest-burger&#34;&gt;A.Thickest Burger&lt;/h1&gt;
+      <guid>https://blog.cycleke.com/2019/09/2016-icpc-shenyang/</guid>
+      <description>&lt;h2 id=&#34;athickest-burger&#34;&gt;A.Thickest Burger&lt;/h2&gt;
 &lt;p&gt;签到题，输出$max(a+2b,2a+b)$。&lt;/p&gt;</description>
     </item>
     

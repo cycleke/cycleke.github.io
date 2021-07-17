@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pollard rho on 路遥柯的小站</title>
+    <title>pollard rho on 路遥柯的小站</title>
     <link>https://blog.cycleke.com/tags/pollard-rho/</link>
-    <description>Recent content in Pollard rho on 路遥柯的小站</description>
+    <description>Recent content in pollard rho on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/pollard-rho/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Sep 2020 16:17:02 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/pollard-rho/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2019 ICPC Asia Xuzhou Regional</title>
-      <link>https://blog.cycleke.com/post/d98f8cf4/</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0800</pubDate>
+      <link>https://blog.cycleke.com/2020/09/2019-icpc-xuzhou/</link>
+      <pubDate>Tue, 22 Sep 2020 16:17:02 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/d98f8cf4/</guid>
+      <guid>https://blog.cycleke.com/2020/09/2019-icpc-xuzhou/</guid>
       <description>A B C D E F G H I J K M O x O x O O x Ø x Ø x O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. Cat 询问$[L, R]$的最大子区间，满足</description>
     </item>
     

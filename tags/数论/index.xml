@@ -9,19 +9,19 @@
     <lastBuildDate>Fri, 23 Oct 2020 00:00:00 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E6%95%B0%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2019 ICPC Asia Nanjing Regional</title>
-      <link>https://blog.cycleke.com/post/01ae1c45/</link>
+      <link>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</link>
       <pubDate>Fri, 23 Oct 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/01ae1c45/</guid>
+      <guid>https://blog.cycleke.com/2020/10/2019-icpc-nanjin/</guid>
       <description>A B C D E F G H I J K O Ø O x x O x x O Ø O O 在比赛中通过 Ø 赛后通过 ! 尝试了但是失败了 x 没有尝试 A. A Hard Problem 选择较大的一半当作答案即可$⌈ \frac{n}{2} ⌉$</description>
     </item>
     
     <item>
       <title>Codeforces Round #556 Div. 1</title>
-      <link>https://blog.cycleke.com/post/8a2a745a/</link>
-      <pubDate>Thu, 09 May 2019 23:43:07 +0000</pubDate>
+      <link>https://blog.cycleke.com/2019/05/codeforces-round-556-div-1/</link>
+      <pubDate>Thu, 09 May 2019 23:43:07 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/8a2a745a/</guid>
+      <guid>https://blog.cycleke.com/2019/05/codeforces-round-556-div-1/</guid>
       <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -47,13 +47,13 @@
     
     <item>
       <title>Codeforces Round #549 Div. 2</title>
-      <link>https://blog.cycleke.com/post/9182a3d4/</link>
-      <pubDate>Sat, 06 Apr 2019 23:45:01 +0000</pubDate>
+      <link>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</link>
+      <pubDate>Sat, 06 Apr 2019 23:45:01 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/9182a3d4/</guid>
-      <description>&lt;h1 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h1&gt;
+      <guid>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</guid>
+      <description>&lt;h2 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h2&gt;
 &lt;p&gt;记录最后一个 0 和 1 的位置。&lt;/p&gt;
-&lt;h1 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h1&gt;
+&lt;h2 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h2&gt;
 &lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;</description>
     </item>
     

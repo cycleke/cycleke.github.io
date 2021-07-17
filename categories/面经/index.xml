@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面经 on 路遥柯的小站</title>
+    <link>https://blog.cycleke.com/categories/%E9%9D%A2%E7%BB%8F/</link>
+    <description>Recent content in 面经 on 路遥柯的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 14 Mar 2021 10:45:41 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E9%9D%A2%E7%BB%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021 暑期实习面经</title>
+      <link>https://blog.cycleke.com/2021/03/2021-summer-internship/</link>
+      <pubDate>Sun, 14 Mar 2021 10:45:41 +0800</pubDate>
+      
+      <guid>https://blog.cycleke.com/2021/03/2021-summer-internship/</guid>
+      <description>个人情况 最近自己在找今年暑期的实习，感觉很容易就把面试的经历忘了，所有打算把这个过程写下来，也看看能不能帮助到有需要的人。 我自己在某 C2 高校读</description>
+    </item>
+    
+  </channel>
+</rss>

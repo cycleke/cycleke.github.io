@@ -6,13 +6,13 @@
     <description>Recent content in 面向对象编程 on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Apr 2020 14:31:58 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Apr 2020 14:31:58 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>面向对象编程的五个原则：SOLID</title>
-      <link>https://blog.cycleke.com/post/642cd45d/</link>
-      <pubDate>Sat, 25 Apr 2020 14:31:58 +0000</pubDate>
+      <link>https://blog.cycleke.com/2020/04/five-principles-of-oop-solid/</link>
+      <pubDate>Sat, 25 Apr 2020 14:31:58 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/642cd45d/</guid>
+      <guid>https://blog.cycleke.com/2020/04/five-principles-of-oop-solid/</guid>
       <description>&lt;p&gt;在程序设计领域， SOLID 是由罗伯特·C·马丁在 21 世纪早期引入的记忆术首字母缩略字，指代了面向对象编程和面向对象设计的五个基本原则。&lt;/p&gt;</description>
     </item>
     

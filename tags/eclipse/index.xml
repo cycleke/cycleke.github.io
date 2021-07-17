@@ -6,14 +6,14 @@
     <description>Recent content in Eclipse on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Mar 2020 15:55:02 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Mar 2020 15:55:02 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/eclipse/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java代码覆盖率工具</title>
-      <link>https://blog.cycleke.com/post/319a97ef/</link>
-      <pubDate>Fri, 27 Mar 2020 15:55:02 +0000</pubDate>
+      <title>Java 代码覆盖率工具</title>
+      <link>https://blog.cycleke.com/2020/03/java-test-coverage/</link>
+      <pubDate>Fri, 27 Mar 2020 15:55:02 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/319a97ef/</guid>
-      <description>在单元测试的过程中，我们需要一个指标来计量我们单元测试的质量。使用代码覆盖率来量化是一个常用的 选择。现在常用的代码覆盖率工具有 Emma，Co</description>
+      <guid>https://blog.cycleke.com/2020/03/java-test-coverage/</guid>
+      <description>在单元测试的过程中， 我们需要一个指标来计量我们单元测试的质量。 使用代码覆盖率来量化是一个常用的选择。 现在常用的代码覆盖率工具有 Emma，Co</description>
     </item>
     
   </channel>

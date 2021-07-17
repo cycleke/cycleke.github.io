@@ -6,16 +6,16 @@
     <description>Recent content in 凸包 on 路遥柯的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 06 Apr 2019 23:45:01 +0000</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Apr 2019 23:45:01 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Codeforces Round #549 Div. 2</title>
-      <link>https://blog.cycleke.com/post/9182a3d4/</link>
-      <pubDate>Sat, 06 Apr 2019 23:45:01 +0000</pubDate>
+      <link>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</link>
+      <pubDate>Sat, 06 Apr 2019 23:45:01 +0800</pubDate>
       
-      <guid>https://blog.cycleke.com/post/9182a3d4/</guid>
-      <description>&lt;h1 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h1&gt;
+      <guid>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</guid>
+      <description>&lt;h2 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h2&gt;
 &lt;p&gt;记录最后一个 0 和 1 的位置。&lt;/p&gt;
-&lt;h1 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h1&gt;
+&lt;h2 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h2&gt;
 &lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;</description>
     </item>
     
