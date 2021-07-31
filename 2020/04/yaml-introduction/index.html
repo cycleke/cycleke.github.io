@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.86.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/04/yaml-introduction/" />
@@ -190,31 +190,31 @@
 <p>YAMl 的对象与 JSON 有点类似，是一个键值对，使用冒号表示，下面就是一个对象。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span><span class="l">bob</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span><span class="l">bob</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>相当于 JSON 的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;student&#34;</span><span class="p">:</span> <span class="s2">&#34;bob&#34;</span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;student&#34;</span><span class="p">:</span> <span class="s2">&#34;bob&#34;</span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>YAML 可以使用对象套对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ken</span><span class="w">
 </span><span class="w">  </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">17</span><span class="w">
 </span><span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
@@ -223,23 +223,23 @@
 </div><p>YAML 也允许另一种写法，将所有键值对写成一个行内对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span>{<span class="nt">name: ken, age: 17, class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span>}<span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span>{<span class="nt">name: ken, age: 17, class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span>}<span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h3 id="数组">数组</h3>
 <p>数组是一组<code>-</code>打头的行，他们的层级关系相同。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml">- <span class="l">C</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml">- <span class="l">C</span><span class="w">
 </span><span class="w"></span>- <span class="l">Java</span><span class="w">
 </span><span class="w"></span>- <span class="l">Python</span><span class="w">
 </span><span class="w"></span>- <span class="l">Haskell</span><span class="w">
@@ -248,16 +248,16 @@
 </div><p>相当于 JSON 的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="s2">&#34;C&#34;</span><span class="p">,</span> <span class="s2">&#34;Java&#34;</span><span class="p">,</span> <span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;Haskell&#34;</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="s2">&#34;C&#34;</span><span class="p">,</span> <span class="s2">&#34;Java&#34;</span><span class="p">,</span> <span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;Haskell&#34;</span><span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>同样的可以将数组和对象相互嵌套：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -279,7 +279,7 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
 </span><span class="w"></span><span class="c">## 二维数组</span><span class="w">
 </span><span class="w"></span>- <span class="p">[</span><span class="l">name, hr, avg]</span><span class="w">
 </span><span class="w"></span>- <span class="p">[</span><span class="l">Mark McGwire, 65, 0.278]</span><span class="w">
@@ -306,7 +306,7 @@
 <p>纯量就是将原文本完整的存下来，不做其它的分析，即纯文本。纯量可以使用<code>|</code>和<code>&gt;</code>表示。其中<code>|</code>是保留换行符，而<code>&gt;</code>会折叠换行，具体可以参考<a href="https://yaml.org/spec/1.2/spec.html#b-l-trimmed(n,c)">官方文档说明</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -318,7 +318,7 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
 </span><span class="w"></span><span class="c">## ASCII Art</span><span class="w">
 </span><span class="w"></span><span class="p">|</span><span class="sd">
 </span><span class="sd">  \//||\/||
@@ -333,7 +333,7 @@
 </div><p>纯量也可以使用引号表示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -342,7 +342,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">unicode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sosa did fine.\u263A&#34;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">unicode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sosa did fine.\u263A&#34;</span><span class="w">
 </span><span class="w"></span><span class="nt">control</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\b1998\t1999\t2000\n&#34;</span><span class="w">
 </span><span class="w"></span><span class="nt">hex esc</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\x0d\x0a is \r\n&#34;</span><span class="w">
 </span><span class="w">
@@ -364,7 +364,7 @@
 <p>YAML 可以解析出一些数据类型，也可以使用<code>!</code>标记。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -408,7 +408,7 @@
 </span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
 </span><span class="w"></span><span class="c">## int</span><span class="w">
 </span><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">12345</span><span class="w">
 </span><span class="w"></span><span class="nt">decimal</span><span class="p">:</span><span class="w"> </span><span class="l">+12345</span><span class="w">
@@ -500,7 +500,7 @@
       <nav class="post-nav">
         <a class="prev" href="/2020/04/parsing-yaml-with-snakeyaml/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">使用SnakeYAML解析YAML</span>
+            <span class="prev-text nav-default">使用 SnakeYAML 解析 YAML</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/2020/03/java-test-coverage/">

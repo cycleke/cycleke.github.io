@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.85.0 with theme even" />
+<meta name="generator" content="Hugo 0.86.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/04/decorator-pattern-in-java/" />
@@ -180,12 +180,12 @@
 <p>Java 中修饰器模式的典型例子为 IO Stream。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">InputStream</span> <span class="n">fileStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;test.gz&#34;</span><span class="o">);</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">InputStream</span> <span class="n">fileStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;test.gz&#34;</span><span class="o">);</span>
 <span class="n">InputStream</span> <span class="n">bufferStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="n">fileStream</span><span class="o">);</span>
 <span class="n">InputStream</span> <span class="n">gzipStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GZIPInputStream</span><span class="o">(</span><span class="n">bufferStream</span><span class="o">);</span>
 </code></pre></td></tr></table>
@@ -193,17 +193,17 @@
 </div><p>通过上面的例子，我们为一个<code>InputStream</code>添加了使用缓冲和解压缩的功能。我们也可以使用下面的方法构造。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GZIPInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;test.gz&#34;</span><span class="o">)));</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GZIPInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">BufferedInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&#34;test.gz&#34;</span><span class="o">)));</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="实现">实现</h2>
 <p>我们首先声明一个基类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -212,7 +212,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SuperClass</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SuperClass</span> <span class="o">{</span>
   <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">);</span>
 
   <span class="kt">int</span> <span class="nf">getValue</span><span class="o">();</span>
@@ -224,7 +224,7 @@
 </div><p>再实现一个子类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -242,7 +242,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SubClass</span> <span class="kd">implements</span> <span class="n">SuperClass</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SubClass</span> <span class="kd">implements</span> <span class="n">SuperClass</span> <span class="o">{</span>
   <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
 
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
@@ -263,7 +263,7 @@
 </div><p>紧接着，为了实现 Decorator 模式，需要有一个抽象的<code>Decorator</code>类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -282,7 +282,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Decorator</span> <span class="kd">implements</span> <span class="n">SuperClass</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Decorator</span> <span class="kd">implements</span> <span class="n">SuperClass</span> <span class="o">{</span>
   <span class="kd">protected</span> <span class="n">SuperClass</span> <span class="n">target</span><span class="o">;</span>
 
   <span class="kd">protected</span> <span class="nf">Decorator</span><span class="o">(</span><span class="n">SuperClass</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
@@ -304,7 +304,7 @@
 </div><p>通过使用<code>target</code>的 API，我们可以实现<code>SuperClass</code>要求的 API。最后我们来实现一个装饰器类。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -317,7 +317,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DecoratorA</span> <span class="kd">extends</span> <span class="n">Decorator</span> <span class="o">{</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DecoratorA</span> <span class="kd">extends</span> <span class="n">Decorator</span> <span class="o">{</span>
 
   <span class="kd">public</span> <span class="nf">DecoratorA</span><span class="o">(</span><span class="n">SuperClass</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">(</span><span class="n">target</span><span class="o">);</span>
@@ -333,7 +333,7 @@
 </div><p>我们可以在运行时给一个实例添加新的功能。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -342,7 +342,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SuperClass</span> <span class="n">class1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="o">();</span>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">SuperClass</span> <span class="n">class1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubClass</span><span class="o">();</span>
 <span class="n">SuperClass</span> <span class="n">class2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DecoratorA</span><span class="o">(</span><span class="n">class1</span><span class="o">);</span>
 
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">class1</span><span class="o">.</span><span class="na">getDescription</span><span class="o">());</span>
@@ -399,7 +399,7 @@
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/2020/04/parsing-yaml-with-snakeyaml/">
-            <span class="next-text nav-default">使用SnakeYAML解析YAML</span>
+            <span class="next-text nav-default">使用 SnakeYAML 解析 YAML</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
