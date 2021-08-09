@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>YAML on 路遥柯的小站</title>
+    <title>YAML on 路遥柯随笔</title>
     <link>https://blog.cycleke.com/tags/yaml/</link>
-    <description>Recent content in YAML on 路遥柯的小站</description>
+    <description>Recent content in YAML on 路遥柯随笔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 07 Apr 2020 15:47:12 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/yaml/index.xml" rel="self" type="application/rss+xml" />

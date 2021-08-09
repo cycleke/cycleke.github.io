@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JUnit on 路遥柯的小站</title>
+    <title>JUnit on 路遥柯随笔</title>
     <link>https://blog.cycleke.com/tags/junit/</link>
-    <description>Recent content in JUnit on 路遥柯的小站</description>
+    <description>Recent content in JUnit on 路遥柯随笔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 03 Mar 2020 18:46:00 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/junit/index.xml" rel="self" type="application/rss+xml" />

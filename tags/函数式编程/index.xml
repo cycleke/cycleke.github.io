@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>函数式编程 on 路遥柯的小站</title>
+    <title>函数式编程 on 路遥柯随笔</title>
     <link>https://blog.cycleke.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</link>
-    <description>Recent content in 函数式编程 on 路遥柯的小站</description>
+    <description>Recent content in 函数式编程 on 路遥柯随笔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
