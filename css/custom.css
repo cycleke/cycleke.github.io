@@ -1,0 +1,47 @@
+/* 设置页面最小高度，我的电脑100vh为722.4，window.innerHeight为722，导致出现了一小段垂直滚动条，网上说清除body的margin解决不了这个问题，然后我用了calc减去10px刚好，兼容ie9+ */
+.slideout-panel {
+  min-height: calc(100vh - 10px);
+}
+
+/* 设置main最小高度，保证标签、分类页面的footer在底部 */
+.main {
+  min-height: 453px;
+}
+
+/* ========================= 设置菜单栏icon偏移位置 ================================ */
+.menu-item {
+  padding: 0 10px;
+}
+
+.menu-item-link .iconfont::before {
+  padding-right: 8px;
+}
+
+/* 设置文章目录的ul样式 */
+.post .post-toc .post-toc-content ul {
+  list-style: telugu;
+}
+
+/* 设置文章代码片段样式 */
+.post .post-content code,
+.post .post-content pre {
+  background: none;
+}
+
+/* 让阅读更多居中 */
+.read-more {
+  text-align: center;
+  padding: 0 0 20px;
+}
+
+/* 设置菜单项的标签、分类页面的统计数字样式 */
+.terms .terms-tags .terms-link .terms-count {
+  top: -2px;
+  right: -1px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b45b3e;
+  color: #fff;
+}
