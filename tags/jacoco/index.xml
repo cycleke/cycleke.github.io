@@ -6,6 +6,7 @@
     <description>Recent content in JaCoCo on 路遥柯随笔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <copyright>路遥柯</copyright>
     <lastBuildDate>Fri, 27 Mar 2020 15:55:02 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/jacoco/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java 代码覆盖率工具</title>

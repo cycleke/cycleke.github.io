@@ -6,6 +6,7 @@
     <description>Recent content in Java on 路遥柯随笔</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <copyright>路遥柯</copyright>
     <lastBuildDate>Fri, 05 Jun 2020 00:09:37 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java 的函数式编程</title>
