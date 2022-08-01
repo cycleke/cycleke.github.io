@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/05/java-exception-class/" />
@@ -210,13 +210,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
-  <span class="n">InputStream</span> <span class="n">inpStream</span> <span class="o">=</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-  <span class="n">choseAnotherFile</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">InputStream</span> <span class="n">inpStream</span> <span class="o">=</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">choseAnotherFile</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样当文件不存在时程序不会直接终止，而是提示选择其他文件，其中的<code>FileNotFoundException</code>是一种异常类。</p>
 <p>异常类是一种特殊的类，它可以在任何地方抛出，但需要被捕获。如果没有在当前方法捕获，那么这个异常会沿着栈一层层向上传递。如果整个程序中没有捕获这个异常，那么它会传到运行时，最后在控制台显示，并结束整个程序。</p>
@@ -252,33 +252,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">                     ┌───────────┐
-                     │  Object   │
-                     └───────────┘
-                           ▲
-                           │
-                     ┌───────────┐
-                     │ Throwable │
-                     └───────────┘
-                           ▲
-                 ┌─────────┴─────────┐
-                 │                   │
-           ┌───────────┐       ┌───────────┐
-           │   Error   │       │ Exception │
-           └───────────┘       └───────────┘
-                 ▲                   ▲
-         ┌───────┘              ┌────┴──────────┐
-         │                      │               │
-┌─────────────────┐    ┌─────────────────┐┌───────────┐
-│OutOfMemoryError │... │RuntimeException ││IOException│...
-└─────────────────┘    └─────────────────┘└───────────┘
-                                ▲
-                    ┌───────────┴─────────────┐
-                    │                         │
-         ┌─────────────────────┐ ┌─────────────────────────┐
-         │NullPointerException │ │IllegalArgumentException │...
-         └─────────────────────┘ └─────────────────────────┘
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                     ┌───────────┐
+</span></span><span class="line"><span class="cl">                     │  Object   │
+</span></span><span class="line"><span class="cl">                     └───────────┘
+</span></span><span class="line"><span class="cl">                           ▲
+</span></span><span class="line"><span class="cl">                           │
+</span></span><span class="line"><span class="cl">                     ┌───────────┐
+</span></span><span class="line"><span class="cl">                     │ Throwable │
+</span></span><span class="line"><span class="cl">                     └───────────┘
+</span></span><span class="line"><span class="cl">                           ▲
+</span></span><span class="line"><span class="cl">                 ┌─────────┴─────────┐
+</span></span><span class="line"><span class="cl">                 │                   │
+</span></span><span class="line"><span class="cl">           ┌───────────┐       ┌───────────┐
+</span></span><span class="line"><span class="cl">           │   Error   │       │ Exception │
+</span></span><span class="line"><span class="cl">           └───────────┘       └───────────┘
+</span></span><span class="line"><span class="cl">                 ▲                   ▲
+</span></span><span class="line"><span class="cl">         ┌───────┘              ┌────┴──────────┐
+</span></span><span class="line"><span class="cl">         │                      │               │
+</span></span><span class="line"><span class="cl">┌─────────────────┐    ┌─────────────────┐┌───────────┐
+</span></span><span class="line"><span class="cl">│OutOfMemoryError │... │RuntimeException ││IOException│...
+</span></span><span class="line"><span class="cl">└─────────────────┘    └─────────────────┘└───────────┘
+</span></span><span class="line"><span class="cl">                                ▲
+</span></span><span class="line"><span class="cl">                    ┌───────────┴─────────────┐
+</span></span><span class="line"><span class="cl">                    │                         │
+</span></span><span class="line"><span class="cl">         ┌─────────────────────┐ ┌─────────────────────────┐
+</span></span><span class="line"><span class="cl">         │NullPointerException │ │IllegalArgumentException │...
+</span></span><span class="line"><span class="cl">         └─────────────────────┘ └─────────────────────────┘
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>Throwable</code>表示这个类可以被<code>throw</code>，即抛出。</p>
 <p>其中<code>Error</code>类表示极其严重的错误，一般来说程序员无法处理，根据快速显示出 BUG 的原则，应该立即终止程序，如：</p>
@@ -368,26 +368,7 @@
         </div>
         
 
-  <span id="/2020/05/java-exception-class/" class="leancloud_visitors" data-flag-title="Java 的异常类">
-		<span class="post-meta-item-text">文章阅读量 </span>
-		<span class="leancloud-visitors-count">0</span>
-		<p></p>
-	  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script type="text/javascript">
-    new Valine({
-        el: '#vcomments' ,
-        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
-        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
-        notify:  false ,
-        verify:  false ,
-        avatar:'mm',
-        placeholder: '说点什么吧...',
-        visitor:  true 
-    });
-  </script>
+  
 
   
 
@@ -420,7 +401,7 @@
   <span class="copyright-year">
     &copy;
     2019 -
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -455,7 +436,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

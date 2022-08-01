@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/04/parsing-yaml-with-snakeyaml/" />
@@ -50,7 +50,7 @@
 <meta itemprop="name" content="使用 SnakeYAML 解析 YAML">
 <meta itemprop="description" content="在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po"><meta itemprop="datePublished" content="2020-04-07T15:47:12+08:00" />
 <meta itemprop="dateModified" content="2020-04-07T15:47:12+08:00" />
-<meta itemprop="wordCount" content="912">
+<meta itemprop="wordCount" content="1000">
 <meta itemprop="keywords" content="Java,SnakeYAML,YAML," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 SnakeYAML 解析 YAML"/>
 <meta name="twitter:description" content="在 YAML 简介中简单介绍了 YAML，这里介绍一下使用 SnakeYAML 来解析 YAML。 如果想要使用 Java 解析 json，推荐使用 fastjson 。 安装 你可以下载 SnakeYAML 的 jar 包，也可以在po"/>
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/"> 工具学习 </a>
             </div>
-          <span class="more-meta"> 约 912 字 </span>
+          <span class="more-meta"> 约 1000 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -188,14 +188,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependencies&gt;</span>
-  <span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.yaml<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>snakeyaml<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.26-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;/dependencies&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.yaml<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>snakeyaml<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.26-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependencies&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="简单使用">简单使用</h2>
 <h3 id="使用-load">使用 load</h3>
@@ -208,11 +208,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
-<span class="n">String</span> <span class="n">document</span> <span class="o">=</span> <span class="s">&#34;\n- Hesperiidae\n- Papilionidae\n- Apatelodidae\n- Epiplemidae&#34;</span><span class="o">;</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;)</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">String</span> <span class="n">document</span> <span class="o">=</span> <span class="s">&#34;\n- Hesperiidae\n- Papilionidae\n- Apatelodidae\n- Epiplemidae&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;)</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">document</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>程序输出为：</p>
 <div class="highlight"><div class="chroma">
@@ -220,8 +220,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[Hesperiidae, Papilionidae, Apatelodidae, Epiplemidae]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[Hesperiidae, Papilionidae, Apatelodidae, Epiplemidae]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然，SnakeYAML 也可以读入文件：</p>
 <div class="highlight"><div class="chroma">
@@ -232,11 +232,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
-<span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_1.yaml&#34;</span><span class="o">));</span>
-<span class="n">Object</span> <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_1.yaml&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">Object</span> <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>example_1.yaml</code>内容如下：</p>
 <div class="highlight"><div class="chroma">
@@ -259,23 +259,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">int</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">12345</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">decimal</span><span class="p">:</span><span class="w"> </span><span class="l">+12345</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">octal</span><span class="p">:</span><span class="w"> </span><span class="m">0o14</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">hexadecimal</span><span class="p">:</span><span class="w"> </span><span class="l">0xC</span><span class="w">
-</span><span class="w"></span><span class="nt">float</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">1.23015e+3</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">exponential</span><span class="p">:</span><span class="w"> </span><span class="m">12.3015e+02</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">fixed</span><span class="p">:</span><span class="w"> </span><span class="m">1230.15</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">negative infinity</span><span class="p">:</span><span class="w"> </span>-<span class="l">.inf</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">not a number</span><span class="p">:</span><span class="w"> </span><span class="l">.NaN</span><span class="w">
-</span><span class="w"></span><span class="nt">timestamp</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-15T02:59:43.1Z</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">iso8601</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14</span><span class="l">t21:59:43.10-05:00</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">spaced</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14 21:59:43.10 -5</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2002-12-14</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">int</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">12345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">decimal</span><span class="p">:</span><span class="w"> </span><span class="l">+12345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">octal</span><span class="p">:</span><span class="w"> </span><span class="m">0o14</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">hexadecimal</span><span class="p">:</span><span class="w"> </span><span class="l">0xC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">float</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">1.23015e+3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">exponential</span><span class="p">:</span><span class="w"> </span><span class="m">12.3015e+02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">fixed</span><span class="p">:</span><span class="w"> </span><span class="m">1230.15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">negative infinity</span><span class="p">:</span><span class="w"> </span>-<span class="l">.inf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">not a number</span><span class="p">:</span><span class="w"> </span><span class="l">.NaN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">timestamp</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-15T02:59:43.1Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">iso8601</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14</span><span class="l">t21:59:43.10-05:00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">spaced</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14 21:59:43.10 -5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2002-12-14</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>对映的程序输出为：</p>
 <div class="highlight"><div class="chroma">
@@ -285,10 +285,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{int=[{canonical=12345}, {decimal=12345}, {octal=0o14}, {hexadecimal=12}]},
-{float=[{canonical=1230.15}, {exponential=1230.15}, {fixed=1230.15}, {negative infinity=-Infinity},{not a number=NaN}]},
-{timestamp=[{canonical=Sat Dec 15 10:59:43 CST 2001}, {iso8601=Sat Dec 15 10:59:43 CST 2001},{spaced=Sat Dec 15 10:59:43 CST 2001}, {date=Sat Dec 14 08:00:00 CST 2002}]}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{int=[{canonical=12345}, {decimal=12345}, {octal=0o14}, {hexadecimal=12}]},
+</span></span><span class="line"><span class="cl">{float=[{canonical=1230.15}, {exponential=1230.15}, {fixed=1230.15}, {negative infinity=-Infinity},{not a number=NaN}]},
+</span></span><span class="line"><span class="cl">{timestamp=[{canonical=Sat Dec 15 10:59:43 CST 2001}, {iso8601=Sat Dec 15 10:59:43 CST 2001},{spaced=Sat Dec 15 10:59:43 CST 2001}, {date=Sat Dec 14 08:00:00 CST 2002}]}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然我们使用时可以将<code>Object</code>转化为对应的数据类型，如<code>Map</code>或<code>List</code>。</p>
 <h3 id="loadall">loadAll</h3>
@@ -320,30 +320,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">Time</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:01:42 -5</span><span class="w">
-</span><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
-</span><span class="w"></span><span class="nt">Warning</span><span class="p">:</span><span class="w"> </span><span class="l">This is an error message</span><span class="w">
-</span><span class="w">  </span><span class="l">for the log file</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">Time</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:02:31 -5</span><span class="w">
-</span><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
-</span><span class="w"></span><span class="nt">Warning</span><span class="p">:</span><span class="w"> </span><span class="l">A slightly different error</span><span class="w">
-</span><span class="w">  </span><span class="l">message.</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="nt">Date</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:03:17 -5</span><span class="w">
-</span><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
-</span><span class="w"></span><span class="nt">Fatal</span><span class="p">:</span><span class="w"> </span><span class="l">Unknown variable &#34;bar&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">Stack</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">TopClass.py</span><span class="w">
-</span><span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="m">23</span><span class="w">
-</span><span class="w">    </span><span class="nt">code</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span><span class="sd">      </span><span class="w">      </span><span class="l">x = MoreObject(&#34;345\n&#34;)</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">MoreClass.py</span><span class="w">
-</span><span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="m">58</span><span class="w">
-</span><span class="w">    </span><span class="nt">code</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
-</span><span class="sd">      </span><span class="w">      </span><span class="l">foo = bar</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Time</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:01:42 -5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Warning</span><span class="p">:</span><span class="w"> </span><span class="l">This is an error message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">for the log file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Time</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:02:31 -5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Warning</span><span class="p">:</span><span class="w"> </span><span class="l">A slightly different error</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">message.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Date</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-11-23 15:03:17 -5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">User</span><span class="p">:</span><span class="w"> </span><span class="l">ed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Fatal</span><span class="p">:</span><span class="w"> </span><span class="l">Unknown variable &#34;bar&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Stack</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">TopClass.py</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="m">23</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">code</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">      </span><span class="w">      </span><span class="l">x = MoreObject(&#34;345\n&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l">MoreClass.py</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="m">58</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">code</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">      </span><span class="w">      </span><span class="l">foo = bar</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以使用如下代码解析：</p>
 <div class="highlight"><div class="chroma">
@@ -354,11 +354,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
-<span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_2.yaml&#34;</span><span class="o">));</span>
-<span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">data</span> <span class="o">:</span> <span class="n">yaml</span><span class="o">.</span><span class="na">loadAll</span><span class="o">(</span><span class="n">inputStream</span><span class="o">))</span>
-  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_2.yaml&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">data</span> <span class="o">:</span> <span class="n">yaml</span><span class="o">.</span><span class="na">loadAll</span><span class="o">(</span><span class="n">inputStream</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出为：</p>
 <div class="highlight"><div class="chroma">
@@ -369,11 +369,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{Time=Sat Nov 24 04:01:42 CST 2001, User=ed, Warning=This is an error message for the log file}
-{Time=Sat Nov 24 04:02:31 CST 2001, User=ed, Warning=A slightly different error message.}
-{Date=Sat Nov 24 04:03:17 CST 2001, User=ed, Fatal=Unknown variable &#34;bar&#34;, Stack=[{file=TopClass.py, line=23, code=x = MoreObject(&#34;345\n&#34;)
-}, {file=MoreClass.py, line=58, code=foo = bar}]}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{Time=Sat Nov 24 04:01:42 CST 2001, User=ed, Warning=This is an error message for the log file}
+</span></span><span class="line"><span class="cl">{Time=Sat Nov 24 04:02:31 CST 2001, User=ed, Warning=A slightly different error message.}
+</span></span><span class="line"><span class="cl">{Date=Sat Nov 24 04:03:17 CST 2001, User=ed, Fatal=Unknown variable &#34;bar&#34;, Stack=[{file=TopClass.py, line=23, code=x = MoreObject(&#34;345\n&#34;)
+</span></span><span class="line"><span class="cl">}, {file=MoreClass.py, line=58, code=foo = bar}]}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="解析出类">解析出类</h3>
 <p>我们可以不断使用类型转换获得一个 YAML 文件的数据。不过如果一个 YAML 文件存储的是一个类的数据，那么这种方法就太麻烦了。SnakeYAML 也考虑了这个问题。</p>
@@ -395,20 +395,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">firstName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;John&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">lastName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Doe&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">31</span><span class="w">
-</span><span class="w"></span><span class="nt">contactDetails</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mobile&#34;</span><span class="w">
-</span><span class="w">    </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">123456789</span><span class="w">
-</span><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;landline&#34;</span><span class="w">
-</span><span class="w">    </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">456786868</span><span class="w">
-</span><span class="w"></span><span class="nt">homeAddress</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Xyz, DEF Street&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">city</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;City Y&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;State Y&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">zip</span><span class="p">:</span><span class="w"> </span><span class="m">345657</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">firstName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;John&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">lastName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Doe&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">31</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">contactDetails</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mobile&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">123456789</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;landline&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">456786868</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">homeAddress</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Xyz, DEF Street&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">city</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;City Y&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;State Y&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">zip</span><span class="p">:</span><span class="w"> </span><span class="m">345657</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>而<code>Customer</code>类为</p>
 <div class="highlight"><div class="chroma">
@@ -437,29 +437,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span> <span class="n">contactDetails</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">Address</span> <span class="n">homeAddress</span><span class="o">;</span>
-    <span class="c1">// getters and setters
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Contact</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">type</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">number</span><span class="o">;</span>
-    <span class="c1">// getters and setters
-</span><span class="c1"></span><span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">line</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">city</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">state</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">zip</span><span class="o">;</span>
-    <span class="c1">// getters and setters
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">firstName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span> <span class="n">contactDetails</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Address</span> <span class="n">homeAddress</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// getters and setters
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Contact</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">type</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">number</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// getters and setters
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">line</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">city</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">state</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">zip</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// getters and setters
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们可以使用如下代码直接构造一个<code>Customer</code>类：</p>
 <div class="highlight"><div class="chroma">
@@ -469,10 +469,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">(</span><span class="k">new</span> <span class="n">Constructor</span><span class="o">(</span><span class="n">Customer</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
-<span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_3.yaml&#34;</span><span class="o">));</span>
-<span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Yaml</span> <span class="n">yaml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Yaml</span><span class="o">(</span><span class="k">new</span> <span class="n">Constructor</span><span class="o">(</span><span class="n">Customer</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&#34;src/main/resource/example_3.yaml&#34;</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">Customer</span> <span class="n">customer</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">inputStream</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>SnakeYAML 还可以使用<code>loadAs</code>方法来或在 YAML 文件使用标记（如使用<code>!!com.cycleke.Demo.Customer</code>）直接解析出对应类。</p>
 <h3 id="其它">其它</h3>
@@ -541,26 +541,7 @@
         </div>
         
 
-  <span id="/2020/04/parsing-yaml-with-snakeyaml/" class="leancloud_visitors" data-flag-title="使用 SnakeYAML 解析 YAML">
-		<span class="post-meta-item-text">文章阅读量 </span>
-		<span class="leancloud-visitors-count">0</span>
-		<p></p>
-	  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script type="text/javascript">
-    new Valine({
-        el: '#vcomments' ,
-        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
-        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
-        notify:  false ,
-        verify:  false ,
-        avatar:'mm',
-        placeholder: '说点什么吧...',
-        visitor:  true 
-    });
-  </script>
+  
 
   
 
@@ -593,7 +574,7 @@
   <span class="copyright-year">
     &copy;
     2019 -
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -628,7 +609,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

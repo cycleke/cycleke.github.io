@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2019/12/csapp-assignment/" />
@@ -784,17 +784,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-
-  <span class="n">va_list</span> <span class="n">arg</span> <span class="o">=</span> <span class="p">(</span><span class="n">va_list</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">fmt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">);</span>
-  <span class="n">i</span> <span class="o">=</span> <span class="n">vsprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
-  <span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-
-  <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">va_list</span> <span class="n">arg</span> <span class="o">=</span> <span class="p">(</span><span class="n">va_list</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">fmt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">i</span> <span class="o">=</span> <span class="n">vsprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中，va_list 是 C 语言中解决变参问题的一组宏，本质是一个字节指针。(char*)(&amp;fmt) + 4) 表示的是...中的第一个参数的地址。所以 arg 表示函数的第二个参数。</p>
 <p>vsprintf 的代码如下：</p>
@@ -827,32 +827,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">vsprintf</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="n">va_list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
-  <span class="kt">char</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-  <span class="n">va_list</span> <span class="n">p_next_arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span> <span class="n">fmt</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span> <span class="o">!=</span> <span class="sc">&#39;%&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span>
-      <span class="k">continue</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">fmt</span><span class="o">++</span><span class="p">;</span>
-    <span class="k">switch</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="sc">&#39;x&#39;</span><span class="o">:</span>
-      <span class="n">itoa</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">p_next_arg</span><span class="p">));</span>
-      <span class="n">strcpy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
-      <span class="n">p_next_arg</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
-      <span class="n">p</span> <span class="o">+=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="sc">&#39;s&#39;</span><span class="o">:</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">buf</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">vsprintf</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="n">va_list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="n">va_list</span> <span class="n">p_next_arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span> <span class="n">fmt</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span> <span class="o">!=</span> <span class="sc">&#39;%&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fmt</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="sc">&#39;x&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">itoa</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">p_next_arg</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">      <span class="n">strcpy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p_next_arg</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span> <span class="o">+=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="sc">&#39;s&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">buf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>vsprintf 的作用就是格式化。它接受确定输出格式的格式字符串 fmt。用格式字符串对个数变化的参数进行格式化，产生格式化输出。这里的代码中的 vsprintf 只实现了对 16 进制的格式化。</p>
 <p>write 的汇编代码：</p>
@@ -864,11 +864,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">mov eax, _NR_write
-     mov ebx, [esp + 4]
-     mov ecx, [esp + 8]
-     int INT_VECTOR_SYS_CALL
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mov eax, _NR_write
+</span></span><span class="line"><span class="cl">     mov ebx, [esp + 4]
+</span></span><span class="line"><span class="cl">     mov ecx, [esp + 8]
+</span></span><span class="line"><span class="cl">     int INT_VECTOR_SYS_CALL
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>一个 int INT_VECTOR_SYS_CALL 表示要通过系统来调用 sys_call 这个函数。所以它其实是先将参数传入寄存器中，之后调用。</p>
 <div class="highlight"><div class="chroma">
@@ -892,24 +892,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sys_call：
-call save
-
-     push dword [p_proc_ready]
-
-     sti
-
-     push ecx
-     push ebx
-     call [sys_call_table + eax * 4]
-     add esp, 4 * 3
-
-     mov [esi + EAXREG - P_STACKBASE], eax
-
-     cli
-
-     ret
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sys_call：
+</span></span><span class="line"><span class="cl">call save
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     push dword [p_proc_ready]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     sti
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     push ecx
+</span></span><span class="line"><span class="cl">     push ebx
+</span></span><span class="line"><span class="cl">     call [sys_call_table + eax * 4]
+</span></span><span class="line"><span class="cl">     add esp, 4 * 3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     mov [esi + EAXREG - P_STACKBASE], eax
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     cli
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">     ret
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>syscall 将字符串中的字节从寄存器中通过总线复制到显卡的显存中，显存中储存的是字节的 ASCII 码。</p>
 <p>字符显示驱动子程序：从 ASCII 到字模库到显示 vram（存储每一个点的 RGB 颜色信息）。</p>
@@ -924,11 +924,11 @@ call save
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">getchar</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-  <span class="k">return</span> <span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">EOF</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getchar</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">EOF</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>异步异常-键盘中断的处理：键盘中断处理子程序。接受按键扫描码转成 ascii 码，保存到系统的键盘缓冲区。</p>
 <p>键盘中断的处理过程：</p>
@@ -1065,26 +1065,7 @@ call save
         </div>
         
 
-  <span id="/2019/12/csapp-assignment/" class="leancloud_visitors" data-flag-title="CS:APP 大作业">
-		<span class="post-meta-item-text">文章阅读量 </span>
-		<span class="leancloud-visitors-count">0</span>
-		<p></p>
-	  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script type="text/javascript">
-    new Valine({
-        el: '#vcomments' ,
-        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
-        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
-        notify:  false ,
-        verify:  false ,
-        avatar:'mm',
-        placeholder: '说点什么吧...',
-        visitor:  true 
-    });
-  </script>
+  
 
   
 
@@ -1117,7 +1098,7 @@ call save
   <span class="copyright-year">
     &copy;
     2019 -
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -1152,7 +1133,7 @@ call save
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

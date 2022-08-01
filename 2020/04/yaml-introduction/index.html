@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/04/yaml-introduction/" />
@@ -50,7 +50,7 @@
 <meta itemprop="name" content="YAML 简介">
 <meta itemprop="description" content="最近写实验时需要描述初始界面，为了减少代码中硬编码的部分，所以打算使用配置文件来描述，同时方便拓展。 目前常用的配置文件格式有 JSON、XML"><meta itemprop="datePublished" content="2020-04-07T14:25:14+08:00" />
 <meta itemprop="dateModified" content="2020-04-07T14:25:14+08:00" />
-<meta itemprop="wordCount" content="907">
+<meta itemprop="wordCount" content="1002">
 <meta itemprop="keywords" content="YAML," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="YAML 简介"/>
 <meta name="twitter:description" content="最近写实验时需要描述初始界面，为了减少代码中硬编码的部分，所以打算使用配置文件来描述，同时方便拓展。 目前常用的配置文件格式有 JSON、XML"/>
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/"> 工具学习 </a>
             </div>
-          <span class="more-meta"> 约 907 字 </span>
+          <span class="more-meta"> 约 1002 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -198,8 +198,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span><span class="l">bob</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">student</span><span class="p">:</span><span class="w"> </span><span class="l">bob</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>相当于 JSON 的</p>
 <div class="highlight"><div class="chroma">
@@ -207,8 +207,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;student&#34;</span><span class="p">:</span> <span class="s2">&#34;bob&#34;</span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;student&#34;</span><span class="p">:</span> <span class="s2">&#34;bob&#34;</span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>YAML 可以使用对象套对象：</p>
 <div class="highlight"><div class="chroma">
@@ -219,11 +219,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ken</span><span class="w">
-</span><span class="w">  </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">17</span><span class="w">
-</span><span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">student</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ken</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="m">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>YAML 也允许另一种写法，将所有键值对写成一个行内对象：</p>
 <div class="highlight"><div class="chroma">
@@ -231,8 +231,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">student</span><span class="p">:</span><span class="w"> </span>{<span class="nt">name: ken, age: 17, class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span>}<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">student</span><span class="p">:</span><span class="w"> </span>{<span class="nt">name: ken, age: 17, class</span><span class="p">:</span><span class="w"> </span><span class="m">5</span>}<span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="数组">数组</h3>
 <p>数组是一组<code>-</code>打头的行，他们的层级关系相同。</p>
@@ -244,11 +244,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml">- <span class="l">C</span><span class="w">
-</span><span class="w"></span>- <span class="l">Java</span><span class="w">
-</span><span class="w"></span>- <span class="l">Python</span><span class="w">
-</span><span class="w"></span>- <span class="l">Haskell</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="l">C</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">Java</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">Python</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">Haskell</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>相当于 JSON 的</p>
 <div class="highlight"><div class="chroma">
@@ -256,8 +256,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span><span class="s2">&#34;C&#34;</span><span class="p">,</span> <span class="s2">&#34;Java&#34;</span><span class="p">,</span> <span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;Haskell&#34;</span><span class="p">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span><span class="s2">&#34;C&#34;</span><span class="p">,</span> <span class="s2">&#34;Java&#34;</span><span class="p">,</span> <span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;Haskell&#34;</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>同样的可以将数组和对象相互嵌套：</p>
 <div class="highlight"><div class="chroma">
@@ -284,27 +284,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## 二维数组</span><span class="w">
-</span><span class="w"></span>- <span class="p">[</span><span class="l">name, hr, avg]</span><span class="w">
-</span><span class="w"></span>- <span class="p">[</span><span class="l">Mark McGwire, 65, 0.278]</span><span class="w">
-</span><span class="w"></span>- <span class="p">[</span><span class="l">Sammy Sosa, 63, 0.288]</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## 对象包含数组</span><span class="w">
-</span><span class="w"></span><span class="nt">Language</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- <span class="l">C</span><span class="w">
-</span><span class="w">  </span>- <span class="l">Java</span><span class="w">
-</span><span class="w">  </span>- <span class="l">Python</span><span class="w">
-</span><span class="w">  </span>- <span class="l">Haskell</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## 对象数组</span><span class="w">
-</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Mark McGwire</span><span class="w">
-</span><span class="w">  </span><span class="nt">hr</span><span class="p">:</span><span class="w"> </span><span class="m">65</span><span class="w">
-</span><span class="w">  </span><span class="nt">avg</span><span class="p">:</span><span class="w"> </span><span class="m">0.278</span><span class="w">
-</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Sammy Sosa</span><span class="w">
-</span><span class="w">  </span><span class="nt">hr</span><span class="p">:</span><span class="w"> </span><span class="m">63</span><span class="w">
-</span><span class="w">  </span><span class="nt">avg</span><span class="p">:</span><span class="w"> </span><span class="m">0.288</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## 二维数组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="p">[</span><span class="l">name, hr, avg]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="p">[</span><span class="l">Mark McGwire, 65, 0.278]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="p">[</span><span class="l">Sammy Sosa, 63, 0.288]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## 对象包含数组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Language</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">C</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">Java</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">Python</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">Haskell</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## 对象数组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Mark McGwire</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hr</span><span class="p">:</span><span class="w"> </span><span class="m">65</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">avg</span><span class="p">:</span><span class="w"> </span><span class="m">0.278</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Sammy Sosa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hr</span><span class="p">:</span><span class="w"> </span><span class="m">63</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">avg</span><span class="p">:</span><span class="w"> </span><span class="m">0.288</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过对象和数组的不断嵌套，可以表示出各种复杂的数据。</p>
 <h3 id="纯量">纯量</h3>
@@ -323,17 +323,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## ASCII Art</span><span class="w">
-</span><span class="w"></span><span class="p">|</span><span class="sd">
-</span><span class="sd">  \//||\/||
-</span><span class="sd">  // ||  ||__</span><span class="w">  
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="p">&gt;</span><span class="sd">
-</span><span class="sd">  Mark McGwire&#39;s
-</span><span class="sd">  year was crippled
-</span><span class="sd">  by a knee injury.</span><span class="w">  
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## ASCII Art</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">  \//||\/||
+</span></span></span><span class="line"><span class="cl"><span class="sd">  // ||  ||__</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">&gt;</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">  Mark McGwire&#39;s
+</span></span></span><span class="line"><span class="cl"><span class="sd">  year was crippled
+</span></span></span><span class="line"><span class="cl"><span class="sd">  by a knee injury.</span><span class="w">  
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>纯量也可以使用引号表示：</p>
 <div class="highlight"><div class="chroma">
@@ -347,14 +347,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">unicode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sosa did fine.\u263A&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">control</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\b1998\t1999\t2000\n&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">hex esc</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\x0d\x0a is \r\n&#34;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">single</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#34;Howdy!&#34; he cried.&#39;</span><span class="w">
-</span><span class="w"></span><span class="nt">quoted</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34; # Not a &#39;comment&#39;.&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">tie-fighter</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;|\-*-/|&#39;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">unicode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Sosa did fine.\u263A&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">control</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\b1998\t1999\t2000\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">hex esc</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;\x0d\x0a is \r\n&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">single</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#34;Howdy!&#34; he cried.&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">quoted</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34; # Not a &#39;comment&#39;.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tie-fighter</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;|\-*-/|&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="标签">标签</h3>
 <p>标签其实就是一系列数据类型，用于对于纯量标记，包括：</p>
@@ -413,49 +413,49 @@
 </span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## int</span><span class="w">
-</span><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">12345</span><span class="w">
-</span><span class="w"></span><span class="nt">decimal</span><span class="p">:</span><span class="w"> </span><span class="l">+12345</span><span class="w">
-</span><span class="w"></span><span class="nt">octal</span><span class="p">:</span><span class="w"> </span><span class="m">0o14</span><span class="w">
-</span><span class="w"></span><span class="nt">hexadecimal</span><span class="p">:</span><span class="w"> </span><span class="l">0xC</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## float</span><span class="w">
-</span><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">1.23015e+3</span><span class="w">
-</span><span class="w"></span><span class="nt">exponential</span><span class="p">:</span><span class="w"> </span><span class="m">12.3015e+02</span><span class="w">
-</span><span class="w"></span><span class="nt">fixed</span><span class="p">:</span><span class="w"> </span><span class="m">1230.15</span><span class="w">
-</span><span class="w"></span><span class="nt">negative infinity</span><span class="p">:</span><span class="w"> </span>-<span class="l">.inf</span><span class="w">
-</span><span class="w"></span><span class="nt">not a number</span><span class="p">:</span><span class="w"> </span><span class="l">.NaN</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## timestamp</span><span class="w">
-</span><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-15T02:59:43.1Z</span><span class="w">
-</span><span class="w"></span><span class="nt">iso8601</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14</span><span class="l">t21:59:43.10-05:00</span><span class="w">
-</span><span class="w"></span><span class="nt">spaced</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14 21:59:43.10 -5</span><span class="w">
-</span><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2002-12-14</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## binary</span><span class="w">
-</span><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="cp">!!binary</span><span class="w"> </span><span class="s2">&#34;\
-</span><span class="s2">  R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5\
-</span><span class="s2">  OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+\
-</span><span class="s2">  +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC\
-</span><span class="s2">  AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">generic</span><span class="p">:</span><span class="w"> </span>!<span class="l">binary |</span><span class="w">
-</span><span class="w">  </span><span class="l">R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5</span><span class="w">
-</span><span class="w">  </span><span class="l">OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+</span><span class="w">
-</span><span class="w">  </span><span class="l">+f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC</span><span class="w">
-</span><span class="w">  </span><span class="l">AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=</span><span class="w">
-</span><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">The binary value above is a tiny arrow encoded as a gif image.</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nn">---</span><span class="w">
-</span><span class="w"></span><span class="c">## unordered set</span><span class="w">
-</span><span class="w"></span><span class="cp">!!set</span><span class="w">
-</span><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Mark McGwire</span><span class="w">
-</span><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Sammy Sosa</span><span class="w">
-</span><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Ken Griff</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">12345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">decimal</span><span class="p">:</span><span class="w"> </span><span class="l">+12345</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">octal</span><span class="p">:</span><span class="w"> </span><span class="m">0o14</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">hexadecimal</span><span class="p">:</span><span class="w"> </span><span class="l">0xC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## float</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="m">1.23015e+3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">exponential</span><span class="p">:</span><span class="w"> </span><span class="m">12.3015e+02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">fixed</span><span class="p">:</span><span class="w"> </span><span class="m">1230.15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">negative infinity</span><span class="p">:</span><span class="w"> </span>-<span class="l">.inf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">not a number</span><span class="p">:</span><span class="w"> </span><span class="l">.NaN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## timestamp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-15T02:59:43.1Z</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">iso8601</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14</span><span class="l">t21:59:43.10-05:00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spaced</span><span class="p">:</span><span class="w"> </span><span class="ld">2001-12-14 21:59:43.10 -5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2002-12-14</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## binary</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">canonical</span><span class="p">:</span><span class="w"> </span><span class="cp">!!binary</span><span class="w"> </span><span class="s2">&#34;\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC\
+</span></span></span><span class="line"><span class="cl"><span class="s2">  AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">generic</span><span class="p">:</span><span class="w"> </span>!<span class="l">binary |</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">+f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">The binary value above is a tiny arrow encoded as a gif image.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">## unordered set</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cp">!!set</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Mark McGwire</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Sammy Sosa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">?</span><span class="w"> </span><span class="l">Ken Griff</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考">参考</h2>
 <ol>
@@ -519,26 +519,7 @@
         </div>
         
 
-  <span id="/2020/04/yaml-introduction/" class="leancloud_visitors" data-flag-title="YAML 简介">
-		<span class="post-meta-item-text">文章阅读量 </span>
-		<span class="leancloud-visitors-count">0</span>
-		<p></p>
-	  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script type="text/javascript">
-    new Valine({
-        el: '#vcomments' ,
-        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
-        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
-        notify:  false ,
-        verify:  false ,
-        avatar:'mm',
-        placeholder: '说点什么吧...',
-        visitor:  true 
-    });
-  </script>
+  
 
   
 
@@ -571,7 +552,7 @@
   <span class="copyright-year">
     &copy;
     2019 -
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -606,7 +587,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

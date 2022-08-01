@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.87.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.cycleke.com/2020/03/maven-and-junit-initial-attempts/" />
@@ -201,9 +201,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">M2_HOME=/path/to/maven-3.6.x
-PATH=$PATH:$M2_HOME/bin
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">M2_HOME=/path/to/maven-3.6.x
+</span></span><span class="line"><span class="cl">PATH=$PATH:$M2_HOME/bin
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="linux">Linux</h4>
 <p>同样可以从官网下载，也可以通过包管理器下载。如 Arch Linux 可以：</p>
@@ -212,8 +212,8 @@ PATH=$PATH:$M2_HOME/bin
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S maven
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo pacman -S maven
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="macos">macOS</h4>
 <p>其实穷人并没有 mac。ε=ε=ε=ε=ε=ε=┌(;￣ ◇ ￣)┘</p>
@@ -224,8 +224,8 @@ PATH=$PATH:$M2_HOME/bin
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mvn --version
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mvn --version
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>判断是否安装成功。</p>
 <h3 id="配置镜像">配置镜像</h3>
@@ -240,11 +240,11 @@ PATH=$PATH:$M2_HOME/bin
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;id&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
-<span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
-<span class="nt">&lt;name&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
-<span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="nt">&lt;/url&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;id&gt;</span>nexus-aliyun<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;name&gt;</span>Nexus aliyun<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="nt">&lt;/url&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="方式二">方式二</h4>
 <p>在~/.m2 中修改文件 settings.xml，这样不用使用 root 权限，而且可以为每个用户使用单独的配置。</p>
@@ -262,17 +262,17 @@ PATH=$PATH:$M2_HOME/bin
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;settings&gt;</span>
-  <span class="nt">&lt;mirrors&gt;</span>
-    <span class="nt">&lt;mirror&gt;</span>
-      <span class="nt">&lt;id&gt;</span>aliyun<span class="nt">&lt;/id&gt;</span>
-      <span class="nt">&lt;name&gt;</span>aliyun<span class="nt">&lt;/name&gt;</span>
-      <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
-      <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/mirror&gt;</span>
-  <span class="nt">&lt;/mirrors&gt;</span>
-<span class="nt">&lt;/settings&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;settings&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;mirrors&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mirror&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;id&gt;</span>aliyun<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;name&gt;</span>aliyun<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/mirror&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/mirrors&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/settings&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="方式三">方式三</h4>
 <p>单项目配置时，需要修改 pom 文件。pom 文件中，没有 mirror 元素。在 pom 文件中，通过覆盖
@@ -305,31 +305,31 @@ PATH=$PATH:$M2_HOME/bin
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-<span class="nt">&lt;groupId&gt;</span>com.test<span class="nt">&lt;/groupId&gt;</span>
-<span class="nt">&lt;artifactId&gt;</span>conifg<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
-<span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-<span class="nt">&lt;repositories&gt;</span>
-    <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>central<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
-        <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
-        <span class="c">&lt;!-- 是否开启发布版构件下载 --&gt;</span>
-        <span class="nt">&lt;releases&gt;</span>
-            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
-        <span class="nt">&lt;/releases&gt;</span>
-        <span class="c">&lt;!-- 是否开启快照版构件下载 --&gt;</span>
-        <span class="nt">&lt;snapshots&gt;</span>
-            <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
-        <span class="nt">&lt;/snapshots&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
-<span class="nt">&lt;/repositories&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;groupId&gt;</span>com.test<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;artifactId&gt;</span>conifg<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;repositories&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;repository&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id&gt;</span>central<span class="nt">&lt;/id&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;layout&gt;</span>default<span class="nt">&lt;/layout&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- 是否开启发布版构件下载 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;releases&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/releases&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c">&lt;!-- 是否开启快照版构件下载 --&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;snapshots&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;enabled&gt;</span>false<span class="nt">&lt;/enabled&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/snapshots&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/repository&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/repositories&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用-maven">使用 Maven</h3>
 <p>Maven 的关键是项目描述文件 pom.xml。下面是我此次实验中使用的 pom.xml。</p>
@@ -410,80 +410,80 @@ PATH=$PATH:$M2_HOME/bin
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-    <span class="nt">&lt;groupId&gt;</span>HIT<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>cycleke<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-    <span class="nt">&lt;properties&gt;</span>
-        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
-        <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
-        <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
-    <span class="nt">&lt;/properties&gt;</span>
-
-    <span class="nt">&lt;build&gt;</span>
-        <span class="nt">&lt;sourceDirectory&gt;</span>src<span class="nt">&lt;/sourceDirectory&gt;</span>
-        <span class="nt">&lt;resources&gt;</span>
-            <span class="nt">&lt;resource&gt;</span>
-                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
-                <span class="nt">&lt;directory&gt;</span>src<span class="nt">&lt;/directory&gt;</span>
-                <span class="nt">&lt;includes&gt;</span>
-                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
-                <span class="nt">&lt;/includes&gt;</span>
-            <span class="nt">&lt;/resource&gt;</span>
-            <span class="nt">&lt;resource&gt;</span>
-                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
-                <span class="nt">&lt;directory&gt;</span>txt<span class="nt">&lt;/directory&gt;</span>
-                <span class="nt">&lt;includes&gt;</span>
-                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
-                <span class="nt">&lt;/includes&gt;</span>
-            <span class="nt">&lt;/resource&gt;</span>
-        <span class="nt">&lt;/resources&gt;</span>
-
-        <span class="nt">&lt;testSourceDirectory&gt;</span>test<span class="nt">&lt;/testSourceDirectory&gt;</span>
-        <span class="nt">&lt;testResources&gt;</span>
-            <span class="nt">&lt;testResource&gt;</span>
-                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
-                <span class="nt">&lt;directory&gt;</span>src<span class="nt">&lt;/directory&gt;</span>
-                <span class="nt">&lt;includes&gt;</span>
-                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
-                <span class="nt">&lt;/includes&gt;</span>
-            <span class="nt">&lt;/testResource&gt;</span>
-            <span class="nt">&lt;testResource&gt;</span>
-                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
-                <span class="nt">&lt;directory&gt;</span>txt<span class="nt">&lt;/directory&gt;</span>
-                <span class="nt">&lt;includes&gt;</span>
-                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
-                <span class="nt">&lt;/includes&gt;</span>
-            <span class="nt">&lt;/testResource&gt;</span>
-        <span class="nt">&lt;/testResources&gt;</span>
-
-        <span class="nt">&lt;plugins&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;configuration&gt;</span>
-                    <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
-                    <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
-                <span class="nt">&lt;/configuration&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
-        <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/build&gt;</span>
-
-    <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>4.13<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>HIT<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>cycleke<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;build&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;sourceDirectory&gt;</span>src<span class="nt">&lt;/sourceDirectory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;resources&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;resource&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;directory&gt;</span>src<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;includes&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/includes&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/resource&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;resource&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;directory&gt;</span>txt<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;includes&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/includes&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/resource&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/resources&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;testSourceDirectory&gt;</span>test<span class="nt">&lt;/testSourceDirectory&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;testResources&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;testResource&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;directory&gt;</span>src<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;includes&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/includes&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/testResource&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;testResource&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;directory&gt;</span>txt<span class="nt">&lt;/directory&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;includes&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;include&gt;</span>*.*<span class="nt">&lt;/include&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/includes&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/testResource&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/testResources&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/plugins&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/build&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>4.13<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中，groupId 类似于 Java 的包名，通常是公司或组织名称，artifactId 类似于 Java 的类名
 ，通常是项目名称，再加上 version，一个 Maven 工程就是由 groupId，artifactId 和 version
@@ -504,17 +504,17 @@ PATH=$PATH:$M2_HOME/bin
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">maven-project
-├── pom.xml
-├── src
-│   ├── main
-│   │   ├── java
-│   │   └── resources
-│   └── test
-│       ├── java
-│       └── resources
-└── target
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">maven-project
+</span></span><span class="line"><span class="cl">├── pom.xml
+</span></span><span class="line"><span class="cl">├── src
+</span></span><span class="line"><span class="cl">│   ├── main
+</span></span><span class="line"><span class="cl">│   │   ├── java
+</span></span><span class="line"><span class="cl">│   │   └── resources
+</span></span><span class="line"><span class="cl">│   └── test
+</span></span><span class="line"><span class="cl">│       ├── java
+</span></span><span class="line"><span class="cl">│       └── resources
+</span></span><span class="line"><span class="cl">└── target
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中 src 中存放代码，main 是主要代码，test 是测试代码，java 放代码文件，resources 放资
 源；target 存放生成的文件。</p>
@@ -534,17 +534,17 @@ test 目录，项目结构如下：</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Lab1
-├── src
-│   ├── P1
-│   ├── P2
-│   └── P3
-├── test
-│   ├── P1
-│   ├── P2
-│   └── P3
-└── target
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Lab1
+</span></span><span class="line"><span class="cl">├── src
+</span></span><span class="line"><span class="cl">│   ├── P1
+</span></span><span class="line"><span class="cl">│   ├── P2
+</span></span><span class="line"><span class="cl">│   └── P3
+</span></span><span class="line"><span class="cl">├── test
+</span></span><span class="line"><span class="cl">│   ├── P1
+</span></span><span class="line"><span class="cl">│   ├── P2
+</span></span><span class="line"><span class="cl">│   └── P3
+</span></span><span class="line"><span class="cl">└── target
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过 pom.xml,我们还可以配置插件（如上面的 maven-compiler-plugin）和第三方库（junit）。</p>
 <h3 id="常用指令">常用指令</h3>
@@ -614,29 +614,29 @@ test 目录，项目结构如下：</p>
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">P1</span><span class="o">;</span>
-
-<span class="kn">import static</span> <span class="nn">org.junit.Assert.assertEquals</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MagicSquareTest</span> <span class="o">{</span>
-  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isLegalMagicSquareTest</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kt">boolean</span><span class="o">[]</span> <span class="n">corrects</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="o">{</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span> <span class="o">};</span>
-    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">6</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;txt/%d.txt&#34;</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>
-      <span class="n">assertEquals</span><span class="o">(</span><span class="n">corrects</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">isLegalMagicSquare</span><span class="o">(</span><span class="n">fileName</span><span class="o">));</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-
-  <span class="nd">@Test</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generateMagicSquareTest</span><span class="o">()</span>  <span class="o">{</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">0</span><span class="o">));</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">2</span><span class="o">));</span>
-    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">101</span><span class="o">));</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">P1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import static</span> <span class="nn">org.junit.Assert.assertEquals</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MagicSquareTest</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isLegalMagicSquareTest</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">boolean</span><span class="o">[]</span> <span class="n">corrects</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="o">{</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">true</span> <span class="o">};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">6</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;txt/%d.txt&#34;</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">assertEquals</span><span class="o">(</span><span class="n">corrects</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">isLegalMagicSquare</span><span class="o">(</span><span class="n">fileName</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nd">@Test</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generateMagicSquareTest</span><span class="o">()</span>  <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">0</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">false</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">2</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assertEquals</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">MagicSquare</span><span class="o">.</span><span class="na">generateMagicSquare</span><span class="o">(</span><span class="n">101</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>assertEquals</code>会判断函数运行结果是否与期望相同。
 <code>Assertion</code>还定义了其他断言方法，可以翻阅<a href="https://github.com/junit-team/junit4/wiki/Assertions">wiki</a> 查看。</p>
@@ -649,11 +649,11 @@ test 目录，项目结构如下：</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">RuntimeException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">expectedTest</span><span class="o">()</span> <span class="o">{</span>
-  <span class="kd">throws</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">&#34;／人◕ ‿‿ ◕人＼&#34;</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">RuntimeException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">expectedTest</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">throws</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">&#34;／人◕ ‿‿ ◕人＼&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>写完单元测试后在 Maven 加入 JUnit 第三方库依赖，然后运行<code>mvn clean test</code>测试。</p>
 <h2 id="参考">参考</h2>
@@ -722,26 +722,7 @@ test 目录，项目结构如下：</p>
         </div>
         
 
-  <span id="/2020/03/maven-and-junit-initial-attempts/" class="leancloud_visitors" data-flag-title="Maven 和 JUnit 初步尝试">
-		<span class="post-meta-item-text">文章阅读量 </span>
-		<span class="leancloud-visitors-count">0</span>
-		<p></p>
-	  </span>
-  <div id="vcomments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-  <script type="text/javascript">
-    new Valine({
-        el: '#vcomments' ,
-        appId: 'j5aeTSI9M5dzm1rGboVsXVKf-MdYXbMMI',
-        appKey: 'oM8DI8R3O4d7dtCDzrDguRTt',
-        notify:  false ,
-        verify:  false ,
-        avatar:'mm',
-        placeholder: '说点什么吧...',
-        visitor:  true 
-    });
-  </script>
+  
 
   
 
@@ -774,7 +755,7 @@ test 目录，项目结构如下：</p>
   <span class="copyright-year">
     &copy;
     2019 -
-    2021
+    2022
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -809,7 +790,7 @@ test 目录，项目结构如下：</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {
