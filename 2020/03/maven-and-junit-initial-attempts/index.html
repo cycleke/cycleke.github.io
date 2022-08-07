@@ -1,186 +1,322 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Maven 和 JUnit 初步尝试 - 路遥柯随笔</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="cycleke" /><meta name="description" content="最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
 此时大喊 emacs 大法好！！！
-" /><meta name="keywords" content="cycleke, 路遥柯" />
+'><title>Maven 和 JUnit 初步尝试</title>
+
+<link rel='canonical' href='https://blog.cycleke.com/2020/03/maven-and-junit-initial-attempts/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='Maven 和 JUnit 初步尝试'>
+<meta property='og:description' content='最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
+此时大喊 emacs 大法好！！！
+'>
+<meta property='og:url' content='https://blog.cycleke.com/2020/03/maven-and-junit-initial-attempts/'>
+<meta property='og:site_name' content='路遥柯随笔'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Java' /><meta property='article:tag' content='Maven' /><meta property='article:tag' content='JUnit' /><meta property='article:published_time' content='2020-03-03T18:46:00&#43;08:00'/><meta property='article:modified_time' content='2020-03-03T18:46:00&#43;08:00'/>
+<meta name="twitter:title" content="Maven 和 JUnit 初步尝试">
+<meta name="twitter:description" content="最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
+此时大喊 emacs 大法好！！！
+">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu84b4f45cafa5b5917e0ea5f92d9ead8f_229955_300x0_resize_box_3.png" width="300"
+                            height="250" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">路遥柯随笔</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/cycleke'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
 
 
 
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:cycleke@gmail.com'
+                        target="_blank"
+                        title="邮箱"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mailbox" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
+  <path d="M12 11v-8h4l2 2l-2 2h-4" />
+  <path d="M6 15h1" />
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
 
 
 
-<meta name="generator" content="Hugo 0.101.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.cycleke.com/2020/03/maven-and-junit-initial-attempts/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<link href="/sass/main.min.95b11d713a02109e029a2cbca01386bddd49081a246d67dd3a2b43a4fadd5aa0.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/custom.css">
-
-
-<meta property="og:title" content="Maven 和 JUnit 初步尝试" />
-<meta property="og:description" content="最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
-喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
-此时大喊 emacs 大法好！！！" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.cycleke.com/2020/03/maven-and-junit-initial-attempts/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-03-03T18:46:00+08:00" />
-<meta property="article:modified_time" content="2020-03-03T18:46:00+08:00" />
-
-<meta itemprop="name" content="Maven 和 JUnit 初步尝试">
-<meta itemprop="description" content="最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
-喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
-此时大喊 emacs 大法好！！！"><meta itemprop="datePublished" content="2020-03-03T18:46:00+08:00" />
-<meta itemprop="dateModified" content="2020-03-03T18:46:00+08:00" />
-<meta itemprop="wordCount" content="1828">
-<meta itemprop="keywords" content="Java,Maven,JUnit," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Maven 和 JUnit 初步尝试"/>
-<meta name="twitter:description" content="最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
-喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。
-此时大喊 emacs 大法好！！！"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">路遥柯</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="https://cycleke.com">
-        <li class="mobile-menu-item">关于我</li>
-      </a>
-  </ul>
-
-  
-
-
-</nav>
-
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">路遥柯</a>
-</div>
-
-
-
-
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://cycleke.com">关于我</a>
-      </li>
-  </ul>
-</nav>
-
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Maven 和 JUnit 初步尝试</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2020-03-03 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/"> 工具学习 </a>
-            </div>
-          <span class="more-meta"> 约 1828 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#maven">Maven</a>
-          <ul>
-            <li><a href="#安装-maven">安装 Maven</a></li>
-            <li><a href="#配置镜像">配置镜像</a></li>
-            <li><a href="#使用-maven">使用 Maven</a></li>
-            <li><a href="#常用指令">常用指令</a></li>
-          </ul>
+                
+                <span>首页</span>
+            </a>
         </li>
-        <li><a href="#junit">JUnit</a></li>
-        <li><a href="#参考">参考</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2020-03-03T18:46:00" title="March 3, 2020">March 3, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
+        
+        
+
+        <li >
+            <a href='/post/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/tags/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
+  <circle cx="9" cy="9" r="2" />
+</svg>
+
+
+
+                
+                <span>标签</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://cycleke.com' target="_blank">
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>关于我</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A0/" >
+                工具学习
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2020/03/maven-and-junit-initial-attempts/">Maven 和 JUnit 初步尝试</a>
+        </h2>
+    
+        
     </div>
-  </div>
-    <div class="post-content">
-      <p>最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 03, 2020</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>最近由于软件构造课的实验需要，我需要进行 Java 的单元测试。但是 Eclipse 的体验个人不太
 喜欢，IDEA 在自己的渣笔记本又太慢，所以学习使用 Maven 来管理和测试。</p>
 <p><del>此时大喊 emacs 大法好！！！</del></p>
 <h2 id="maven">Maven</h2>
@@ -194,7 +330,8 @@
 </ul>
 <h3 id="安装-maven">安装 Maven</h3>
 <h4 id="windows">Windows</h4>
-<p>首先需要安装 JDK，然后从 <a href="https://maven.apache.org/download.cgi">Maven 官网</a> 下载 Maven，之后解压、配置环境变量。</p>
+<p>首先需要安装 JDK，然后从 <a class="link" href="https://maven.apache.org/download.cgi"  target="_blank" rel="noopener"
+    >Maven 官网</a> 下载 Maven，之后解压、配置环境变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -488,7 +625,8 @@
 </div><p>其中，groupId 类似于 Java 的包名，通常是公司或组织名称，artifactId 类似于 Java 的类名
 ，通常是项目名称，再加上 version，一个 Maven 工程就是由 groupId，artifactId 和 version
 为唯一标识。我们在引用其他第三方库的时候，也是通过这 3 个变量确定。</p>
-<p>注意上述版本的<code>SNAPSHOT</code>，SNAPSHOT 版本和正式版本的区别可见<a href="https://www.cnblogs.com/huang0925/p/5169624.html">理解 Maven 中的 SNAPSHOT 版本和正式版本</a>。</p>
+<p>注意上述版本的<code>SNAPSHOT</code>，SNAPSHOT 版本和正式版本的区别可见<a class="link" href="https://www.cnblogs.com/huang0925/p/5169624.html"  target="_blank" rel="noopener"
+    >理解 Maven 中的 SNAPSHOT 版本和正式版本</a>。</p>
 <p>标准的 Maven 项目结构是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -549,7 +687,7 @@ test 目录，项目结构如下：</p>
 </div><p>通过 pom.xml,我们还可以配置插件（如上面的 maven-compiler-plugin）和第三方库（junit）。</p>
 <h3 id="常用指令">常用指令</h3>
 <p>下面是 Maven 的常用指令：</p>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -582,7 +720,7 @@ test 目录，项目结构如下：</p>
 <td>查看依赖关系</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2 id="junit">JUnit</h2>
 <p>JUnit 是一个开源的 Java 语言的单元测试框架，专门针对 Java 设计，使用最广泛。一般的 IDE
 都支持 JUnit 或对应的插件。JUnit 已经发展到 JUnit5，然而一般用的似乎是 JUnit4。</p>
@@ -639,7 +777,8 @@ test 目录，项目结构如下：</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>assertEquals</code>会判断函数运行结果是否与期望相同。
-<code>Assertion</code>还定义了其他断言方法，可以翻阅<a href="https://github.com/junit-team/junit4/wiki/Assertions">wiki</a> 查看。</p>
+<code>Assertion</code>还定义了其他断言方法，可以翻阅<a class="link" href="https://github.com/junit-team/junit4/wiki/Assertions"  target="_blank" rel="noopener"
+    >wiki</a> 查看。</p>
 <p>JUnit 还可以通过如下方式测试异常：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -658,154 +797,344 @@ test 目录，项目结构如下：</p>
 </div><p>写完单元测试后在 Maven 加入 JUnit 第三方库依赖，然后运行<code>mvn clean test</code>测试。</p>
 <h2 id="参考">参考</h2>
 <ol>
-<li><a href="https://maven.apache.org/">Maven 官网</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610">Maven 介绍</a></li>
-<li><a href="https://yq.aliyun.com/articles/695269">Maven 之阿里云镜像仓库配置</a></li>
-<li><a href="https://www.cnblogs.com/huang0925/p/5169624.html">理解 Maven 中的 SNAPSHOT 版本和正式版本</a></li>
-<li><a href="https://blog.csdn.net/majinggogogo/article/details/52098096">如何查看 Maven 项目中的 jar 包依赖树情况？</a></li>
-<li><a href="https://junit.org/junit4/">JUnit 官网</a></li>
+<li><a class="link" href="https://maven.apache.org/"  target="_blank" rel="noopener"
+    >Maven 官网</a></li>
+<li><a class="link" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610"  target="_blank" rel="noopener"
+    >Maven 介绍</a></li>
+<li><a class="link" href="https://yq.aliyun.com/articles/695269"  target="_blank" rel="noopener"
+    >Maven 之阿里云镜像仓库配置</a></li>
+<li><a class="link" href="https://www.cnblogs.com/huang0925/p/5169624.html"  target="_blank" rel="noopener"
+    >理解 Maven 中的 SNAPSHOT 版本和正式版本</a></li>
+<li><a class="link" href="https://blog.csdn.net/majinggogogo/article/details/52098096"  target="_blank" rel="noopener"
+    >如何查看 Maven 项目中的 jar 包依赖树情况？</a></li>
+<li><a class="link" href="https://junit.org/junit4/"  target="_blank" rel="noopener"
+    >JUnit 官网</a></li>
 </ol>
-    </div>
+</section>
 
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">cycleke</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2020-03-03
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
+
+    <footer class="article-footer">
     
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/img/wechat.svg">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/img/alipay.svg">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/java/">Java</a>
-          <a href="/tags/maven/">Maven</a>
-          <a href="/tags/junit/">JUnit</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2020/03/java-test-coverage/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Java 代码覆盖率工具</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/2019/12/csapp-assignment/">
-            <span class="next-text nav-default">CS:APP 大作业</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
+    <section class="article-tags">
+        
+            <a href="/tags/java/">Java</a>
+        
+            <a href="/tags/maven/">Maven</a>
+        
+            <a href="/tags/junit/">JUnit</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
     </footer>
-  </article>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/2020/03/java-test-coverage/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java 代码覆盖率工具</h2>
         </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/2020/04/parsing-yaml-with-snakeyaml/">
+        
         
 
-  
+        <div class="article-details">
+            <h2 class="article-title">使用 SnakeYAML 解析 YAML</h2>
+        </div>
+    </a>
+</article>
 
-  
+            
+                
+<article class="">
+    <a href="/2020/04/yaml-introduction/">
+        
+        
 
-      </div>
-    </main>
+        <div class="article-details">
+            <h2 class="article-title">YAML 简介</h2>
+        </div>
+    </a>
+</article>
 
-    <footer id="footer" class="footer">
-      <div class="social-links">
-  <a href="mailto:cycleke@gmail.com" class="iconfont icon-email" title="email"></a>
-  <a href="https://github.com/cycleke" class="iconfont icon-github" title="github"></a>
-  <a href="https://blog.cycleke.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 -
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
-    <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy;
-    2019 -
-    2022
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">
-      
-      路遥柯
-      
-    </span>
-    
-    <a href="https://beian.miit.gov.cn/">蜀ICP备2021020864号-1</a>
-    
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
+            
+        </div>
     </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
-  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
-    timeago().render(document.querySelectorAll('.timeago'), languageCode);
-    timeago.cancel();  
-  </script>
+</aside>
 
-
-
-<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        }
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
     };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "lu-yao-ke-sui-bi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2019 - 
+        
+        2022 路遥柯随笔
+    </section>
+    
+    <section class="powerby">
+        
+            蜀ICP备2021020864号-1 <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
 
 
 
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#maven">Maven</a>
+      <ol>
+        <li><a href="#安装-maven">安装 Maven</a>
+          <ol>
+            <li><a href="#windows">Windows</a></li>
+            <li><a href="#linux">Linux</a></li>
+            <li><a href="#macos">macOS</a></li>
+            <li><a href="#判断">判断</a></li>
+          </ol>
+        </li>
+        <li><a href="#配置镜像">配置镜像</a>
+          <ol>
+            <li><a href="#方式一">方式一</a></li>
+            <li><a href="#方式二">方式二</a></li>
+            <li><a href="#方式三">方式三</a></li>
+          </ol>
+        </li>
+        <li><a href="#使用-maven">使用 Maven</a></li>
+        <li><a href="#常用指令">常用指令</a></li>
+      </ol>
+    </li>
+    <li><a href="#junit">JUnit</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
 
 
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
 
+        document.head.appendChild(customFont);
+    }());
+</script>
 
-</body>
+    </body>
 </html>

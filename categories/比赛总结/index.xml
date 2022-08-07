@@ -1,30 +1,82 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>比赛总结 on 路遥柯随笔</title>
-    <link>https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/</link>
-    <description>Recent content in 比赛总结 on 路遥柯随笔</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>路遥柯</copyright>
-    <lastBuildDate>Sun, 27 Sep 2020 22:44:13 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>2020 吉林省赛出题反思</title>
-      <link>https://blog.cycleke.com/2020/09/reflection-on-the-questions-of-2020-jilin/</link>
-      <pubDate>Sun, 27 Sep 2020 22:44:13 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2020/09/reflection-on-the-questions-of-2020-jilin/</guid>
-      <description>在经历了 2020 吉林省赛出题的糟糕体验以及赛中出锅后， 我打算写一下自己在整个出题过程中的一些错误以及一个出题流程（面向 ddl 出题），避免自己以后在出现</description>
-    </item>
-    
-    <item>
-      <title>2019 年黑龙江省赛总结</title>
-      <link>https://blog.cycleke.com/2019/05/2019-heilongjiang-summary/</link>
-      <pubDate>Sun, 12 May 2019 23:22:37 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2019/05/2019-heilongjiang-summary/</guid>
-      <description>&lt;p&gt;这次比赛是自己第一次正式参加 ACM 赛制的比赛，虽然最后混了个金，但是感觉比赛过程的问题还是比较大。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>比赛总结 on 路遥柯随笔</title>
+        <link>https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/</link>
+        <description>Recent content in 比赛总结 on 路遥柯随笔</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sun, 27 Sep 2020 22:44:13 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/categories/%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2020 吉林省赛出题反思</title>
+        <link>https://blog.cycleke.com/2020/09/reflection-on-the-questions-of-2020-jilin/</link>
+        <pubDate>Sun, 27 Sep 2020 22:44:13 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2020/09/reflection-on-the-questions-of-2020-jilin/</guid>
+        <description>&lt;p&gt;在经历了 2020 吉林省赛出题的糟糕体验以及赛中出锅后，
+我打算写一下自己在整个出题过程中的一些错误以及一个出题流程（面向 ddl 出题），避免自己以后在出现锅。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;不过我这么菜，大概以后没资格出题了。&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;出题过程中的问题&#34;&gt;出题过程中的问题&lt;/h2&gt;
+&lt;h3 id=&#34;拖延症&#34;&gt;拖延症&lt;/h3&gt;
+&lt;p&gt;在整个出题的过程中，出题队员普遍出题速度太慢。如果不催，那么及少选手会出题。事实上，直到最后一周，都有队员没有将完整的题面+数据+标程+题解写出来。&lt;/p&gt;
+&lt;h3 id=&#34;题目不规范&#34;&gt;题目不规范&lt;/h3&gt;
+&lt;p&gt;几乎所有出题人的题目都不够规范，要么存在歧义，要么有语法错误，要么输入输出靠猜。这导致后面需要组题人不断地修改题面，而这也是比赛出锅的最主要原因。&lt;/p&gt;
+&lt;h3 id=&#34;没有留时间做-review&#34;&gt;没有留时间做 review&lt;/h3&gt;
+&lt;p&gt;在此次出题的过程中，题面和正解的 review 都不够充分。&lt;/p&gt;
+&lt;p&gt;题面的最终版本和网站上的版本没有让每个出题人去做一遍 review，而且没有让没看过题目的人检查题意是否有不清楚的地方。&lt;/p&gt;
+&lt;p&gt;此次出题过程中，验题的人数稍显不足，平均每道题只有一个人验题。而且大家普遍没有检验是否会放过“假算法”。&lt;/p&gt;
+&lt;h3 id=&#34;出题的要求没有了解清晰&#34;&gt;出题的要求没有了解清晰&lt;/h3&gt;
+&lt;p&gt;在出题之前，我们对于题目的难度要求不够清晰，直接按照自己对于题目难度的理解来出题了。这导致原本中档题过多，区分度太差。&lt;/p&gt;
+&lt;h3 id=&#34;裁判组没有了解题意&#34;&gt;裁判组没有了解题意&lt;/h3&gt;
+&lt;p&gt;这算是一个意外的锅。由于出题人基本上在打本省的比赛，无法当裁判，所以裁判对于题意的理解出现了偏差。&lt;/p&gt;
+&lt;h2 id=&#34;出题流程&#34;&gt;出题流程&lt;/h2&gt;
+&lt;h3 id=&#34;出题时间&#34;&gt;出题时间&lt;/h3&gt;
+&lt;p&gt;根据省赛的出题经验，一次出题至少需要六周。根据比赛的重要程度可以适当调整。&lt;/p&gt;
+&lt;h3 id=&#34;分发出题任务&#34;&gt;分发出题任务&lt;/h3&gt;
+&lt;p&gt;在正式出题前，出题组需要讨论各个出题的 idea，分析题目的难度。之后将每个 idea 分配给各个组员（一般是同队选手）。如果讨论时发现合格 idea 不足，而 dll 比较紧的话，可以直接分配不同难度的题目给各个选手/队伍（但是要做好题目质量不足的准备）。&lt;/p&gt;
+&lt;p&gt;所以大家最好平时有一个出题的 ideas 库，出题时就拿来用。出题任务最好有 2 ~ 4 个的冗余，防止题目有误和出现原题。&lt;/p&gt;
+&lt;h3 id=&#34;完成题目内容&#34;&gt;完成题目内容&lt;/h3&gt;
+&lt;p&gt;在确定哪些 ideas 进入候选名单后，负责人会通知提出 ideas 的同学完成题目内容的准备工作（如果工作过于不平衡的话，有时也会将 ideas 交给较空闲的同学）。题目内容一般包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;题目描述（包含样例输入、输出，可以是压缩的题意描述）&lt;/li&gt;
+&lt;li&gt;输入、输出数据 Checker（如有需要）&lt;/li&gt;
+&lt;li&gt;准程序解题报告及自评难度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;出题过程最好使用 polygon 和 testlib 来进行，可以使用 git 来管理。对于所有的数据，必须有对应的 validator 来检查数据是否符合题目描述。&lt;/p&gt;
+&lt;h3 id=&#34;组题&#34;&gt;组题&lt;/h3&gt;
+&lt;p&gt;组题人一般是出题的负责人（背锅侠）。一般由他来负责催出题人出题，规定 ddl。&lt;/p&gt;
+&lt;p&gt;同时他要负责编写题面，将其他人题目描述规范化，统一化。&lt;/p&gt;
+&lt;h3 id=&#34;反复验题&#34;&gt;反复验题&lt;/h3&gt;
+&lt;p&gt;当一道题目完成题目内容并规范题目描述后，需要将题目挂在 OJ 上由其他出题队员反复检查题面描述是否有问题，数据有无锅，标程是否是“假”的，是否会让“假算法”过，是否有原题等问题。&lt;/p&gt;
+&lt;h3 id=&#34;检验题面&#34;&gt;检验题面&lt;/h3&gt;
+&lt;p&gt;将所有题面交由几位英语较好的成员负责将题面润色，消除题面的语法错误、题面歧义，确保题面中不常用的概念有作出解释。润色完成后需要让原出题人 review，确保题意无误。&lt;/p&gt;
+&lt;h3 id=&#34;验题赛&#34;&gt;验题赛&lt;/h3&gt;
+&lt;p&gt;邀请部分队伍在五小时内完成整份题目，并听取队伍反馈。&lt;/p&gt;
+&lt;h3 id=&#34;final-check&#34;&gt;Final Check&lt;/h3&gt;
+&lt;p&gt;根据验题的结果进行组题，让所有出题队员检查是否最终的题面和数据。之后将所有的题目编译打包，确保所有的数据都正确。&lt;/p&gt;
+&lt;h3 id=&#34;onsite-check&#34;&gt;Onsite Check&lt;/h3&gt;
+&lt;p&gt;将数据和题目部署在比赛的平台，并根现场台测试的结果来调整题目的时限。标准的时限空限应当至少为标程的两倍，但不要太大误导选手思路。如果出现了让“假算法”跑过的情况，需要决定是否重造数据。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/80646786&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;从零开始的出题指南 (0)—— 一些总结与反思&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://oi-wiki.org/contest/problemsetting&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;出题 - OI Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/22519705&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;「这一点都不好玩」：一份 ACM/ICPC 区域赛试题是怎么诞生的&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>2019 年黑龙江省赛总结</title>
+        <link>https://blog.cycleke.com/2019/05/2019-heilongjiang-summary/</link>
+        <pubDate>Sun, 12 May 2019 23:22:37 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2019/05/2019-heilongjiang-summary/</guid>
+        <description>&lt;p&gt;这次比赛是自己第一次正式参加 ACM 赛制的比赛，虽然最后混了个金，但是感觉比赛过程的问题还是比较大。&lt;/p&gt;
+&lt;p&gt;这次比赛的过程中，自己的代码速度感觉比平时慢很多，只有最后一个小时手速比较快&lt;del&gt;但是一道题都没有 A 出来&lt;/del&gt;，以后训练时要适应自己不熟悉的环境写代码。&lt;/p&gt;
+&lt;p&gt;比赛过程没有打出过单线程，这点比较好，但是最后一个小时有点抢键盘，两道题都在演，结果一道也没做出来。。。以后要做好题目的规划。&lt;/p&gt;
+&lt;p&gt;幸好比赛的板子要带齐了，不然 H 就过不了了，以后要记把板子带齐。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
 </rss>

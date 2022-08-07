@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>乱搞 on 路遥柯随笔</title>
-    <link>https://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/</link>
-    <description>Recent content in 乱搞 on 路遥柯随笔</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>路遥柯</copyright>
-    <lastBuildDate>Tue, 23 Apr 2019 22:54:40 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Codeforces Round #551 Div. 2</title>
-      <link>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</link>
-      <pubDate>Tue, 23 Apr 2019 22:54:40 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</guid>
-      <description>&lt;h2 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h2&gt;
+    <channel>
+        <title>乱搞 on 路遥柯随笔</title>
+        <link>https://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/</link>
+        <description>Recent content in 乱搞 on 路遥柯随笔</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 23 Apr 2019 22:54:40 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E4%B9%B1%E6%90%9E/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Codeforces Round #551 Div. 2</title>
+        <link>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</link>
+        <pubDate>Tue, 23 Apr 2019 22:54:40 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2019/04/codeforces-round-551-div-2/</guid>
+        <description>&lt;h2 id=&#34;a-serval-and-bus&#34;&gt;A. Serval and Bus&lt;/h2&gt;
 &lt;p&gt;算出 $t$ 之后每班车的最早时间，取最小值&lt;/p&gt;
 &lt;h2 id=&#34;b-serval-and-toy-bricks&#34;&gt;B. Serval and Toy Bricks&lt;/h2&gt;
-&lt;p&gt;每个有方块的位置尽可能取高，即 $\min(a[j], b[i])$&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+&lt;p&gt;每个有方块的位置尽可能取高，即 $\min(a[j], b[i])$&lt;/p&gt;
+&lt;h2 id=&#34;c-serval-and-parenthesis-sequence&#34;&gt;C. Serval and Parenthesis Sequence&lt;/h2&gt;
+&lt;p&gt;统计一下要放多少的$($和$)$,显然前面尽量放$($是最优的，然后 check 判断&lt;/p&gt;
+&lt;h2 id=&#34;d-serval-and-rooted-tree&#34;&gt;D. Serval and Rooted Tree&lt;/h2&gt;
+&lt;p&gt;考虑最下面两层，如果答案再这棵子树中，那么:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是 min 操作，$ ans = k - leaves + 1 $&lt;/li&gt;
+&lt;li&gt;如果是 max 操作，$ ans = leaves = k - 1 + 1 $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们定义 f[i]为 i 子树中的有效叶子，那么 ans = k - f[1] + 1，且:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是 min 操作，$ f[u] = sum(f[v]) $&lt;/li&gt;
+&lt;li&gt;如果是 max 操作，$ f[u] = min(f[v]) $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;e-serval-and-snake&#34;&gt;E. Serval and Snake&lt;/h2&gt;
+&lt;p&gt;不难发现如果一个矩阵中有一端，那么交点为奇数， &lt;del&gt;然后乱搞就好了&lt;/del&gt;
+枚举找到头和尾的行或者列，然后二分就好了。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;然而可怜的 cycleke 常用二分方法超限了，不得不临时想（猜）其他方法&lt;/del&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
 </rss>

@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>凸包 on 路遥柯随笔</title>
-    <link>https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/</link>
-    <description>Recent content in 凸包 on 路遥柯随笔</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>路遥柯</copyright>
-    <lastBuildDate>Sat, 06 Apr 2019 23:45:01 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Codeforces Round #549 Div. 2</title>
-      <link>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</link>
-      <pubDate>Sat, 06 Apr 2019 23:45:01 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</guid>
-      <description>&lt;h2 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h2&gt;
+    <channel>
+        <title>凸包 on 路遥柯随笔</title>
+        <link>https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/</link>
+        <description>Recent content in 凸包 on 路遥柯随笔</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 06 Apr 2019 23:45:01 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%87%B8%E5%8C%85/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Codeforces Round #549 Div. 2</title>
+        <link>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</link>
+        <pubDate>Sat, 06 Apr 2019 23:45:01 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2019/04/codeforces-round-549-div-2/</guid>
+        <description>&lt;h2 id=&#34;athe-doors&#34;&gt;A.The Doors&lt;/h2&gt;
 &lt;p&gt;记录最后一个 0 和 1 的位置。&lt;/p&gt;
 &lt;h2 id=&#34;bnirvana&#34;&gt;B.Nirvana&lt;/h2&gt;
-&lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+&lt;p&gt;对于每一位,答案有三种情况:&lt;/p&gt;
+&lt;p&gt;1,取这位原本数字;&lt;/p&gt;
+&lt;p&gt;2,取 $x - 1$,同时让后一位取 9;&lt;/p&gt;
+&lt;p&gt;3,让前面全取 9;&lt;/p&gt;
+&lt;h2 id=&#34;cqueen&#34;&gt;C.Queen&lt;/h2&gt;
+&lt;p&gt;一个点如果会被删，那么其他的点被删不会影响它最后被删的结果。
+判断一下那些点会被删，然后排序。&lt;/p&gt;
+&lt;h2 id=&#34;dthe-beatles&#34;&gt;D.The Beatles&lt;/h2&gt;
+&lt;p&gt;显然$ L = c \times k + a - b $ 或 $ L = c \times k - a - b $，
+对于每个 L，
+$$ step = lcm(n \times k,L) / L = n \times k / gcd(n \times k, L) $$
+c 从 1 取到 n。&lt;/p&gt;
+&lt;h2 id=&#34;elynyrd-skynyrd&#34;&gt;E.Lynyrd Skynyrd&lt;/h2&gt;
+&lt;p&gt;设 begin_p[i] 为以 i 结尾的环排列起点的最大位置，
+用倍增求 begin_p[i],用前缀和优化就可以解决。&lt;/p&gt;
+&lt;h2 id=&#34;fu2&#34;&gt;F.U2&lt;/h2&gt;
+&lt;p&gt;对于每一个抛物线，满足( x_i^2 + bx_i + c \geq y_i )，
+即( x_i\ \times b + c \geq y_i -x_i^2 )，然后求个凸包，答案是交点个数。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
 </rss>

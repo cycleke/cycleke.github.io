@@ -1,21 +1,211 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>EclEmma on 路遥柯随笔</title>
-    <link>https://blog.cycleke.com/tags/eclemma/</link>
-    <description>Recent content in EclEmma on 路遥柯随笔</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>路遥柯</copyright>
-    <lastBuildDate>Fri, 27 Mar 2020 15:55:02 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/eclemma/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Java 代码覆盖率工具</title>
-      <link>https://blog.cycleke.com/2020/03/java-test-coverage/</link>
-      <pubDate>Fri, 27 Mar 2020 15:55:02 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2020/03/java-test-coverage/</guid>
-      <description>在单元测试的过程中， 我们需要一个指标来计量我们单元测试的质量。 使用代码覆盖率来量化是一个常用的选择。 现在常用的代码覆盖率工具有 Emma，Co</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>EclEmma on 路遥柯随笔</title>
+        <link>https://blog.cycleke.com/tags/eclemma/</link>
+        <description>Recent content in EclEmma on 路遥柯随笔</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 27 Mar 2020 15:55:02 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/eclemma/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java 代码覆盖率工具</title>
+        <link>https://blog.cycleke.com/2020/03/java-test-coverage/</link>
+        <pubDate>Fri, 27 Mar 2020 15:55:02 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2020/03/java-test-coverage/</guid>
+        <description>&lt;p&gt;在单元测试的过程中，
+我们需要一个指标来计量我们单元测试的质量。
+使用代码覆盖率来量化是一个常用的选择。
+现在常用的代码覆盖率工具有 Emma，Cobertura，Jacoco 和 Clover（商用）。
+下面介绍在 Eclipse 和 Maven 中的一些使用方法。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;各个工具特点&#34;&gt;各个工具特点&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;工具&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Jacoco&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Emma&lt;/th&gt;
+&lt;th&gt;Cobertura&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;原理&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;使用 ASM 修改字节码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;修改 jar 文件，class 文件字节码文件&lt;/td&gt;
+&lt;td&gt;基于 jcoverage,基于 asm 框架对 class 文件插桩&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;覆盖粒度&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;行，类，方法，指令，分支&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;行，类，方法，基本块，指令，无分支覆盖&lt;/td&gt;
+&lt;td&gt;项目，包，类，方法的语句覆盖/分支覆盖&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;插桩&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;on the fly、offline&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;on the fly、offline&lt;/td&gt;
+&lt;td&gt;offline，把统计代码插入编译好的 class 文件中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;生成结果&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在 Tomcat 的 catalina.sh 配置 javaangent 参数，指出需要收集覆盖率的文件，shutdown 时才收集，只能使用 kill 命令关闭 Tomcat，不要使用 kill -9&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;html、xml、txt，二进制格式报表&lt;/td&gt;
+&lt;td&gt;html，xml&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;缺点&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;需要源代码&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1、需要 debug 版本，并打来 build.xml 中的 debug 编译项； 2、需要源代码，且必须与插桩的代码完全一致&lt;/td&gt;
+&lt;td&gt;1、不能捕获测试用例中未考虑的异常； 2、关闭服务器才能输出覆盖率信息（已有修改源代码的解决方案，定时输出结果；输出结果之前设置了 hook，会与某些服务器的 hook 冲突，web 测试中需要将 cobertura.ser 文件来回 copy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;性能&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;快&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;小巧&lt;/td&gt;
+&lt;td&gt;插入的字节码信息更多&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;执行方式&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;maven，ant，命令行&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;命令行&lt;/td&gt;
+&lt;td&gt;maven，ant&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Jenkins 集成&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;生成 html 报告，直接与 hudson 集成，展示报告，无趋势图&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无法与 hudson 集成&lt;/td&gt;
+&lt;td&gt;有集成的插件，美观的报告，有趋势图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;报告实时性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;默认关闭，可以动态从 jvm dump 出数据&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可以不关闭服务器&lt;/td&gt;
+&lt;td&gt;默认是在关闭服务器时才写结果&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;维护状态&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;持续更新中&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;停止维护&lt;/td&gt;
+&lt;td&gt;停止维护&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;eclipse-和-eclemma&#34;&gt;Eclipse 和 EclEmma&lt;/h2&gt;
+&lt;p&gt;在 Eclipse 中可以使用 EclEmma 插件来统计。EclEmma 是一个开源的软件测试工具，可以在编码过程中查
+看代码调用情况、也可以检测覆盖率。&lt;/p&gt;
+&lt;p&gt;EclEmma 原本源于 EMMA 项目。自 2.0 起 EclEmma 开始基于 JaCoCo（其实现在 JaCoCo 的开发人员就
+是 EMMA 的开发人员）。&lt;/p&gt;
+&lt;p&gt;可以在 Marketplace 中找到找到 EclEmma 并下载。
+&lt;img src=&#34;https://blog.cycleke.com/media/java-test-coverage/img/Eclipse_Marketplace.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Eclipse Marketplace&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用 EclEmma 测试代码覆盖率。
+&lt;img src=&#34;https://blog.cycleke.com/media/java-test-coverage/img/EclEmma.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;EclEmma测试结果&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其中不同的颜色有不同的意义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;绿色表示代码被执行到&lt;/li&gt;
+&lt;li&gt;黄色表示代码部分执行到&lt;/li&gt;
+&lt;li&gt;红色表示代码没有被执行到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;在-maven-中使用-jacoco&#34;&gt;在 Maven 中使用 JaCoCo&lt;/h2&gt;
+&lt;p&gt;在 Maven 中也可以使用 JaCoCo 来测试代码覆盖率。虽然在网上的资料很多，但是不知道为什么有些方法无法有效。下面的方法是我在自己的电脑上成功的方法。&lt;/p&gt;
+&lt;p&gt;在 pom.xml 中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;project&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.jacoco&lt;span class=&#34;nt&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;jacoco-maven-plugin&lt;span class=&#34;nt&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.8.5&lt;span class=&#34;nt&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;prepare-agent&lt;span class=&#34;nt&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              &lt;span class=&#34;nt&#34;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;prepare-agent&lt;span class=&#34;nt&#34;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;report&lt;span class=&#34;nt&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;test&lt;span class=&#34;nt&#34;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              &lt;span class=&#34;nt&#34;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;report&lt;span class=&#34;nt&#34;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;之后可以在终端中输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mvn clean &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以测试同时生成报告，在&lt;code&gt;target/site/jacoco/index.html&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.jianshu.com/p/16a8ce689d60&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jacoco Code Coverage - 简书&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.eclemma.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;EclEmma 官网&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

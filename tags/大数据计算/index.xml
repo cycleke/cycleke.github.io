@@ -1,23 +1,138 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>大数据计算 on 路遥柯随笔</title>
-    <link>https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/</link>
-    <description>Recent content in 大数据计算 on 路遥柯随笔</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <copyright>路遥柯</copyright>
-    <lastBuildDate>Sat, 02 Jan 2021 21:29:35 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>哈工大 2020 年大数据计算基础练习题</title>
-      <link>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</link>
-      <pubDate>Sat, 02 Jan 2021 21:29:35 +0800</pubDate>
-      
-      <guid>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</guid>
-      <description>&lt;p&gt;自己写的哈工大 2020 年大数据计算基础复习时的练习题。
+    <channel>
+        <title>大数据计算 on 路遥柯随笔</title>
+        <link>https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/</link>
+        <description>Recent content in 大数据计算 on 路遥柯随笔</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 02 Jan 2021 21:29:35 +0800</lastBuildDate><atom:link href="https://blog.cycleke.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>哈工大 2020 年大数据计算基础练习题</title>
+        <link>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</link>
+        <pubDate>Sat, 02 Jan 2021 21:29:35 +0800</pubDate>
+        
+        <guid>https://blog.cycleke.com/2021/01/hit-2020-bigdata-practice/</guid>
+        <description>&lt;p&gt;自己写的哈工大 2020 年大数据计算基础复习时的练习题。
 &lt;del&gt;答案保证一定有问题。&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.cycleke.com/media/hit-2020-bigdata-practice/2020%E5%B9%B4%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0%E9%A2%98.pdf&#34;&gt;题目链接&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.cycleke.com/media/hit-2020-bigdata-practice/2020%e5%b9%b4%e5%a4%a7%e6%95%b0%e6%8d%ae%e8%ae%a1%e7%ae%97%e5%9f%ba%e7%a1%80%e7%bb%83%e4%b9%a0%e9%a2%98.pdf&#34; &gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简答题&#34;&gt;简答题&lt;/h2&gt;
+&lt;h3 id=&#34;什么是近似算法-应该以何种方式衡量近似解代价与优化解代价的差距&#34;&gt;什么是近似算法?应该以何种方式衡量近似解代价与优化解代价的差距?&lt;/h3&gt;
+&lt;p&gt;近似算法是指以更少的资源来求解一个近似解的算法。我们一般使用近似比（近似解代价和优化解之间的比值及其倒数中的较大值）来衡量近似解和优化解的差距。&lt;/p&gt;
+&lt;h3 id=&#34;大数据算法设计中-分别采用什么算法解决-主存不足-规模过大-的问题&#34;&gt;大数据算法设计中,分别采用什么算法解决“主存不足”、“规模过大”的问题?&lt;/h3&gt;
+&lt;p&gt;我们采用亚线性空间算法来解决“主存不足”问题，采用亚线性时间算法来解决“规模过大”的问题。&lt;/p&gt;
+&lt;h3 id=&#34;什么是众包-众包算法有哪些应用&#34;&gt;什么是众包?众包算法有哪些应用?&lt;/h3&gt;
+&lt;p&gt;众包算法就是将原本大数据上的大任务分为若干微任务，通过协调一个群体来做这些微任务进而解决原本需要软件或个人难以解决的大任务。众包算法在验证码识别、机器翻译、信息检索等方面有所应用。&lt;/p&gt;
+&lt;h3 id=&#34;大数据和-spark-的关系是什么&#34;&gt;大数据和 SPARK 的关系是什么?&lt;/h3&gt;
+&lt;p&gt;SPARK 是一个大数据计算框架，我们可以利用 SPARK 框架来实现基于内存的集群运算。&lt;/p&gt;
+&lt;h3 id=&#34;大数据的几个-v-是什么&#34;&gt;大数据的几个 V 是什么?&lt;/h3&gt;
+&lt;p&gt;大数据有四个 V 的特点，分别是规模大（Volume）、速度快（Velocity）、类型多（Variety）和价值密度低（Value）。&lt;/p&gt;
+&lt;h3 id=&#34;hdfs-的核心模块都有哪些&#34;&gt;HDFS 的核心模块都有哪些?&lt;/h3&gt;
+&lt;p&gt;HDFS 包含 NameNode，DataNode 和 SecondaryNameNode。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NameNode 是整个文件系统的大脑，负责提供整个系统的文件位置信息和管理所有的数据服务器；&lt;/li&gt;
+&lt;li&gt;DataNode 负责存储具体的文件，管理和校验文件；&lt;/li&gt;
+&lt;li&gt;SecondaryNameNode 是热备份的主控服务器，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当 NameNode 发生故障无法服务时，
+SecondaryNameNode 将取代主服务器提供相应服务。&lt;/p&gt;
+&lt;h3 id=&#34;mapreduce-是什么&#34;&gt;MapReduce 是什么?&lt;/h3&gt;
+&lt;p&gt;MapReduce 是一个并行计算模型。在 MapReduce 模型中，数据均形如键值对：&amp;lt;key, value&amp;gt;，每轮分为三个过程：Map、Shuffle 和 Reduce。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Map 过程中，每个数据被转换为一种新的数据并输出新的数据集合；&lt;/li&gt;
+&lt;li&gt;在 Shuffle 过程中，所有的数据被按照 key 进行分组，进而传递给 reducer；&lt;/li&gt;
+&lt;li&gt;在 Reduce 过程中，所有具有相同 key 的数据会一起处理，输出新的数据集合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;简述-mapreduce-框架完成单词计数--wordcount--的过程&#34;&gt;简述 MapReduce 框架完成单词计数(WordCount)的过程。&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Map 过程中，我们将一篇文章转换为若干个 &amp;lt;word, 1&amp;gt; 的键值对。&lt;/li&gt;
+&lt;li&gt;在 Reduce 过程中，我们需要将一个单词的所有 value 相加，获得这个词的出现次数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;什么是-nosql-nosql-有哪些特点&#34;&gt;什么是 NoSQL?NoSQL 有哪些特点?&lt;/h3&gt;
+&lt;p&gt;NoSQL 是一类非关系型数据库，多用于大数据的管理。
+NoSQL 具有灵活的拓展性、灵活的数据模型以及与云计算紧密结合的特点。&lt;/p&gt;
+&lt;h2 id=&#34;问答题&#34;&gt;问答题&lt;/h2&gt;
+&lt;h3 id=&#34;第一题&#34;&gt;第一题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用半内存算法。&lt;/p&gt;
+&lt;p&gt;若 \(|V| \le M\) ，则事先将所有的存入内存，每次读到一条边就进行缩点，I/O 复杂度为 \(O(scan(|V| + |E|)\) ；&lt;/p&gt;
+&lt;p&gt;若 \(|V| &amp;gt; M\) ，则首先尽可能多地将顶点存入内存，得到原图的一个子图，利用半内存算法缩图，接下来进行下一轮迭代，将已经合并完的点当作新的顶点，继续将外存中的边逐步加入到内存中。每一次合并之后产生的图中点的数量和原图中点的数量具有这样的关系为 \(|V&amp;rsquo;| \le |V|\) ，且由于每次合并时需要在邻接表中查询和特定点相邻的边，所以还需要进行排序，故 I/O 复杂度为 \(O(sort(|E| \log (|V| / M)))\) 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最小生成树的权值其实等于 \(n - w + \sum_{i = 0}^{w} C^{(i)}\) ，其中 \(C^{(i)}\) 等于边权小于等于 \(i\) 的边构成的子图的连通分量数目。该算法共需要进行 \(w\) 轮，每轮需要进行一次图的连通分量计算，所以总的 I/O 复杂度为
+\[
+\left\{ \begin{array}{ll}
+O(w(scan(|V| + |E|)) &amp;amp; |V| \le M \\\
+O(w(sort(|E| \log (|V| / M)))) &amp;amp; |V| &amp;gt; M
+\end{array} \right.
+\]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第二题&#34;&gt;第二题&lt;/h3&gt;
+&lt;p&gt;我们可以采样 \(2/\epsilon\) 次，判断取得的样本是否含有 1。这样能在 \(O(2/\epsilon)\) 的时间内判断数组是否全为 0。显然若数组全为 0，那么该算法的正确率为 100%；若该数组是 \(\epsilon-\) 远离的，那么该算法的正确率为
+\(\Pr(correct) = 1 - (1 - \epsilon)^{(2 / \epsilon)} \approx e^{-2} &amp;lt; 1 / 3\) 。&lt;/p&gt;
+&lt;h3 id=&#34;第三题&#34;&gt;第三题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;我们可以使用软状态来实现最终一致性和可用性。如我们可以添加一个软状态：「待同步」来表示数据暂时不满足数据一致性，等待后续的通信恢复来维护数据的一致性。&lt;/li&gt;
+&lt;li&gt;不是，假设当前 Redis 内有一个键值对 &amp;lt;K, V1&amp;gt;。考虑如下并发读写序列：put(K, V2)，get(K)。那么该系统可能对于 get 函数会返回 V1，之后修改 &amp;lt;K, V2&amp;gt;。&lt;/li&gt;
+&lt;li&gt;是的，因为当网络通信恢复后，各个服务器之间会进行同步，消除软状态的影响，从而达到最终一致性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第四题&#34;&gt;第四题&lt;/h3&gt;
+&lt;p&gt;不会外存算法。&lt;/p&gt;
+&lt;h3 id=&#34;第六题&#34;&gt;第六题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;初始化过程：随机选择 \(d\) 个相互独立的理想哈希函数 \(h_i : addr \rightarrow [n]\) ，并初始化长度为 \(n\) 的全零数组 \(A\) 。然后对于所有白名单中的邮箱地址 \(S_j\) ，设置 \(A[h_i(S_j)] = 1\)，\(\forall i = 0, 1, \ldots, d - 1\)，
+\(\forall j = 0, 1, \ldots, s - 1\) 。&lt;/p&gt;
+&lt;p&gt;检查流程：对于每一个带检查的邮箱地址 \(S&amp;rsquo;\) ，我们需要检查是不是所有的 \(A[h_i(S&amp;rsquo;)]\) 均为 \(1\) 。只有有一个位置不为 \(1\) ，那么其就不在白名单中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 Bloom Filter 的过程中，可能会出现 &amp;ldquo;False Positive&amp;rdquo; 的错误。其发生的概率为 \((1 - (1 - 1/n)^{dm})^d \approx (1 - e^{-dm/n})^d\) 。所以我们可以通过增大哈希函数的值域大小 \(n\) 来降低错误发生的概率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第七题&#34;&gt;第七题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;MapReduce 系统会使用超时检测、心跳检测和黑名单机制来实现容错。
+&lt;ul&gt;
+&lt;li&gt;超时检测：如果 TaskTracker 长时间没有与 JobTracker 通信，那么就重新分配其负责的任务到其他机器；&lt;/li&gt;
+&lt;li&gt;心跳检测：
+TaskTracker 会定期检查机器的「健康状态」，如果出现错误也为重新分配任务。&lt;/li&gt;
+&lt;li&gt;黑名单机制：
+JobTracker 会利用一定的规则维护一个「黑名单」，不会给在黑名单中的 TaskTracker 分配任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Spark 系统的容错机制有数据复制、记录日志、「血缘」机制和数据检查点。由于 RDD 是只读的，所以 Spark 系统可以利用「血缘」机制和数据检查点，克服了 MapReduce 的数据丢失恢复慢的缺点，可以快速恢复数据，容错性更强。&lt;/li&gt;
+&lt;li&gt;使用「血缘」机制进行恢复时重算的开销过大，可以通过添加更多的数据检查点来实现快速恢复。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第八题&#34;&gt;第八题&lt;/h3&gt;
+&lt;p&gt;送分（命）题，不会。&lt;/p&gt;
+&lt;h3 id=&#34;第九题&#34;&gt;第九题&lt;/h3&gt;
+&lt;p&gt;不会最小哈希方法。&lt;/p&gt;
+&lt;h3 id=&#34;第十题&#34;&gt;第十题&lt;/h3&gt;
+&lt;p&gt;不会外存算法。&lt;/p&gt;
+&lt;h3 id=&#34;第十一题&#34;&gt;第十一题&lt;/h3&gt;
+&lt;p&gt;不会。&lt;/p&gt;
+&lt;h3 id=&#34;第十二题&#34;&gt;第十二题&lt;/h3&gt;
+&lt;p&gt;不会 PRAM。&lt;/p&gt;
+&lt;h3 id=&#34;第十三题&#34;&gt;第十三题&lt;/h3&gt;
+&lt;p&gt;使用 Misra-Gries 算法。&lt;/p&gt;
+&lt;h3 id=&#34;第十四题&#34;&gt;第十四题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;1: split 2: map 3: shuffle 4: output&lt;/li&gt;
+&lt;li&gt;写代码&lt;/li&gt;
+&lt;li&gt;HDFS。
+&lt;ul&gt;
+&lt;li&gt;优点：能处理超大的文件；流式访问数据；&lt;/li&gt;
+&lt;li&gt;缺点：不适合低延迟数据访问；不适合多数据中心存储；不适合大量小文件管理；不支持多用户写入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第十五题&#34;&gt;第十五题&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;t1、t2 的属性值分布较均匀。&lt;/li&gt;
+&lt;li&gt;t1.A 均相等。&lt;/li&gt;
+&lt;/ol&gt;</description>
+        </item>
+        
+    </channel>
 </rss>
