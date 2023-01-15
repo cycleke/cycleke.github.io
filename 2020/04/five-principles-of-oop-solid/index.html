@@ -2,11 +2,12 @@
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='在程序设计领域， SOLID 是由罗伯特·C·马丁在 21 世纪早期引入的记忆术首字母缩略字，指代了面向对象编程和面向对象设计的五个基本原则。
-'><title>面向对象编程的五个原则：SOLID</title>
+'>
+<title>面向对象编程的五个原则：SOLID</title>
 
 <link rel='canonical' href='https://blog.cycleke.com/2020/04/five-principles-of-oop-solid/'>
 
-<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='面向对象编程的五个原则：SOLID'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='面向对象编程的五个原则：SOLID'>
 <meta property='og:description' content='在程序设计领域， SOLID 是由罗伯特·C·马丁在 21 世纪早期引入的记忆术首字母缩略字，指代了面向对象编程和面向对象设计的五个基本原则。
 '>
 <meta property='og:url' content='https://blog.cycleke.com/2020/04/five-principles-of-oop-solid/'>
@@ -58,7 +59,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu84b4f45cafa5b5917e0ea5f92d9ead8f_229955_300x0_resize_box_3.png" width="300"
+                        <img src="/img/avatar_hua6203c85a8d6a922bc155471ce2662cb_10472_300x0_resize_q75_h2_box_2.webp" width="300"
                             height="250" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -81,6 +82,7 @@
                         href='https://github.com/cycleke'
                         target="_blank"
                         title="GitHub"
+                        rel="me"
                     >
                         
                         
@@ -100,6 +102,7 @@
                         href='mailto:cycleke@qq.com'
                         target="_blank"
                         title="邮箱"
+                        rel="me"
                     >
                         
                         
@@ -118,7 +121,6 @@
         
         
         
-
         <li >
             <a href='/' >
                 
@@ -139,7 +141,6 @@
         </li>
         
         
-
         <li >
             <a href='/post/' >
                 
@@ -160,7 +161,6 @@
         </li>
         
         
-
         <li >
             <a href='/tags/' >
                 
@@ -180,7 +180,6 @@
         </li>
         
         
-
         <li >
             <a href='/categories/' >
                 
@@ -202,7 +201,6 @@
         </li>
         
         
-
         <li >
             <a href='https://cycleke.com' target="_blank">
                 
@@ -248,7 +246,46 @@
         </div>
     </ol>
 </aside>
-<main class="main full-width">
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#单一责任原则srp">单一责任原则(SRP)</a></li>
+    <li><a href="#开放-封闭原则ocp">开放-封闭原则(OCP)</a></li>
+    <li><a href="#里氏替换原则lsp">里氏替换原则(LSP)</a></li>
+    <li><a href="#接口聚合原则isp">接口聚合原则(ISP)</a></li>
+    <li><a href="#依赖转置原则dip">依赖转置原则(DIP)</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -271,6 +308,9 @@
         
     </div>
 
+    
+    
+    
     
     <footer class="article-time">
         
@@ -308,6 +348,7 @@
 
     
 </div>
+
 </header>
 
     <section class="article-content">
@@ -445,9 +486,9 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">GraphicEditor</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drawShape</span><span class="o">(</span><span class="n">Shape</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">m_type</span><span class="o">==</span><span class="n">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">m_type</span><span class="o">==</span><span class="mi">1</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">      <span class="n">drawRectangle</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">m_type</span><span class="o">==</span><span class="n">2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">m_type</span><span class="o">==</span><span class="mi">2</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl">      <span class="n">drawCircle</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl">
@@ -466,13 +507,13 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">Rectangle</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">.</span><span class="na">m_type</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">.</span><span class="na">m_type</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">Circle</span><span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">.</span><span class="na">m_type</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">super</span><span class="o">.</span><span class="na">m_type</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">  <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
@@ -835,14 +876,14 @@
         
             2019 - 
         
-        2022 路遥柯随笔
+        2023 路遥柯随笔
     </section>
     
     <section class="powerby">
         
             <a href="https://beian.miit.gov.cn/">蜀ICP备2021020864号-1</a> <br/>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -926,44 +967,6 @@
             >
 
             </main>
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#概述">概述</a></li>
-    <li><a href="#单一责任原则srp">单一责任原则(SRP)</a></li>
-    <li><a href="#开放-封闭原则ocp">开放-封闭原则(OCP)</a></li>
-    <li><a href="#里氏替换原则lsp">里氏替换原则(LSP)</a></li>
-    <li><a href="#接口聚合原则isp">接口聚合原则(ISP)</a></li>
-    <li><a href="#依赖转置原则dip">依赖转置原则(DIP)</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
-
         </div>
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"

@@ -4,11 +4,12 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='摘 要
 本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
 关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；
-'><title>CS:APP 大作业</title>
+'>
+<title>CS:APP 大作业</title>
 
 <link rel='canonical' href='https://blog.cycleke.com/2019/12/csapp-assignment/'>
 
-<link rel="stylesheet" href="/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css"><meta property='og:title' content='CS:APP 大作业'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='CS:APP 大作业'>
 <meta property='og:description' content='摘 要
 本文介绍了在 Linux 操作系统下 hello 的整个生命周期。借助 gcc，objdump 等工具，对 hello 的预处理、编译、汇编、链接等过程进行分析。并对程序 hello 运行过程中的动态链接库调用、内存管理、系统级 I/O 等进行介绍。
 关键词： 预处理；编译；汇编； 链接；进程；内存管理；IO；
@@ -64,7 +65,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu84b4f45cafa5b5917e0ea5f92d9ead8f_229955_300x0_resize_box_3.png" width="300"
+                        <img src="/img/avatar_hua6203c85a8d6a922bc155471ce2662cb_10472_300x0_resize_q75_h2_box_2.webp" width="300"
                             height="250" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -87,6 +88,7 @@
                         href='https://github.com/cycleke'
                         target="_blank"
                         title="GitHub"
+                        rel="me"
                     >
                         
                         
@@ -106,6 +108,7 @@
                         href='mailto:cycleke@qq.com'
                         target="_blank"
                         title="邮箱"
+                        rel="me"
                     >
                         
                         
@@ -124,7 +127,6 @@
         
         
         
-
         <li >
             <a href='/' >
                 
@@ -145,7 +147,6 @@
         </li>
         
         
-
         <li >
             <a href='/post/' >
                 
@@ -166,7 +167,6 @@
         </li>
         
         
-
         <li >
             <a href='/tags/' >
                 
@@ -186,7 +186,6 @@
         </li>
         
         
-
         <li >
             <a href='/categories/' >
                 
@@ -208,7 +207,6 @@
         </li>
         
         
-
         <li >
             <a href='https://cycleke.com' target="_blank">
                 
@@ -254,7 +252,174 @@
         </div>
     </ol>
 </aside>
-<main class="main full-width">
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#第-1-章-概述">第 1 章 概述</a>
+      <ol>
+        <li><a href="#11-hello-简介">1.1 Hello 简介</a></li>
+        <li><a href="#12-环境与工具">1.2 环境与工具</a>
+          <ol>
+            <li><a href="#121-硬件环境">1.2.1 硬件环境</a></li>
+            <li><a href="#122-软件环境">1.2.2 软件环境</a></li>
+            <li><a href="#123-开发工具">1.2.3 开发工具</a></li>
+          </ol>
+        </li>
+        <li><a href="#13-中间结果">1.3 中间结果</a></li>
+        <li><a href="#14-本章小结">1.4 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-2-章-预处理">第 2 章 预处理</a>
+      <ol>
+        <li><a href="#21-预处理的概念与作用">2.1 预处理的概念与作用</a></li>
+        <li><a href="#22-在-ubuntu-下预处理的命令">2.2 在 Ubuntu 下预处理的命令</a></li>
+        <li><a href="#23-hello-的预处理结果解析">2.3 Hello 的预处理结果解析</a></li>
+        <li><a href="#24-本章小结">2.4 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-3-章-编译">第 3 章 编译</a>
+      <ol>
+        <li><a href="#31-编译的概念与作用">3.1 编译的概念与作用</a></li>
+        <li><a href="#32-在-ubuntu-下编译的命令">3.2 在 Ubuntu 下编译的命令</a></li>
+        <li><a href="#33-hello-的编译结果解析">3.3 Hello 的编译结果解析</a>
+          <ol>
+            <li><a href="#331-数据">3.3.1. 数据</a></li>
+            <li><a href="#332-赋值">3.3.2 赋值</a></li>
+            <li><a href="#333-算术操作">3.3.3 算术操作</a></li>
+            <li><a href="#334-关系操作">3.3.4 关系操作</a></li>
+            <li><a href="#335-数组操作">3.3.5 数组操作</a></li>
+            <li><a href="#336-控制转移">3.3.6 控制转移</a></li>
+            <li><a href="#337-函数操作">3.3.7 函数操作</a></li>
+          </ol>
+        </li>
+        <li><a href="#34-本章小结">3.4 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-4-章-汇编">第 4 章 汇编</a>
+      <ol>
+        <li><a href="#41-汇编的概念与作用">4.1 汇编的概念与作用</a></li>
+        <li><a href="#42-在-ubuntu-下汇编的命令">4.2 在 Ubuntu 下汇编的命令</a></li>
+        <li><a href="#43-可重定位目标-elf-格式">4.3 可重定位目标 elf 格式</a>
+          <ol>
+            <li><a href="#431-elf-头">4.3.1 ELF 头</a></li>
+            <li><a href="#432-节头部表">4.3.2 节头部表</a></li>
+            <li><a href="#433-重定位节">4.3.3 重定位节</a></li>
+          </ol>
+        </li>
+        <li><a href="#44-helloo-的结果解析">4.4 Hello.o 的结果解析</a></li>
+        <li><a href="#45-本章小结">4.5 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-5-章-链接">第 5 章 链接</a>
+      <ol>
+        <li><a href="#51-链接的概念与作用">5.1 链接的概念与作用</a></li>
+        <li><a href="#52-在-ubuntu-下链接的命令">5.2 在 Ubuntu 下链接的命令</a></li>
+        <li><a href="#53-可执行目标文件-hello-的格式">5.3 可执行目标文件 hello 的格式</a>
+          <ol>
+            <li><a href="#531-elf-头">5.3.1 ELF 头</a></li>
+            <li><a href="#532-节头部表">5.3.2 节头部表</a></li>
+            <li><a href="#533-程序头部表">5.3.3 程序头部表</a></li>
+          </ol>
+        </li>
+        <li><a href="#54-hello-的虚拟地址空间">5.4 hello 的虚拟地址空间</a></li>
+        <li><a href="#55-链接的重定位过程分析">5.5 链接的重定位过程分析</a></li>
+        <li><a href="#56-hello-的执行流程">5.6 hello 的执行流程</a></li>
+        <li><a href="#57-hello-的动态链接分析">5.7 Hello 的动态链接分析</a></li>
+        <li><a href="#58-本章小结">5.8 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-6-章-hello-进程管理">第 6 章 hello 进程管理</a>
+      <ol>
+        <li><a href="#61-进程的概念与作用">6.1 进程的概念与作用</a></li>
+        <li><a href="#62-简述壳-shell-bash-的作用与处理流程">6.2 简述壳 Shell-bash 的作用与处理流程</a></li>
+        <li><a href="#63-hello-的-fork-进程创建过程">6.3 Hello 的 fork 进程创建过程</a></li>
+        <li><a href="#64-hello-的-execve-过程">6.4 Hello 的 execve 过程</a></li>
+        <li><a href="#65-hello-的进程执行">6.5 Hello 的进程执行</a></li>
+        <li><a href="#66-hello-的异常与信号处理">6.6 hello 的异常与信号处理</a>
+          <ol>
+            <li><a href="#661-正常运行">6.6.1 正常运行</a></li>
+            <li><a href="#662-不停乱按">6.6.2 不停乱按</a></li>
+            <li><a href="#663-ctrl-z">6.6.3 Ctrl-Z</a></li>
+            <li><a href="#664-ctrl-c">6.6.4 Ctrl-C</a></li>
+          </ol>
+        </li>
+        <li><a href="#67-本章小结">6.7 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-7-章-hello-的存储管理">第 7 章 hello 的存储管理</a>
+      <ol>
+        <li><a href="#71-hello-的存储器地址空间">7.1 hello 的存储器地址空间</a></li>
+        <li><a href="#72-intel-逻辑地址到线性地址的变换-段式管理">7.2 Intel 逻辑地址到线性地址的变换-段式管理</a>
+          <ol>
+            <li><a href="#721-基本原理">7.2.1 基本原理</a></li>
+            <li><a href="#722-段式管理的数据结构">7.2.2 段式管理的数据结构</a></li>
+            <li><a href="#723-段式管理的地址变化">7.2.3 段式管理的地址变化</a></li>
+          </ol>
+        </li>
+        <li><a href="#73-hello-的线性地址到物理地址的变换-页式管理">7.3 Hello 的线性地址到物理地址的变换-页式管理</a>
+          <ol>
+            <li><a href="#731-基本原理">7.3.1 基本原理</a></li>
+            <li><a href="#732-页式管理的数据结构">7.3.2 页式管理的数据结构</a></li>
+            <li><a href="#733-页式管理的地址变化">7.3.3 页式管理的地址变化</a></li>
+          </ol>
+        </li>
+        <li><a href="#74-tlb-与四级页表支持下的-va-到-pa-的变换">7.4 TLB 与四级页表支持下的 VA 到 PA 的变换</a></li>
+        <li><a href="#75-三级-cache-支持下的物理内存访问">7.5 三级 Cache 支持下的物理内存访问</a></li>
+        <li><a href="#76-hello-进程-fork-时的内存映射">7.6 hello 进程 fork 时的内存映射</a></li>
+        <li><a href="#77-hello-进程-execve-时的内存映射">7.7 hello 进程 execve 时的内存映射</a></li>
+        <li><a href="#78-缺页故障与缺页中断处理">7.8 缺页故障与缺页中断处理</a></li>
+        <li><a href="#79-动态存储分配管理">7.9 动态存储分配管理</a>
+          <ol>
+            <li><a href="#791-隐式空闲链表">7.9.1 隐式空闲链表</a></li>
+            <li><a href="#792-显式空闲链表">7.9.2 显式空闲链表</a></li>
+          </ol>
+        </li>
+        <li><a href="#710-本章小结">7.10 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#第-8-章-hello-的-io-管理">第 8 章 hello 的 IO 管理</a>
+      <ol>
+        <li><a href="#81-linux-的-io-设备管理方法">8.1 Linux 的 IO 设备管理方法</a></li>
+        <li><a href="#82-简述-unix-io-接口及其函数">8.2 简述 Unix IO 接口及其函数</a></li>
+        <li><a href="#83-printf-的实现分析">8.3 printf 的实现分析</a></li>
+        <li><a href="#84-getchar-的实现分析">8.4 getchar 的实现分析</a></li>
+        <li><a href="#85-本章小结">8.5 本章小结</a></li>
+      </ol>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#附件">附件</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -277,6 +442,9 @@
         
     </div>
 
+    
+    
+    
     
     <footer class="article-time">
         
@@ -314,6 +482,7 @@
 
     
 </div>
+
 </header>
 
     <section class="article-content">
@@ -1498,15 +1667,15 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">printf</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span><span class="err"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="err"> </span><span class="kt">char</span><span class="err"> </span><span class="o">*</span><span class="n">fmt</span><span class="p">,</span><span class="err"> </span><span class="p">...)</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="kt">int</span><span class="err"> </span><span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="kt">char</span><span class="err"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">va_list</span> <span class="n">arg</span> <span class="o">=</span> <span class="p">(</span><span class="n">va_list</span><span class="p">)((</span><span class="kt">char</span> <span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">fmt</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">i</span> <span class="o">=</span> <span class="n">vsprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="n">va_list</span><span class="err"> </span><span class="n">arg</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="p">(</span><span class="n">va_list</span><span class="p">)((</span><span class="kt">char</span><span class="err"> </span><span class="o">*</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">fmt</span><span class="p">)</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="n">i</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="nf">vsprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="err"> </span><span class="n">fmt</span><span class="p">,</span><span class="err"> </span><span class="n">arg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="nf">write</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="err"> </span><span class="n">i</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="k">return</span><span class="err"> </span><span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1541,30 +1710,30 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">vsprintf</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fmt</span><span class="p">,</span> <span class="n">va_list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="n">va_list</span> <span class="n">p_next_arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span> <span class="n">fmt</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span> <span class="o">!=</span> <span class="sc">&#39;%&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="o">*</span><span class="n">fmt</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="k">continue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fmt</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="sc">&#39;x&#39;</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      <span class="n">itoa</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="o">*</span><span class="p">((</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">p_next_arg</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">      <span class="n">strcpy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="n">p_next_arg</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">p</span> <span class="o">+=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="sc">&#39;s&#39;</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">      <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">buf</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span><span class="err"> </span><span class="nf">vsprintf</span><span class="p">(</span><span class="kt">char</span><span class="err"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="err"> </span><span class="k">const</span><span class="err"> </span><span class="kt">char</span><span class="err"> </span><span class="o">*</span><span class="n">fmt</span><span class="p">,</span><span class="err"> </span><span class="n">va_list</span><span class="err"> </span><span class="n">args</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="kt">char</span><span class="err"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="kt">char</span><span class="err"> </span><span class="n">tmp</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="n">va_list</span><span class="err"> </span><span class="n">p_next_arg</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="n">args</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="k">for</span><span class="err"> </span><span class="p">(</span><span class="n">p</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="n">buf</span><span class="p">;</span><span class="err"> </span><span class="o">*</span><span class="n">fmt</span><span class="p">;</span><span class="err"> </span><span class="n">fmt</span><span class="o">++</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="k">if</span><span class="err"> </span><span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="err"> </span><span class="o">!=</span><span class="err"> </span><span class="sc">&#39;%&#39;</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="o">*</span><span class="n">p</span><span class="o">++</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="o">*</span><span class="n">fmt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="n">fmt</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="k">switch</span><span class="err"> </span><span class="p">(</span><span class="o">*</span><span class="n">fmt</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="k">case</span><span class="err"> </span><span class="sc">&#39;x&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="nf">itoa</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="err"> </span><span class="o">*</span><span class="p">((</span><span class="kt">int</span><span class="err"> </span><span class="o">*</span><span class="p">)</span><span class="n">p_next_arg</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="nf">strcpy</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="err"> </span><span class="n">tmp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="n">p_next_arg</span><span class="err"> </span><span class="o">+=</span><span class="err"> </span><span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="n">p</span><span class="err"> </span><span class="o">+=</span><span class="err"> </span><span class="nf">strlen</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="k">case</span><span class="err"> </span><span class="sc">&#39;s&#39;</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="err">      </span><span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="err">    </span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">  </span><span class="k">return</span><span class="err"> </span><span class="p">(</span><span class="n">p</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="n">buf</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1638,9 +1807,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">getchar</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">EOF</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span><span class="err"> </span><span class="nf">getchar</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span><span class="err"> </span><span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span><span class="err"> </span><span class="p">(</span><span class="nf">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="o">&amp;</span><span class="n">c</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="p">)</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="mi">1</span><span class="p">)</span><span class="err"> </span><span class="o">?</span><span class="err"> </span><span class="n">c</span><span class="err"> </span><span class="o">:</span><span class="err"> </span><span class="n">EOF</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1862,14 +2031,14 @@
         
             2019 - 
         
-        2022 路遥柯随笔
+        2023 路遥柯随笔
     </section>
     
     <section class="powerby">
         
             <a href="https://beian.miit.gov.cn/">蜀ICP备2021020864号-1</a> <br/>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.13.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -1953,172 +2122,6 @@
             >
 
             </main>
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ol>
-    <li><a href="#第-1-章-概述">第 1 章 概述</a>
-      <ol>
-        <li><a href="#11-hello-简介">1.1 Hello 简介</a></li>
-        <li><a href="#12-环境与工具">1.2 环境与工具</a>
-          <ol>
-            <li><a href="#121-硬件环境">1.2.1 硬件环境</a></li>
-            <li><a href="#122-软件环境">1.2.2 软件环境</a></li>
-            <li><a href="#123-开发工具">1.2.3 开发工具</a></li>
-          </ol>
-        </li>
-        <li><a href="#13-中间结果">1.3 中间结果</a></li>
-        <li><a href="#14-本章小结">1.4 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-2-章-预处理">第 2 章 预处理</a>
-      <ol>
-        <li><a href="#21-预处理的概念与作用">2.1 预处理的概念与作用</a></li>
-        <li><a href="#22-在-ubuntu-下预处理的命令">2.2 在 Ubuntu 下预处理的命令</a></li>
-        <li><a href="#23-hello-的预处理结果解析">2.3 Hello 的预处理结果解析</a></li>
-        <li><a href="#24-本章小结">2.4 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-3-章-编译">第 3 章 编译</a>
-      <ol>
-        <li><a href="#31-编译的概念与作用">3.1 编译的概念与作用</a></li>
-        <li><a href="#32-在-ubuntu-下编译的命令">3.2 在 Ubuntu 下编译的命令</a></li>
-        <li><a href="#33-hello-的编译结果解析">3.3 Hello 的编译结果解析</a>
-          <ol>
-            <li><a href="#331-数据">3.3.1. 数据</a></li>
-            <li><a href="#332-赋值">3.3.2 赋值</a></li>
-            <li><a href="#333-算术操作">3.3.3 算术操作</a></li>
-            <li><a href="#334-关系操作">3.3.4 关系操作</a></li>
-            <li><a href="#335-数组操作">3.3.5 数组操作</a></li>
-            <li><a href="#336-控制转移">3.3.6 控制转移</a></li>
-            <li><a href="#337-函数操作">3.3.7 函数操作</a></li>
-          </ol>
-        </li>
-        <li><a href="#34-本章小结">3.4 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-4-章-汇编">第 4 章 汇编</a>
-      <ol>
-        <li><a href="#41-汇编的概念与作用">4.1 汇编的概念与作用</a></li>
-        <li><a href="#42-在-ubuntu-下汇编的命令">4.2 在 Ubuntu 下汇编的命令</a></li>
-        <li><a href="#43-可重定位目标-elf-格式">4.3 可重定位目标 elf 格式</a>
-          <ol>
-            <li><a href="#431-elf-头">4.3.1 ELF 头</a></li>
-            <li><a href="#432-节头部表">4.3.2 节头部表</a></li>
-            <li><a href="#433-重定位节">4.3.3 重定位节</a></li>
-          </ol>
-        </li>
-        <li><a href="#44-helloo-的结果解析">4.4 Hello.o 的结果解析</a></li>
-        <li><a href="#45-本章小结">4.5 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-5-章-链接">第 5 章 链接</a>
-      <ol>
-        <li><a href="#51-链接的概念与作用">5.1 链接的概念与作用</a></li>
-        <li><a href="#52-在-ubuntu-下链接的命令">5.2 在 Ubuntu 下链接的命令</a></li>
-        <li><a href="#53-可执行目标文件-hello-的格式">5.3 可执行目标文件 hello 的格式</a>
-          <ol>
-            <li><a href="#531-elf-头">5.3.1 ELF 头</a></li>
-            <li><a href="#532-节头部表">5.3.2 节头部表</a></li>
-            <li><a href="#533-程序头部表">5.3.3 程序头部表</a></li>
-          </ol>
-        </li>
-        <li><a href="#54-hello-的虚拟地址空间">5.4 hello 的虚拟地址空间</a></li>
-        <li><a href="#55-链接的重定位过程分析">5.5 链接的重定位过程分析</a></li>
-        <li><a href="#56-hello-的执行流程">5.6 hello 的执行流程</a></li>
-        <li><a href="#57-hello-的动态链接分析">5.7 Hello 的动态链接分析</a></li>
-        <li><a href="#58-本章小结">5.8 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-6-章-hello-进程管理">第 6 章 hello 进程管理</a>
-      <ol>
-        <li><a href="#61-进程的概念与作用">6.1 进程的概念与作用</a></li>
-        <li><a href="#62-简述壳-shell-bash-的作用与处理流程">6.2 简述壳 Shell-bash 的作用与处理流程</a></li>
-        <li><a href="#63-hello-的-fork-进程创建过程">6.3 Hello 的 fork 进程创建过程</a></li>
-        <li><a href="#64-hello-的-execve-过程">6.4 Hello 的 execve 过程</a></li>
-        <li><a href="#65-hello-的进程执行">6.5 Hello 的进程执行</a></li>
-        <li><a href="#66-hello-的异常与信号处理">6.6 hello 的异常与信号处理</a>
-          <ol>
-            <li><a href="#661-正常运行">6.6.1 正常运行</a></li>
-            <li><a href="#662-不停乱按">6.6.2 不停乱按</a></li>
-            <li><a href="#663-ctrl-z">6.6.3 Ctrl-Z</a></li>
-            <li><a href="#664-ctrl-c">6.6.4 Ctrl-C</a></li>
-          </ol>
-        </li>
-        <li><a href="#67-本章小结">6.7 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-7-章-hello-的存储管理">第 7 章 hello 的存储管理</a>
-      <ol>
-        <li><a href="#71-hello-的存储器地址空间">7.1 hello 的存储器地址空间</a></li>
-        <li><a href="#72-intel-逻辑地址到线性地址的变换-段式管理">7.2 Intel 逻辑地址到线性地址的变换-段式管理</a>
-          <ol>
-            <li><a href="#721-基本原理">7.2.1 基本原理</a></li>
-            <li><a href="#722-段式管理的数据结构">7.2.2 段式管理的数据结构</a></li>
-            <li><a href="#723-段式管理的地址变化">7.2.3 段式管理的地址变化</a></li>
-          </ol>
-        </li>
-        <li><a href="#73-hello-的线性地址到物理地址的变换-页式管理">7.3 Hello 的线性地址到物理地址的变换-页式管理</a>
-          <ol>
-            <li><a href="#731-基本原理">7.3.1 基本原理</a></li>
-            <li><a href="#732-页式管理的数据结构">7.3.2 页式管理的数据结构</a></li>
-            <li><a href="#733-页式管理的地址变化">7.3.3 页式管理的地址变化</a></li>
-          </ol>
-        </li>
-        <li><a href="#74-tlb-与四级页表支持下的-va-到-pa-的变换">7.4 TLB 与四级页表支持下的 VA 到 PA 的变换</a></li>
-        <li><a href="#75-三级-cache-支持下的物理内存访问">7.5 三级 Cache 支持下的物理内存访问</a></li>
-        <li><a href="#76-hello-进程-fork-时的内存映射">7.6 hello 进程 fork 时的内存映射</a></li>
-        <li><a href="#77-hello-进程-execve-时的内存映射">7.7 hello 进程 execve 时的内存映射</a></li>
-        <li><a href="#78-缺页故障与缺页中断处理">7.8 缺页故障与缺页中断处理</a></li>
-        <li><a href="#79-动态存储分配管理">7.9 动态存储分配管理</a>
-          <ol>
-            <li><a href="#791-隐式空闲链表">7.9.1 隐式空闲链表</a></li>
-            <li><a href="#792-显式空闲链表">7.9.2 显式空闲链表</a></li>
-          </ol>
-        </li>
-        <li><a href="#710-本章小结">7.10 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#第-8-章-hello-的-io-管理">第 8 章 hello 的 IO 管理</a>
-      <ol>
-        <li><a href="#81-linux-的-io-设备管理方法">8.1 Linux 的 IO 设备管理方法</a></li>
-        <li><a href="#82-简述-unix-io-接口及其函数">8.2 简述 Unix IO 接口及其函数</a></li>
-        <li><a href="#83-printf-的实现分析">8.3 printf 的实现分析</a></li>
-        <li><a href="#84-getchar-的实现分析">8.4 getchar 的实现分析</a></li>
-        <li><a href="#85-本章小结">8.5 本章小结</a></li>
-      </ol>
-    </li>
-    <li><a href="#结论">结论</a></li>
-    <li><a href="#附件">附件</a></li>
-    <li><a href="#参考文献">参考文献</a></li>
-  </ol>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
-
         </div>
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
